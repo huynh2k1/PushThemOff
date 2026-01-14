@@ -3006,7 +3006,6 @@ GameObject:
   - component: {fileID: 450032462}
   - component: {fileID: 450032463}
   - component: {fileID: 450032465}
-  - component: {fileID: 450032466}
   - component: {fileID: 450032467}
   - component: {fileID: 450032468}
   - component: {fileID: 450032471}
@@ -3014,6 +3013,8 @@ GameObject:
   - component: {fileID: 450032469}
   - component: {fileID: 450032473}
   - component: {fileID: 450032472}
+  - component: {fileID: 450032475}
+  - component: {fileID: 450032474}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3077,33 +3078,10 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
---- !u!136 &450032466
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 450032461}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.45
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &450032467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3193,6 +3171,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccc3c5f4900c93144be09e2e3c64e39b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &450032474
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450032461}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.43201715, y: 0.6853728, z: 1}
+  m_Center: {x: 0, y: -0.1573136, z: 0}
+--- !u!65 &450032475
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450032461}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.84664655, y: 1.5448421, z: 1}
+  m_Center: {x: 0, y: 0.77122027, z: 0}
 --- !u!1001 &495026514
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -68,12 +68,13 @@ public class PlayerController : MonoBehaviour
 
     void OnFallOutGround()
     {
+        Dead();
         life.Kill();
+        movement.Stop();
     }
 
     public void Dead()
     {
         isDead = true;
-        animator.Dead();
     }
 }

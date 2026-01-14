@@ -9,16 +9,17 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        rb.isKinematic = true;
     }
 
     public void Move(Vector2 input)
     {
-        Vector3 velocity = new Vector3(input.x, rb.velocity.y, input.y) * moveSpeed;
-        rb.velocity = velocity;
+        Vector3 moveDir = new Vector3(input.x, 0, input.y); 
+        transform.Translate(moveDir * moveSpeed * Time.deltaTime, Space.World);
     }
 
     public void Stop()
     {
-        rb.velocity = new Vector3(0, rb.velocity.y, 0);
+        rb.isKinematic = false;
     }
 }
