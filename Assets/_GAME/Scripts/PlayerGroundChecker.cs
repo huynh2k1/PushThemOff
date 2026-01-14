@@ -3,15 +3,38 @@ using UnityEngine;
 
 public class PlayerGroundChecker : MonoBehaviour
 {
-    public bool IsGrounded { get; private set; } = true;
+    Rigidbody _rb;
+    Collider _collider;
 
     public event Action OnFallOutGround;
 
-    private void OnTriggerExit(Collider other)
+    private void Awake()
     {
-        if (other.CompareTag("Ground"))
+        if(_rb == null)
         {
-            IsGrounded = false;
+            _rb = GetComponent<Rigidbody>();    
+            _rb.isKinematic = false; 
+        }
+
+        if(_collider == null)
+        {
+            _collider = GetComponent<Collider>();
+            _collider.isTrigger = false;
+        }
+    }
+
+    void OnPlayerDead()
+    {
+        _rb.velocity = Vector3.zero;    
+        _rb.isKinematic = true;
+        _collider.enabled = false;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Water"))
+        {
+            OnPlayerDead();
             OnFallOutGround?.Invoke();
         }
     }

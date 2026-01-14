@@ -5,7 +5,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] PlayerMovement movement;
     [SerializeField] PlayerRotation rotation;
     [SerializeField] PlayerCombat combat;
-    PlayerGroundChecker groundChecker;
+    //[SerializeField] PlayerGroundChecker groundChecker;
     PlayerLife life;
 
     IPlayerInput input;
@@ -16,7 +16,6 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         input = GetComponent<IPlayerInput>();
-        groundChecker = GetComponent<PlayerGroundChecker>();
         life = GetComponent<PlayerLife>();
         //movement = GetComponent<PlayerMovement>();
         //rotation = GetComponent<PlayerRotation>();
@@ -26,12 +25,12 @@ public class PlayerController : MonoBehaviour
 
     private void OnEnable()
     {
-        groundChecker.OnFallOutGround += OnFallOutGround;
+        //groundChecker.OnFallOutGround += OnFallOutGround;
     }
 
     private void OnDisable()
     {
-        groundChecker.OnFallOutGround -= OnFallOutGround;
+        //groundChecker.OnFallOutGround -= OnFallOutGround;
     }
 
     private void Update()
@@ -42,11 +41,21 @@ public class PlayerController : MonoBehaviour
         HandleCombat();
     }
 
+    private void FixedUpdate()
+    {
+        if (isDead) return;
+
+        if (input.MoveInput.magnitude > 0.1f)
+        {
+            movement.Move(input.MoveInput);
+        }
+    }
+
     void HandleMovement()
     {
         if (input.MoveInput.magnitude > 0.1f)
         {
-            movement.Move(input.MoveInput);
+            //movement.Move(input.MoveInput);
             animator.Move();
 
             Vector3 lookDir = new Vector3(input.MoveInput.x, 0, input.MoveInput.y);
