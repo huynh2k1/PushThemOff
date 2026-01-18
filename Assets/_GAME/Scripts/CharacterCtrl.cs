@@ -34,8 +34,8 @@ public class CharacterCtrl : MonoBehaviour
         {
             Attack();
         }
-        MoveInput.x = joystick.Horizontal;
-        MoveInput.y = joystick.Vertical;
+        MoveInput.x = -joystick.Horizontal;
+        MoveInput.y = -joystick.Vertical;
 
         if (!_physicMovement)
             TransformMove(MoveInput);
