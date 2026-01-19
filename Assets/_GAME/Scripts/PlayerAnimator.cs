@@ -18,6 +18,8 @@ public class PlayerAnimator : MonoBehaviour, IPlayerAnimator
         animator.enabled = isEnable;
     }
 
+    public void RebineAnim() => animator.Rebind();
+
     public void Idle() => animator.SetBool("Move", false);
     public void Move() => animator.SetBool("Move", true);
     public void Attack() => animator.SetTrigger("Attack");

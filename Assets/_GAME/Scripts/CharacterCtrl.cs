@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
+using NaughtyAttributes;
 using UnityEngine;
 
 public class CharacterCtrl : MonoBehaviour
@@ -23,17 +25,58 @@ public class CharacterCtrl : MonoBehaviour
     [SerializeField] Rigidbody rb;
     [SerializeField] PlayerAnimator animator;
 
+    [SerializeField] CinemachineVirtualCamera _camZoom;
+
     Vector2 MoveInput;
+    Vector3 _initPos;
+    Quaternion _initRotation;
+
+    private void Awake()
+    {
+        _initPos = transform.position;
+        _initRotation = body.rotation;
+    }
+
+    private void OnEnable()
+    {
+        GameUI.OnClickAttackAction += Attack;
+    }
+
+    private void OnDestroy()
+    {
+        GameUI.OnClickAttackAction -= Attack;
+    }
+
+
+    [Button("Init Player")]
+    public void OnGameHome()
+    {
+        if (_camZoom != null)
+        {
+            ActiveCamZoom(true);
+        }
+
+        transform.position = _initPos;
+        body.rotation = _initRotation;
+
+        isDead = false;
+        rb.isKinematic = false;
+
+        animator.RebineAnim();
+        animator.Idle();
+    }
+
+    [Button("Player Ready")]
+    public void OnStartGame()
+    {
+        ActiveCamZoom(false);
+    }
 
 
     private void Update()
     {
         if (isDead || isFalling)
             return;
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Attack();
-        }
         MoveInput.x = -joystick.Horizontal;
         MoveInput.y = -joystick.Vertical;
 
@@ -112,5 +155,10 @@ public class CharacterCtrl : MonoBehaviour
         {
             Dead();
         }
+    }
+
+    public void ActiveCamZoom(bool isActive)
+    {
+        _camZoom.enabled = isActive;
     }
 }
