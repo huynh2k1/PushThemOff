@@ -1,0 +1,29 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerAttack : MonoBehaviour
+{
+    [SerializeField] private GameObject boomerangPrefab;
+    [SerializeField] private Transform firePoint;
+
+    private void OnEnable()
+    {
+        CharacterCtrl.OnPlayerAttackAction += ThrowBoomerang;
+    }
+
+    private void OnDestroy()
+    {
+        CharacterCtrl.OnPlayerAttackAction -= ThrowBoomerang;
+    }
+
+    void ThrowBoomerang()
+    {
+        GameObject boom = Instantiate(boomerangPrefab, firePoint.position, Quaternion.identity);
+
+        Vector3 dir = firePoint.forward; // hoặc transform.forward nếu 2D thì dùng transform.right
+
+        Boomerang boomerang = boom.GetComponent<Boomerang>();
+        boomerang.Init(firePoint, dir, 6f);
+    }
+}

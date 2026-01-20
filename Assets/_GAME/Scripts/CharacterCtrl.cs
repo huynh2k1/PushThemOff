@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
 using NaughtyAttributes;
@@ -30,6 +31,8 @@ public class CharacterCtrl : MonoBehaviour
     Vector2 MoveInput;
     Vector3 _initPos;
     Quaternion _initRotation;
+
+    public static Action OnPlayerAttackAction;
 
     private void Awake()
     {
@@ -100,6 +103,7 @@ public class CharacterCtrl : MonoBehaviour
     void Attack()
     {
         animator.Attack();
+        OnPlayerAttackAction?.Invoke();
     }
 
     void Fall()
