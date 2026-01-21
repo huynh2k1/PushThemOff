@@ -5,7 +5,7 @@ using Cinemachine;
 using NaughtyAttributes;
 using UnityEngine;
 
-public class CharacterCtrl : MonoBehaviour
+public class CharacterCtrl : BaseCharacter
 {
     [SerializeField] bool _physicMovement = false;
 
@@ -23,10 +23,10 @@ public class CharacterCtrl : MonoBehaviour
     public bool isDead;
 
     //Variables
-    [SerializeField] Rigidbody rb;
     [SerializeField] PlayerAnimator animator;
 
-    [SerializeField] CinemachineVirtualCamera _camZoom;
+    [SerializeField] CinemachineBrain _camBrain;
+    [SerializeField] CinemachineVirtualCamera _camDeco;
 
     Vector2 MoveInput;
     Vector3 _initPos;
@@ -34,8 +34,9 @@ public class CharacterCtrl : MonoBehaviour
 
     public static Action OnPlayerAttackAction;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         _initPos = transform.position;
         _initRotation = body.rotation;
     }
@@ -54,7 +55,7 @@ public class CharacterCtrl : MonoBehaviour
     [Button("Init Player")]
     public void OnGameHome()
     {
-        if (_camZoom != null)
+        if (_camDeco != null)
         {
             ActiveCamZoom(true);
         }
@@ -90,17 +91,17 @@ public class CharacterCtrl : MonoBehaviour
         Rotate(lookDir);
     }
 
-    private void FixedUpdate()
-    {
-        CheckGround();
+    //private void FixedUpdate()
+    //{
+    //    CheckGround();
 
-        if (isFalling)
-        {
-            Fall();// nếu bạn có animation rơi
-        }
-    }
+    //    if (isFalling)
+    //    {
+    //        Fall();// nếu bạn có animation rơi
+    //    }
+    //}
 
-    void Attack()
+    protected override void Attack()
     {
         animator.Attack();
         OnPlayerAttackAction?.Invoke();
@@ -112,7 +113,7 @@ public class CharacterCtrl : MonoBehaviour
         animator.Idle();
     }
 
-    void Dead()
+    protected override void Dead()
     {
         animator.Dead();
         rb.isKinematic = true;
@@ -153,16 +154,11 @@ public class CharacterCtrl : MonoBehaviour
         isFalling = !isGrounded && rb.velocity.y < -0.1f;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Water"))
-        {
-            Dead();
-        }
-    }
 
     public void ActiveCamZoom(bool isActive)
     {
-        _camZoom.enabled = isActive;
+        _camDeco.enabled = isActive;
+        _camBrain.m_DefaultBlend.m_Time = isActive ? 0f : 1f;
+
     }
 }

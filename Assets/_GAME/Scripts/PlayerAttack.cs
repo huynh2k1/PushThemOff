@@ -6,6 +6,13 @@ public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private GameObject boomerangPrefab;
     [SerializeField] private Transform firePoint;
+    [SerializeField] float rangeFire = 5f;
+    [SerializeField] GameObject rangeGraphic;
+
+    private void Awake()
+    {
+        InitRangeGraphic();
+    }
 
     private void OnEnable()
     {
@@ -24,6 +31,11 @@ public class PlayerAttack : MonoBehaviour
         Vector3 dir = firePoint.forward; // hoặc transform.forward nếu 2D thì dùng transform.right
 
         Boomerang boomerang = boom.GetComponent<Boomerang>();
-        boomerang.Init(firePoint, dir, 6f);
+        boomerang.Init(firePoint, dir, rangeFire);
+    }
+
+    void InitRangeGraphic()
+    {
+        rangeGraphic.transform.localScale = Vector3.one * rangeFire * 2f;
     }
 }
