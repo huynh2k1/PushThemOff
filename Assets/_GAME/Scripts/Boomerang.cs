@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Boomerang : MonoBehaviour
 {
@@ -15,6 +16,10 @@ public class Boomerang : MonoBehaviour
     [SerializeField] float maxDistance = 8f;
     private Vector3 startPos;
     private bool isReturning = false;
+
+    [SerializeField] Transform _rotater;
+
+    public static Action OnBoomerangHitAction;
 
     public void Init(Transform playerTf, Vector3 dir, float force)
     {
@@ -41,7 +46,7 @@ public class Boomerang : MonoBehaviour
         else
             Return();
 
-        transform.Rotate(0, 720 * Time.deltaTime, 0);
+        _rotater.Rotate(0, 720 * Time.deltaTime, 0);
     }
 
     void FlyOut()
@@ -88,6 +93,7 @@ public class Boomerang : MonoBehaviour
                     returnCurve.Evaluate(0.1f) :
                     flyOutCurve.Evaluate(0.1f));
 
+                OnBoomerangHitAction?.Invoke();
                 enemy.TakeDamage(hitDir, forcePush);
             }
         }
