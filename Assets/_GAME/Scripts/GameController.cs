@@ -7,7 +7,7 @@ public class GameController : MonoBehaviour
 {
     public static GameController I;
     [SerializeField] UICtrl _uiCtrl;
-    [SerializeField] CharacterCtrl _character;
+    [SerializeField] PlayerCtrl _character;
 
     public GameState CurState;
     private void Awake()

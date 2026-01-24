@@ -16,12 +16,12 @@ public class PlayerAttack : MonoBehaviour
 
     private void OnEnable()
     {
-        CharacterCtrl.OnPlayerAttackAction += ThrowBoomerang;
+        PlayerCtrl.OnPlayerAttackAction += ThrowBoomerang;
     }
 
     private void OnDestroy()
     {
-        CharacterCtrl.OnPlayerAttackAction -= ThrowBoomerang;
+        PlayerCtrl.OnPlayerAttackAction -= ThrowBoomerang;
     }
 
     void ThrowBoomerang()

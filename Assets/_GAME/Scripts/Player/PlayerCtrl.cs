@@ -5,7 +5,7 @@ using Cinemachine;
 using NaughtyAttributes;
 using UnityEngine;
 
-public class CharacterCtrl : BaseCharacter
+public class PlayerCtrl : BaseCharacter
 {
     [SerializeField] bool _physicMovement = false;
 
@@ -15,15 +15,11 @@ public class CharacterCtrl : BaseCharacter
     [SerializeField] float moveSpeed = 5f;
     [SerializeField] float rotateSpeed = 10f;
 
-    [SerializeField] float groundCheckDistance = 0.2f;
-    [SerializeField] LayerMask groundLayer;
-
-    public bool isGrounded;
-    public bool isFalling;
     public bool isDead;
 
     //Variables
     [SerializeField] PlayerAnimator animator;
+    [SerializeField] PlayerFireRange fireRange;
 
     [SerializeField] CinemachineBrain _camBrain;
     [SerializeField] CinemachineVirtualCamera _camDeco;
@@ -41,13 +37,15 @@ public class CharacterCtrl : BaseCharacter
         _initRotation = body.rotation;
     }
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         GameUI.OnClickAttackAction += Attack;
     }
 
-    private void OnDestroy()
+    protected override void OnDestroy()
     {
+        base.OnDestroy();
         GameUI.OnClickAttackAction -= Attack;
     }
 
@@ -81,40 +79,53 @@ public class CharacterCtrl : BaseCharacter
     {
         if (isDead || isFalling)
             return;
+
         MoveInput.x = -joystick.Horizontal;
         MoveInput.y = -joystick.Vertical;
 
         if (!_physicMovement)
             TransformMove(MoveInput);
 
-        Vector3 lookDir = new Vector3(MoveInput.x, 0, MoveInput.y);
-        Rotate(lookDir);
+        if (fireRange != null && fireRange.CurrentTarget != null)
+        {
+            RotateToEnemy(fireRange.CurrentTarget);
+        }
+        else
+        {
+            Vector3 lookDir = new Vector3(MoveInput.x, 0, MoveInput.y);
+            Rotate(lookDir);
+        }
     }
 
-    //private void FixedUpdate()
-    //{
-    //    CheckGround();
+    void RotateToEnemy(Transform enemy)
+    {
+        if (enemy == null) return;
 
-    //    if (isFalling)
-    //    {
-    //        Fall();// nếu bạn có animation rơi
-    //    }
-    //}
+        Vector3 dir = enemy.position - body.position;
+        dir.y = 0;
+
+        if (dir.sqrMagnitude < 0.001f) return;
+
+        Quaternion rot = Quaternion.LookRotation(dir);
+        body.rotation = Quaternion.Slerp(body.rotation, rot, rotateSpeed * Time.deltaTime);
+    }
+
+    
 
     protected override void Attack()
     {
+        if (isDead)
+            return;
+            
         animator.Attack();
         OnPlayerAttackAction?.Invoke();
     }
 
-    void Fall()
-    {
-        //isDead = true;
-        animator.Idle();
-    }
+   
 
     protected override void Dead()
     {
+        isDead = true;
         animator.Dead();
         rb.isKinematic = true;
     }
@@ -142,17 +153,6 @@ public class CharacterCtrl : BaseCharacter
         body.rotation = Quaternion.Slerp(body.rotation, rot, rotateSpeed * Time.deltaTime);
     }
 
-    void CheckGround()
-    {
-        isGrounded = Physics.Raycast(
-            transform.position + Vector3.up * 0.1f,
-            Vector3.down,
-            groundCheckDistance,
-            groundLayer
-        );
-
-        isFalling = !isGrounded && rb.velocity.y < -0.1f;
-    }
 
 
     public void ActiveCamZoom(bool isActive)
