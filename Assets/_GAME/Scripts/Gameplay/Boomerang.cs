@@ -46,7 +46,7 @@ public class Boomerang : MonoBehaviour
         else
             Return();
 
-        _rotater.Rotate(0, 720 * Time.deltaTime, 0);
+        _rotater.Rotate(0, 1440 * Time.deltaTime, 0);
     }
 
     void FlyOut()

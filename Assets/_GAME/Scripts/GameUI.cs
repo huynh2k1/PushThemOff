@@ -17,6 +17,7 @@ public class GameUI : BaseUI
     private void Awake()
     {
         _btnAttack.onClick.AddListener(OnClickAttack);
+        _btnPause.onClick.AddListener(OnClickPause);
     }
 
     void OnClickAttack()
@@ -27,5 +28,6 @@ public class GameUI : BaseUI
 
     void OnClickPause()
     {
+        OnClickPauseAction?.Invoke();   
     }
 }

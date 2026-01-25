@@ -8,7 +8,8 @@ namespace H_Utils
         SETTINGS,
         PAUSE,
         WIN,
-        LOSE
+        LOSE,
+        SHOP
     }
 
     public enum GameState

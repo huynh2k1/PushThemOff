@@ -15,6 +15,8 @@ public class BasePopup : BaseUI
     [SerializeField] private Button _btnClose;
 
     [Header("Tween Setup")]
+    [SerializeField] bool _moveEffect;
+    [SerializeField] protected Ease tweenType = Ease.Linear; 
     [SerializeField] protected float timeTween = 0.3f;
 
 
@@ -58,7 +60,7 @@ public class BasePopup : BaseUI
 
     protected virtual void Awake()
     {
-        // Prewarm();  
+        Prewarm();
 
         if (_btnClose != null)
             _btnClose.onClick.AddListener(OnClickClose);
@@ -67,7 +69,7 @@ public class BasePopup : BaseUI
     void Prewarm()
     {
         _main.SetActive(true);
-        // Canvas.ForceUpdateCanvases();   // �p rebuild UI
+        Canvas.ForceUpdateCanvases();   // �p rebuild UI
         _main.SetActive(false);
     }
 
@@ -80,8 +82,12 @@ public class BasePopup : BaseUI
     {
         _canvasGroup.DOKill();
         _canvasGroup.interactable = true;
-        _canvasGroup.DOFade(1, timeTween).SetEase(Ease.Linear);
+        _canvasGroup.DOFade(1, timeTween).SetEase(tweenType);
         _mask.raycastTarget = true;
+
+        if(_moveEffect)
+            _main.GetComponent<RectTransform>().DOAnchorPosY(0, timeTween).From(new Vector2(0, 500f)).SetEase(tweenType);
+
         _main.SetActive(true);
     }
 
@@ -89,7 +95,10 @@ public class BasePopup : BaseUI
     {
         _canvasGroup.DOKill();
         //_canvasGroup.interactable = false;
-        _canvasGroup.DOFade(0, timeTween).From(1).SetEase(Ease.Linear).OnComplete(() =>
+        if(_moveEffect)
+            _main.GetComponent<RectTransform>().DOAnchorPosY(500f, timeTween).From(Vector2.zero).SetEase(tweenType);
+
+        _canvasGroup.DOFade(0, timeTween).From(1).SetEase(tweenType).OnComplete(() =>
         {
             _mask.raycastTarget = false;
             _main.SetActive(false);

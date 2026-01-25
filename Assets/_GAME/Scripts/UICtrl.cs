@@ -6,6 +6,19 @@ using UnityEngine;
 
 public class UICtrl : BaseUICtrl
 {
+    private void OnEnable()
+    {
+        HomeUI.OnClickSettingAction += Setting;
+        HomeUI.OnClickShopAction += Shop;
+
+    }
+
+    private void OnDestroy()
+    {
+        HomeUI.OnClickSettingAction -= Setting;
+        HomeUI.OnClickShopAction -= Shop;
+    }
+
     public void OnGameHome()
     {
         Show(UIType.HOME);
@@ -30,6 +43,16 @@ public class UICtrl : BaseUICtrl
 
     public void OnGamePause()
     {
+        Show(UIType.PAUSE);
+    }
 
+    public void Setting()
+    {
+        Show(UIType.SETTINGS);
+    }
+
+    public void Shop()
+    {
+        Show(UIType.SHOP);
     }
 }

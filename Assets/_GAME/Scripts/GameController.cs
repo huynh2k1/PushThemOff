@@ -18,6 +18,19 @@ public class GameController : MonoBehaviour
     private void OnEnable()
     {
         HomeUI.OnClickPlayAction += GameStart;
+
+        GameUI.OnClickPauseAction += GamePause; 
+
+        PauseUI.OnClickHomeAction += GameHome;
+        PauseUI.OnClickReplayAction += GameReplay;
+       
+    }
+
+    private void OnDestroy()
+    {
+        HomeUI.OnClickPlayAction -= GameStart;
+
+        GameUI.OnClickPauseAction -= GamePause;
     }
 
     private void Start()
@@ -47,12 +60,20 @@ public class GameController : MonoBehaviour
     
     public void GamePause()
     {
-
+        ChangeState(GameState.NONE);
+        _uiCtrl.OnGamePause();
     }
 
     public void GameResume()
     {
+        ChangeState(GameState.PLAYING);
+    }
 
+    public void GameReplay()
+    {
+        ChangeState(GameState.PLAYING);
+        _uiCtrl.OnStartGame();
+        _character.OnStartGame();
     }
 
     public void GameWin()
