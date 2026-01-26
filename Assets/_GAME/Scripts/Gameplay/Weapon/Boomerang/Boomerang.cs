@@ -1,19 +1,13 @@
 ﻿using System;
 using UnityEngine;
 
-public class Boomerang : MonoBehaviour
+public class Boomerang : BaseWeapon
 {
-    [Header("Movement")]
-    public float maxSpeed = 20f;
-    public float forcePush = 10f;
-
+    [SerializeField]  BoomerangData _data;
     [Header("Speed Curve")]
     public AnimationCurve flyOutCurve;   // nhanh -> chậm
     public AnimationCurve returnCurve;   // chậm -> nhanh
 
-    private Transform player;
-    private Vector3 direction;
-    [SerializeField] float maxDistance = 8f;
     private Vector3 startPos;
     private bool isReturning = false;
 
@@ -21,23 +15,35 @@ public class Boomerang : MonoBehaviour
 
     public static Action OnBoomerangHitAction;
 
-    public void Init(Transform playerTf, Vector3 dir, float force)
+    public override void Init(WeaponData newData, Transform ownerTf, Vector3 dir)
     {
-        player = playerTf;
+        base.Init(newData, ownerTf, dir);
 
-        if (dir == Vector3.zero)
-            dir = playerTf.forward; // fallback
+        direction = dir == Vector3.zero ? ownerTf.forward : dir.normalized;
 
-        direction = dir.normalized;
-        maxDistance = Mathf.Max(force, 0.5f);
         startPos = transform.position;
 
         if (flyOutCurve == null || flyOutCurve.length == 0)
-            flyOutCurve = AnimationCurve.EaseInOut(0, 1, 1, 0.3f);
+            flyOutCurve = AnimationCurve.EaseInOut(0, 1, 1, 0.2f);
 
         if (returnCurve == null || returnCurve.length == 0)
-            returnCurve = AnimationCurve.EaseInOut(0, 0.3f, 1, 1);
+            returnCurve = AnimationCurve.EaseInOut(0, 0.2f, 1, 1);
     }
+
+    //public void Init(Transform ownerTf, Vector3 dir)
+    //{
+    //    base.Init(_data, ownerTf);
+
+    //    direction = dir == Vector3.zero ? ownerTf.forward : dir.normalized;
+
+    //    startPos = transform.position;
+
+    //    if (flyOutCurve == null || flyOutCurve.length == 0)
+    //        flyOutCurve = AnimationCurve.EaseInOut(0, 1, 1, 0.2f);
+
+    //    if (returnCurve == null || returnCurve.length == 0)
+    //        returnCurve = AnimationCurve.EaseInOut(0, 0.2f, 1, 1);
+    //}
 
     void Update()
     {
@@ -52,22 +58,22 @@ public class Boomerang : MonoBehaviour
     void FlyOut()
     {
         float distance = Vector3.Distance(startPos, transform.position);
-        float percent = Mathf.Clamp01(distance / maxDistance);
+        float percent = Mathf.Clamp01(distance / data.MaxDistance);
 
-        float speed = maxSpeed * flyOutCurve.Evaluate(percent);
+        float speed = data.Speed * flyOutCurve.Evaluate(percent);
         transform.position += direction * speed * Time.deltaTime;
 
-        if (distance >= maxDistance)
+        if (distance >= data.MaxDistance)
             isReturning = true;
     }
 
     void Return()
     {
-        float distance = Vector3.Distance(transform.position, player.position);
-        float percent = Mathf.Clamp01(1f - (distance / maxDistance));
+        float distance = Vector3.Distance(transform.position, owner.position);
+        float percent = Mathf.Clamp01(1f - (distance / data.MaxDistance));
 
-        float speed = maxSpeed * returnCurve.Evaluate(percent);
-        Vector3 dir = (player.position - transform.position).normalized;
+        float speed = data.Speed * returnCurve.Evaluate(percent);
+        Vector3 dir = (owner.position - transform.position).normalized;
 
         transform.position += dir * speed * Time.deltaTime;
 
@@ -89,12 +95,12 @@ public class Boomerang : MonoBehaviour
                 Vector3 hitDir = (other.transform.position - temp).normalized;
 
                 // lực đẩy dựa theo tốc độ hiện tại
-                float currentSpeed = forcePush * (isReturning ?
+                float currentSpeed = 6 * (isReturning ?
                     returnCurve.Evaluate(0.1f) :
                     flyOutCurve.Evaluate(0.1f));
 
                 OnBoomerangHitAction?.Invoke();
-                enemy.TakeDamage(hitDir, forcePush);
+                enemy.TakeDamage(hitDir, 6);
             }
         }
     }

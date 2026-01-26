@@ -2817,8 +2817,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boomerangPrefab: {fileID: 3604928880887573635, guid: 891ab8e1d958d2940949b0bcfbab5888,
     type: 3}
+  boomerangData: {fileID: 11400000, guid: 5a8a22e782ec43d489e137550e6bfa04, type: 2}
+  knifePrefab: {fileID: 3053772821215717175, guid: 1290234dd4e30234da5c3615a68a2ba3,
+    type: 3}
+  knifeData: {fileID: 11400000, guid: 959ef065813d94544830a9c4b0e8a6ab, type: 2}
+  hammerPrefab: {fileID: 5957175496167701083, guid: e3ea47843ec1b9341912506e4a2f8442,
+    type: 3}
+  hammerData: {fileID: 11400000, guid: 30d0c36adaad87b4aad9240c0bd1d181, type: 2}
   firePoint: {fileID: 1676039032}
-  rangeFire: 5
   rangeGraphic: {fileID: 474960207}
 --- !u!136 &450032481
 CapsuleCollider:

@@ -1,41 +1,90 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using NaughtyAttributes;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    [SerializeField] private GameObject boomerangPrefab;
-    [SerializeField] private Transform firePoint;
-    [SerializeField] float rangeFire = 5f;
-    [SerializeField] GameObject rangeGraphic;
+    [Header("Weapon")]
+    [SerializeField] GameObject boomerangPrefab;
+    [SerializeField] WeaponData boomerangData;
 
+    [SerializeField] GameObject knifePrefab;
+    [SerializeField] WeaponData knifeData;
+
+    [SerializeField] GameObject hammerPrefab;
+    [SerializeField] WeaponData hammerData;
+
+    GameObject currentWeaponPrefab;
+    WeaponData _curWeaponData;
+
+    [Header("Fire")]
+    [SerializeField] private Transform firePoint;
+
+    [Header("Range UI")]
+    [SerializeField] private GameObject rangeGraphic;
+
+    [Button("Change Boomerang")]
+    public void ChangeBoomerang()
+    {
+        ChangeWeapon(boomerangPrefab, boomerangData);
+    }
+
+    [Button("Change Knife")]
+    public void ChangeKnife()
+    {
+        ChangeWeapon(knifePrefab, knifeData);
+    }
+
+    [Button("Change Hammer")]
+    public void ChangeHammer()
+    {
+        ChangeWeapon(hammerPrefab, hammerData);
+    }
     private void Awake()
     {
-        InitRangeGraphic();
+        ChangeKnife();
     }
 
     private void OnEnable()
     {
-        PlayerCtrl.OnPlayerAttackAction += ThrowBoomerang;
+        PlayerCtrl.OnPlayerAttackAction += Attack;
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
-        PlayerCtrl.OnPlayerAttackAction -= ThrowBoomerang;
+        PlayerCtrl.OnPlayerAttackAction -= Attack;
     }
 
-    void ThrowBoomerang()
+    void Attack()
     {
-        GameObject boom = Instantiate(boomerangPrefab, firePoint.position, Quaternion.identity);
+        GameObject weaponGO = Instantiate(
+            currentWeaponPrefab,
+            firePoint.position,
+            firePoint.rotation
+        );
 
-        Vector3 dir = firePoint.forward; // hoặc transform.forward nếu 2D thì dùng transform.right
+        BaseWeapon weapon = weaponGO.GetComponent<BaseWeapon>();
+        if (weapon == null)
+        {
+            Debug.LogError("Weapon prefab thiếu BaseWeapon!");
+            return;
+        }
 
-        Boomerang boomerang = boom.GetComponent<Boomerang>();
-        boomerang.Init(firePoint, dir, rangeFire);
+        weapon.Init(_curWeaponData, firePoint, firePoint.forward);
     }
 
-    void InitRangeGraphic()
+    public void ChangeWeapon(GameObject newPrefab, WeaponData data)
     {
-        rangeGraphic.transform.localScale = Vector3.one * rangeFire * 2f;
+        currentWeaponPrefab = newPrefab;
+        _curWeaponData = data;
+        UpdateRangeGraphic();
+    }
+
+    void UpdateRangeGraphic()
+    {
+        if (rangeGraphic == null)
+            return;
+
+        rangeGraphic.transform.localScale =
+            Vector3.one * _curWeaponData.MaxDistance * 2f;
     }
 }
