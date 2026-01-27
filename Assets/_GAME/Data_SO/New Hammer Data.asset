@@ -16,7 +16,7 @@ MonoBehaviour:
   Name: Hammer
   Price: 0
   Icon: {fileID: 0}
-  Speed: 8
+  Speed: 10
   MaxDistance: 6
   Damage: 0
   rotateSpeed: 3600

@@ -4,6 +4,7 @@ public class Hammer : BaseWeapon
 {
     private Vector3 startPos;
     private HammerData hammerData;
+    [SerializeField] Transform _rotater;
 
     public override void Init(WeaponData weaponData, Transform ownerTf, Vector3 dir)
     {
@@ -26,7 +27,7 @@ public class Hammer : BaseWeapon
 
     void RotateHammer()
     {
-        transform.Rotate(Vector3.right, hammerData.rotateSpeed * Time.deltaTime, Space.Self);
+        //_rotater.Rotate(Vector3.up, hammerData.rotateSpeed * Time.deltaTime, Space.Self);
     }
 
     void CheckMaxDistance()
