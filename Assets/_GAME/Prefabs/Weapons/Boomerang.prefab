@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 6456212558481090327}
   - component: {fileID: 476453069677505134}
   - component: {fileID: 8346661874313333618}
+  - component: {fileID: 6969819214130675902}
   m_Layer: 0
   m_Name: Boomerang
   m_TagString: Untagged
@@ -120,6 +121,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &6969819214130675902
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3604928880887573635}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.14284411, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5824223358328262635
 GameObject:
   m_ObjectHideFlags: 0
@@ -14426,7 +14448,6 @@ GameObject:
   - component: {fileID: 6237375332020147150}
   - component: {fileID: 2550862482025397065}
   - component: {fileID: 2667793941964949817}
-  - component: {fileID: 3813167327868208732}
   m_Layer: 0
   m_Name: Shuriken
   m_TagString: Untagged
@@ -14531,28 +14552,6 @@ MonoBehaviour:
   destroyCombinedChildren: 0
   folderPath: _GAME/Prefabs/CombinedMeshes
   meshFiltersToSkip: []
---- !u!64 &3813167327868208732
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6797483423406809310}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 59da174a16ca08048a4a25bbb01577a1, type: 2}
 --- !u!1001 &551487777679179225
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
+using DG.Tweening;
 using NaughtyAttributes;
 using UnityEngine;
 
@@ -9,7 +10,6 @@ public class PlayerCtrl : BaseCharacter
 {
     [SerializeField] bool _physicMovement = false;
 
-    [SerializeField] private Joystick joystick;
     [SerializeField] Transform body;
 
     [SerializeField] float moveSpeed = 5f;
@@ -27,6 +27,7 @@ public class PlayerCtrl : BaseCharacter
     Vector2 MoveInput;
     Vector3 _initPos;
     Quaternion _initRotation;
+    float maxInputMagnitude = 1f;
 
     public static Action OnPlayerAttackAction;
 
@@ -35,18 +36,20 @@ public class PlayerCtrl : BaseCharacter
         base.Awake();
         _initPos = transform.position;
         _initRotation = body.rotation;
+
+        animator.Idle();
     }
 
-    protected override void OnEnable()
+    protected void OnEnable()
     {
-        base.OnEnable();
         GameUI.OnClickAttackAction += Attack;
+        JoystickCtrl.OnJoystickMove += Movement;
     }
 
-    protected override void OnDestroy()
+    protected void OnDestroy()
     {
-        base.OnDestroy();
         GameUI.OnClickAttackAction -= Attack;
+        JoystickCtrl.OnJoystickMove -= Movement;
     }
 
 
@@ -65,7 +68,6 @@ public class PlayerCtrl : BaseCharacter
         rb.isKinematic = false;
 
         animator.RebineAnim();
-        animator.Idle();
     }
 
     [Button("Player Ready")]
@@ -74,15 +76,10 @@ public class PlayerCtrl : BaseCharacter
         ActiveCamZoom(false);
     }
 
-
-    private void Update()
+    public void Movement(Vector2 MoveInput)
     {
-        if (isDead || isFalling)
+        if (isDead)
             return;
-
-        MoveInput.x = -joystick.Horizontal;
-        MoveInput.y = -joystick.Vertical;
-
         if (!_physicMovement)
             TransformMove(MoveInput);
 
@@ -118,7 +115,10 @@ public class PlayerCtrl : BaseCharacter
             return;
             
         animator.Attack();
-        OnPlayerAttackAction?.Invoke();
+        DOVirtual.DelayedCall(0.2f, () =>
+        {
+            OnPlayerAttackAction?.Invoke();
+        });
     }
 
    
@@ -160,5 +160,9 @@ public class PlayerCtrl : BaseCharacter
         _camDeco.enabled = isActive;
         _camBrain.m_DefaultBlend.m_Time = isActive ? 0f : 1f;
 
+    }
+
+    public override void TakeDamage(float damage)
+    {
     }
 }

@@ -1,114 +1,126 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
 public class Enemy : BaseCharacter
 {
-    [Header("Movement")]
-    [SerializeField] float moveRadius = 10f;
-    [SerializeField] float waitTime = 1f;
+    enum State { Idle, Chase, Return }
+
+    [SerializeField] Transform _rotater;
+
+    [Header("Detection")]
+    [SerializeField] float detectRange = 8f;
+    [SerializeField] LayerMask playerLayer;
 
     NavMeshAgent agent;
-    float waitTimer;
+    State currentState;
+
+    Vector3 spawnPos;
+    Quaternion spawnRot;
+    Transform targetPlayer;
 
     protected override void Awake()
     {
         base.Awake();
         agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+
+        spawnPos = _rotater.position;
+        spawnRot = _rotater.rotation;
     }
 
     void Start()
     {
-        MoveToRandomPoint();
+        ChangeState(State.Idle);
     }
 
     void Update()
     {
-        if (isFalling || isKnockbacking)
+        DetectPlayer();
+
+        switch (currentState)
+        {
+            case State.Idle: UpdateIdle(); break;
+            case State.Chase: UpdateChase(); break;
+            case State.Return: UpdateReturn(); break;
+        }
+    }
+
+    void UpdateIdle()
+    {
+        if (agent.hasPath)
+            agent.ResetPath();
+
+        if (targetPlayer != null)
+            ChangeState(State.Chase);
+    }
+
+    void UpdateChase()
+    {
+        if (targetPlayer == null)
+        {
+            ChangeState(State.Return);
             return;
+        }
+
+        agent.SetDestination(targetPlayer.position);
+        FaceMovementDirection();
+    }
+
+    void UpdateReturn()
+    {
+        agent.SetDestination(spawnPos);
+        FaceMovementDirection();
 
         if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
         {
-            waitTimer += Time.deltaTime;
+            agent.ResetPath();
 
-            if (waitTimer >= waitTime)
+            _rotater.rotation = Quaternion.Slerp(_rotater.rotation, spawnRot, Time.deltaTime * 5f);
+
+            if (Quaternion.Angle(_rotater.rotation, spawnRot) < 1f)
             {
-                MoveToRandomPoint();
-                waitTimer = 0f;
+                _rotater.rotation = spawnRot;
+                ChangeState(State.Idle);
             }
         }
+
+        if (targetPlayer != null)
+            ChangeState(State.Chase);
     }
 
-    // =========================
-    // KNOCKBACK (CÁCH 1)
-    // =========================
-    public override void TakeDamage(Vector3 forceDir, float force)
+    void FaceMovementDirection()
     {
-        if (isKnockbacking)
-            return;
-
-        StartCoroutine(KnockbackWithStopNavMesh(forceDir, force));
-    }
-
-    IEnumerator KnockbackWithStopNavMesh(Vector3 dir, float force)
-    {
-        isKnockbacking = true;
-
-        // ⛔ DỪNG NAVMESH
-        agent.enabled = false;
-        //agent.isStopped = true;
-        //agent.velocity = Vector3.zero;
-
-        // reset rigidbody
-        rb.velocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;
-
-        float originalDrag = rb.drag;
-        rb.drag = knockbackDrag; // tạo ma sát
-
-        // đẩy văng
-        rb.AddForce(dir.normalized * force, ForceMode.Impulse);
-
-        yield return new WaitForSeconds(0.4f);
-
-        rb.drag = originalDrag;
-        isKnockbacking = false;
-        if (isGrounded)
+        if (agent.velocity.sqrMagnitude > 0.1f)
         {
-            agent.enabled = true;
-            MoveToRandomPoint();
+            Quaternion lookRot = Quaternion.LookRotation(agent.velocity.normalized);
+            _rotater.rotation = Quaternion.Slerp(_rotater.rotation, lookRot, Time.deltaTime * 10f);
         }
-        // ▶️ CHẠY LẠI NAVMESH
-        //agent.isStopped = false;
-
     }
 
-    protected override void Attack()
+    void DetectPlayer()
     {
+        Collider[] hits = Physics.OverlapSphere(_rotater.position, detectRange, playerLayer);
+        targetPlayer = hits.Length > 0 ? hits[0].transform : null;
     }
+
+    void ChangeState(State newState)
+    {
+        currentState = newState;
+    }
+
+    protected override void Attack() { }
 
     protected override void Dead()
     {
+        agent.enabled = false;
         Destroy(gameObject);
     }
 
-    void MoveToRandomPoint()
-    {
+    public override void TakeDamage(float damage) { }
 
-        Vector3 randomPos = GetRandomPointOnNavMesh(transform.position, moveRadius);
-        agent.SetDestination(randomPos);
-    }
-
-    Vector3 GetRandomPointOnNavMesh(Vector3 center, float radius)
+    private void OnDrawGizmosSelected()
     {
-        for (int i = 0; i < 30; i++)
-        {
-            Vector3 randomPoint = center + Random.insideUnitSphere * radius;
-            if (NavMesh.SamplePosition(randomPoint, out NavMeshHit hit, 1.0f, NavMesh.AllAreas))
-            {
-                return hit.position;
-            }
-        }
-        return transform.position;
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(_rotater.position, detectRange);
     }
 }

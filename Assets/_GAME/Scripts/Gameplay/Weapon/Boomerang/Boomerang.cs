@@ -83,6 +83,7 @@ public class Boomerang : BaseWeapon
 
     private void OnTriggerEnter(Collider other)
     {
+
         if (other.CompareTag("Enemy"))
         {
             Enemy enemy = other.GetComponent<Enemy>();
@@ -100,7 +101,7 @@ public class Boomerang : BaseWeapon
                     flyOutCurve.Evaluate(0.1f));
 
                 OnBoomerangHitAction?.Invoke();
-                enemy.TakeDamage(hitDir, 6);
+                enemy.TakeDamage(6);
             }
         }
     }

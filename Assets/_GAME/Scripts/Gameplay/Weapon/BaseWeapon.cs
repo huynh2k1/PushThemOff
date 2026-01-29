@@ -17,6 +17,6 @@ public abstract class BaseWeapon : MonoBehaviour
 
     protected virtual void OnHitEnemy(Enemy enemy, Vector3 hitDir)
     {
-        enemy.TakeDamage(hitDir, data.Damage);
+        enemy.TakeDamage(data.Damage);
     }
 }

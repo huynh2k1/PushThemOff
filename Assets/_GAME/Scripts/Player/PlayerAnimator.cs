@@ -22,6 +22,7 @@ public class PlayerAnimator : MonoBehaviour, IPlayerAnimator
 
     public void Idle() => animator.SetBool("Move", false);
     public void Move() => animator.SetBool("Move", true);
+
     public void Attack() => animator.SetTrigger("Attack");
     public void Dead() => animator.SetBool("Dead", true);
     public void Stun() => animator.SetTrigger("Stunk");

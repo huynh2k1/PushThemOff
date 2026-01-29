@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 891525609164176895}
   - component: {fileID: 5284787480654559156}
   - component: {fileID: 2245952688628603618}
+  - component: {fileID: 4787281546370052794}
   m_Layer: 0
   m_Name: Knife
   m_TagString: Untagged
@@ -75,6 +76,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _data: {fileID: 11400000, guid: 959ef065813d94544830a9c4b0e8a6ab, type: 2}
+--- !u!65 &4787281546370052794
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3053772821215717175}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.28478888, y: 0.12865058, z: 1.3284948}
+  m_Center: {x: 0, y: 0, z: 0.4345962}
 --- !u!1 &5806238064241144851
 GameObject:
   m_ObjectHideFlags: 0
@@ -4969,10 +4991,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1377237402840320480}
-    - targetCorrespondingSourceObject: {fileID: 5857225396379586743, guid: 3aa53d459ac99c443b2ac62df921e4a0,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2335943038404951341}
   m_SourcePrefab: {fileID: 100100000, guid: 3aa53d459ac99c443b2ac62df921e4a0, type: 3}
 --- !u!1 &973654353616590027 stripped
 GameObject:
@@ -5050,28 +5068,6 @@ MonoBehaviour:
   destroyCombinedChildren: 0
   folderPath: _GAME/Prefabs/CombinedMeshes
   meshFiltersToSkip: []
---- !u!64 &2335943038404951341
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 973654353616590027}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 9ece1f45da8e7344a9b6d2daa4df74b3, type: 2}
 --- !u!4 &5376136058679191002 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1608287870747124134, guid: 3aa53d459ac99c443b2ac62df921e4a0,

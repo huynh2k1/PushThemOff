@@ -7,7 +7,7 @@ public class GameController : MonoBehaviour
 {
     public static GameController I;
     [SerializeField] UICtrl _uiCtrl;
-    [SerializeField] PlayerCtrl _character;
+    [SerializeField] LevelCtrl _levelCtrl;
 
     public GameState CurState;
     private void Awake()
@@ -47,15 +47,13 @@ public class GameController : MonoBehaviour
     {
         ChangeState(GameState.NONE);
         _uiCtrl.OnGameHome();
-        _character.OnGameHome();
     }
 
     public void GameStart()
     {
         ChangeState(GameState.PLAYING);
         _uiCtrl.OnStartGame();
-        _character.OnStartGame();
-
+        _levelCtrl.OnStartGame();
     }
     
     public void GamePause()
@@ -73,7 +71,6 @@ public class GameController : MonoBehaviour
     {
         ChangeState(GameState.PLAYING);
         _uiCtrl.OnStartGame();
-        _character.OnStartGame();
     }
 
     public void GameWin()

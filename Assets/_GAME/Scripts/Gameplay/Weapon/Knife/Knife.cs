@@ -42,7 +42,7 @@ public class Knife : BaseWeapon
         if (enemy == null) return;
 
         Vector3 hitDir = direction;
-        enemy.TakeDamage(hitDir, _data.Damage);
+        enemy.TakeDamage(_data.Damage);
 
         Destroy(gameObject);
     }

@@ -17,5 +17,5 @@ MonoBehaviour:
   Price: 0
   Icon: {fileID: 0}
   Speed: 15
-  MaxDistance: 5
+  MaxDistance: 4
   Damage: 0
