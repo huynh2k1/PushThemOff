@@ -17,6 +17,6 @@ MonoBehaviour:
   Price: 2000
   Icon: {fileID: 0}
   Speed: 25
-  MaxDistance: 6
-  Damage: 0
+  MaxDistance: 4
+  Damage: 15
   forcePush: 10

@@ -42,10 +42,13 @@ public class Hammer : BaseWeapon
     {
         if (!other.CompareTag("Enemy")) return;
 
+
         Enemy enemy = other.GetComponent<Enemy>();
         if (enemy == null) return;
 
+        EffectPool.I.Spawn(EffectType.HAMMERHIT, enemy.transform.position, Quaternion.identity);
         enemy.TakeDamage(hammerData.Damage);
+        OnWeaponHitAction?.Invoke();
         Destroy(gameObject);
     }
 }

@@ -21,9 +21,6 @@ public class PlayerCtrl : BaseCharacter
     [SerializeField] PlayerAnimator animator;
     [SerializeField] PlayerFireRange fireRange;
 
-    [SerializeField] CinemachineBrain _camBrain;
-    [SerializeField] CinemachineVirtualCamera _camDeco;
-
     Vector2 MoveInput;
     Vector3 _initPos;
     Quaternion _initRotation;
@@ -37,7 +34,6 @@ public class PlayerCtrl : BaseCharacter
         _initPos = transform.position;
         _initRotation = body.rotation;
 
-        animator.Idle();
     }
 
     protected void OnEnable()
@@ -54,13 +50,8 @@ public class PlayerCtrl : BaseCharacter
 
 
     [Button("Init Player")]
-    public void OnGameHome()
+    public void OnInitGame()
     {
-        if (_camDeco != null)
-        {
-            ActiveCamZoom(true);
-        }
-
         transform.position = _initPos;
         body.rotation = _initRotation;
 
@@ -68,12 +59,7 @@ public class PlayerCtrl : BaseCharacter
         rb.isKinematic = false;
 
         animator.RebineAnim();
-    }
-
-    [Button("Player Ready")]
-    public void OnStartGame()
-    {
-        ActiveCamZoom(false);
+        animator.Idle();
     }
 
     public void Movement(Vector2 MoveInput)
@@ -152,16 +138,6 @@ public class PlayerCtrl : BaseCharacter
         Quaternion rot = Quaternion.LookRotation(lookDir);
         body.rotation = Quaternion.Slerp(body.rotation, rot, rotateSpeed * Time.deltaTime);
     }
-
-
-
-    public void ActiveCamZoom(bool isActive)
-    {
-        _camDeco.enabled = isActive;
-        _camBrain.m_DefaultBlend.m_Time = isActive ? 0f : 1f;
-
-    }
-
     public override void TakeDamage(float damage)
     {
     }

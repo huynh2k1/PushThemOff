@@ -75,45 +75,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4090225317524808692, guid: bb35e85f2b2b08c41bf0814715e759f5,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.005
-      objectReference: {fileID: 0}
-    - target: {fileID: 4090225317524808692, guid: bb35e85f2b2b08c41bf0814715e759f5,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.005
-      objectReference: {fileID: 0}
-    - target: {fileID: 4090225317524808692, guid: bb35e85f2b2b08c41bf0814715e759f5,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.005
-      objectReference: {fileID: 0}
-    - target: {fileID: 4090225317524808692, guid: bb35e85f2b2b08c41bf0814715e759f5,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 1.273
-      objectReference: {fileID: 0}
-    - target: {fileID: 4090225317524808692, guid: bb35e85f2b2b08c41bf0814715e759f5,
-        type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4202741058718909429, guid: bb35e85f2b2b08c41bf0814715e759f5,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 12
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4202741058718909429, guid: bb35e85f2b2b08c41bf0814715e759f5,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 12
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4202741058718909429, guid: bb35e85f2b2b08c41bf0814715e759f5,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 12
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4202741058718909429, guid: bb35e85f2b2b08c41bf0814715e759f5,
         type: 3}
@@ -124,6 +99,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5263852436236792737, guid: bb35e85f2b2b08c41bf0814715e759f5,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5263852436236792737, guid: bb35e85f2b2b08c41bf0814715e759f5,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5366928091272202649, guid: bb35e85f2b2b08c41bf0814715e759f5,
         type: 3}
@@ -175,21 +160,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7914563242507299550, guid: bb35e85f2b2b08c41bf0814715e759f5,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7914563242507299550, guid: bb35e85f2b2b08c41bf0814715e759f5,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7914563242507299550, guid: bb35e85f2b2b08c41bf0814715e759f5,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8885301198685608580, guid: bb35e85f2b2b08c41bf0814715e759f5,
         type: 3}
       propertyPath: m_Name
@@ -226,6 +196,18 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1784138129034296788}
   m_SourcePrefab: {fileID: 100100000, guid: bb35e85f2b2b08c41bf0814715e759f5, type: 3}
+--- !u!114 &2517431579008790467 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2134172633086366222, guid: bb35e85f2b2b08c41bf0814715e759f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 4571624338139282893}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d41cf275e190992449da5dc3b3c1c08a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4917722161148356425 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8885301198685608580, guid: bb35e85f2b2b08c41bf0814715e759f5,
@@ -242,7 +224,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.3
-  m_Speed: 2
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -267,8 +249,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 6672577853203870503}
+  maxHealth: 100
+  _heathBar: {fileID: 2517431579008790467}
   _rotater: {fileID: 8418451663665832127}
-  detectRange: 6
+  detectRange: 3.5
   playerLayer:
     serializedVersion: 2
     m_Bits: 512

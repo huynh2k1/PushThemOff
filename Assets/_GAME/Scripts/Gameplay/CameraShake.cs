@@ -26,12 +26,12 @@ public class CameraShake : MonoBehaviour
 
     private void OnEnable()
     {
-        Boomerang.OnBoomerangHitAction += StartShake;
+        BaseWeapon.OnWeaponHitAction += StartShake;
     }
 
     private void OnDestroy()
     {
-        Boomerang.OnBoomerangHitAction -= StartShake;
+        BaseWeapon.OnWeaponHitAction -= StartShake;
     }
 
     public void StartShake()

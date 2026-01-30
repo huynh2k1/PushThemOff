@@ -9,13 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dae7d452a1f249949962ca0058b34972, type: 3}
-  m_Name: New Knife Data
+  m_Script: {fileID: 11500000, guid: 7137de423c258fc459c84c65e3a5e193, type: 3}
+  m_Name: HammerData
   m_EditorClassIdentifier: 
   Id: 0
-  Name: Knife
+  Name: Hammer
   Price: 0
   Icon: {fileID: 0}
   Speed: 15
-  MaxDistance: 4
-  Damage: 0
+  MaxDistance: 5
+  Damage: 30
+  rotateSpeed: 3600

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class LevelCtrl : MonoBehaviour
 {
-    [SerializeField] GameObject _playerPrefab;
+    [SerializeField] Transform _gameplayParent;
+    [SerializeField] PlayerCtrl _player;
 
     public void OnStartGame()
     {
@@ -13,7 +14,6 @@ public class LevelCtrl : MonoBehaviour
 
     public void InitPlayer()
     {
-        GameObject obj = Instantiate(_playerPrefab, transform);
-        obj.transform.position = Vector3.zero;
+        _player.OnInitGame();
     }
 }

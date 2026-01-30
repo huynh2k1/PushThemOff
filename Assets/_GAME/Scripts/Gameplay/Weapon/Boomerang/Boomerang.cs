@@ -13,7 +13,6 @@ public class Boomerang : BaseWeapon
 
     [SerializeField] Transform _rotater;
 
-    public static Action OnBoomerangHitAction;
 
     public override void Init(WeaponData newData, Transform ownerTf, Vector3 dir)
     {
@@ -29,21 +28,6 @@ public class Boomerang : BaseWeapon
         if (returnCurve == null || returnCurve.length == 0)
             returnCurve = AnimationCurve.EaseInOut(0, 0.2f, 1, 1);
     }
-
-    //public void Init(Transform ownerTf, Vector3 dir)
-    //{
-    //    base.Init(_data, ownerTf);
-
-    //    direction = dir == Vector3.zero ? ownerTf.forward : dir.normalized;
-
-    //    startPos = transform.position;
-
-    //    if (flyOutCurve == null || flyOutCurve.length == 0)
-    //        flyOutCurve = AnimationCurve.EaseInOut(0, 1, 1, 0.2f);
-
-    //    if (returnCurve == null || returnCurve.length == 0)
-    //        returnCurve = AnimationCurve.EaseInOut(0, 0.2f, 1, 1);
-    //}
 
     void Update()
     {
@@ -83,26 +67,24 @@ public class Boomerang : BaseWeapon
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!other.CompareTag("Enemy")) return;
 
-        if (other.CompareTag("Enemy"))
-        {
-            Enemy enemy = other.GetComponent<Enemy>();
+        EffectPool.I.Spawn(EffectType.BOOMERANGHIT, transform.position, Quaternion.identity);
 
-            if (enemy != null)
-            {
-                Vector3 temp = transform.position;
-                temp.y = other.transform.position.y;
-                // hướng boomerang bay tới enemy
-                Vector3 hitDir = (other.transform.position - temp).normalized;
+        Enemy enemy = other.GetComponent<Enemy>();
+        if (enemy == null) return;
 
-                // lực đẩy dựa theo tốc độ hiện tại
-                float currentSpeed = 6 * (isReturning ?
-                    returnCurve.Evaluate(0.1f) :
-                    flyOutCurve.Evaluate(0.1f));
+        bool returning = isReturning; // trạng thái tại thời điểm va chạm
 
-                OnBoomerangHitAction?.Invoke();
-                enemy.TakeDamage(6);
-            }
-        }
+        float curveValue = returning
+            ? returnCurve.Evaluate(0.1f)
+            : flyOutCurve.Evaluate(0.1f);
+
+        float force = 6f * curveValue;
+
+        OnWeaponHitAction?.Invoke();
+        enemy.TakeDamage(_data.Damage);
+
+        Debug.Log(returning ? "Hit while RETURNING" : "Hit while FLYING OUT");
     }
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4202741058718909429}
   - component: {fileID: 7914563242507299550}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6aaf5085707438249b146683b54ad625, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 15cb825283e3da14aba1757f24839ec3, type: 3}
+  m_Color: {r: 1, g: 0, b: 0, a: 0.5019608}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -248,22 +248,22 @@ PrefabInstance:
     - target: {fileID: 3508040333058810840, guid: 324802f09c63c8c4aa1e24356e153e0e,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.8660254
+      value: 0.8001032
       objectReference: {fileID: 0}
     - target: {fileID: 3508040333058810840, guid: 324802f09c63c8c4aa1e24356e153e0e,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.5
+      value: -0.46193978
       objectReference: {fileID: 0}
     - target: {fileID: 3508040333058810840, guid: 324802f09c63c8c4aa1e24356e153e0e,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.33141357
       objectReference: {fileID: 0}
     - target: {fileID: 3508040333058810840, guid: 324802f09c63c8c4aa1e24356e153e0e,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.19134171
       objectReference: {fileID: 0}
     - target: {fileID: 3508040333058810840, guid: 324802f09c63c8c4aa1e24356e153e0e,
         type: 3}
@@ -273,7 +273,7 @@ PrefabInstance:
     - target: {fileID: 3508040333058810840, guid: 324802f09c63c8c4aa1e24356e153e0e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.273
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 3508040333058810840, guid: 324802f09c63c8c4aa1e24356e153e0e,
         type: 3}
@@ -283,7 +283,7 @@ PrefabInstance:
     - target: {fileID: 3508040333058810840, guid: 324802f09c63c8c4aa1e24356e153e0e,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 3508040333058810840, guid: 324802f09c63c8c4aa1e24356e153e0e,
         type: 3}
@@ -299,6 +299,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7395313165530790399, guid: 324802f09c63c8c4aa1e24356e153e0e,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

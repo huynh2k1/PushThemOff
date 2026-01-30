@@ -5,6 +5,7 @@ public class Enemy : BaseCharacter
 {
     enum State { Idle, Chase, Return }
 
+    [SerializeField] HeathBar _heathBar;
     [SerializeField] Transform _rotater;
 
     [Header("Detection")]
@@ -18,6 +19,10 @@ public class Enemy : BaseCharacter
     Quaternion spawnRot;
     Transform targetPlayer;
 
+
+    //STATS
+    float curHP;
+
     protected override void Awake()
     {
         base.Awake();
@@ -30,7 +35,14 @@ public class Enemy : BaseCharacter
 
     void Start()
     {
+        OnInit();
+    }
+
+    void OnInit()
+    {
         ChangeState(State.Idle);
+        curHP = maxHealth;
+        _heathBar.Init(curHP);
     }
 
     void Update()
@@ -113,10 +125,23 @@ public class Enemy : BaseCharacter
     protected override void Dead()
     {
         agent.enabled = false;
+        EffectPool.I.Spawn(EffectType.EXPLOSION, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 
-    public override void TakeDamage(float damage) { }
+    public override void TakeDamage(float damage)
+    {
+        if(damage >= curHP)
+        {
+            curHP = 0;
+            _heathBar.UpdateHealthBar(curHP);
+            Dead();
+            return;
+        }
+
+        curHP -= damage;
+        _heathBar.UpdateHealthBar(curHP);
+    }
 
     private void OnDrawGizmosSelected()
     {

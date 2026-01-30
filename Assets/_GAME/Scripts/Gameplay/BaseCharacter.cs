@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class BaseCharacter : MonoBehaviour
 {
     [SerializeField] protected Rigidbody rb;
-
+    [SerializeField] protected float maxHealth = 100f;
 
 
     protected virtual void Awake()
