@@ -43,7 +43,7 @@ public class Hammer : BaseWeapon
         if (!other.CompareTag("Enemy")) return;
 
 
-        Enemy enemy = other.GetComponent<Enemy>();
+        BaseCharacter enemy = other.GetComponent<BaseCharacter>();
         if (enemy == null) return;
 
         EffectPool.I.Spawn(EffectType.HAMMERHIT, enemy.transform.position, Quaternion.identity);

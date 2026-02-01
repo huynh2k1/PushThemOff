@@ -40,7 +40,7 @@ public class Knife : BaseWeapon
 
         EffectPool.I.Spawn(EffectType.KNIFEHIT, transform.position, Quaternion.identity);   
 
-        Enemy enemy = other.GetComponent<Enemy>();
+        BaseCharacter enemy = other.GetComponent<Enemy>();
         if (enemy == null) return;
 
         Vector3 hitDir = direction;

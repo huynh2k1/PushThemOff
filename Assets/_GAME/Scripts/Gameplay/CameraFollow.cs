@@ -30,6 +30,6 @@ public class CameraFollow : MonoBehaviour
         transform.position = smoothedPosition;
 
         // Nếu muốn camera luôn nhìn vào player
-        transform.LookAt(target);
+        //transform.LookAt(target);
     }
 }

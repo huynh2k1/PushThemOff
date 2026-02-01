@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using NaughtyAttributes;
 using UnityEngine;
 
 public class LevelCtrl : MonoBehaviour
@@ -15,5 +16,17 @@ public class LevelCtrl : MonoBehaviour
     public void InitPlayer()
     {
         _player.OnInitGame();
+    }
+
+    [Button("Save Data")]
+    public void Save()
+    {
+
+    }
+
+    [Button("Load Data")]
+    public void LoadData()
+    {
+
     }
 }

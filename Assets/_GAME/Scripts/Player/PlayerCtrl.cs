@@ -15,8 +15,6 @@ public class PlayerCtrl : BaseCharacter
     [SerializeField] float moveSpeed = 5f;
     [SerializeField] float rotateSpeed = 10f;
 
-    public bool isDead;
-
     //Variables
     [SerializeField] PlayerAnimator animator;
     [SerializeField] PlayerFireRange fireRange;
@@ -137,8 +135,5 @@ public class PlayerCtrl : BaseCharacter
         lookDir.y = 0;
         Quaternion rot = Quaternion.LookRotation(lookDir);
         body.rotation = Quaternion.Slerp(body.rotation, rot, rotateSpeed * Time.deltaTime);
-    }
-    public override void TakeDamage(float damage)
-    {
     }
 }
