@@ -71,7 +71,7 @@ public class Boomerang : BaseWeapon
 
         EffectPool.I.Spawn(EffectType.BOOMERANGHIT, transform.position, Quaternion.identity);
 
-        BaseCharacter enemy = other.GetComponent<Enemy>();
+        BaseCharacter enemy = other.GetComponent<BaseCharacter>();
         if (enemy == null) return;
 
         bool returning = isReturning; // trạng thái tại thời điểm va chạm

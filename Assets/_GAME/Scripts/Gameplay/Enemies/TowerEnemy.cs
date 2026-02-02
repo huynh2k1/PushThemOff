@@ -115,7 +115,8 @@ public class TowerEnemy : BaseCharacter
             Quaternion.LookRotation(dir));
 
         // tầm bay của đạn = detectRange
-        b.Init(dir, damage, detectRange);
+        float offSetDistance = Vector3.Distance(transform.position, firePoint.position);
+        b.Init(dir, damage, detectRange - offSetDistance);
     }
 
     void FaceTarget(Vector3 pos)

@@ -14,6 +14,7 @@ public class MageEnemy : BaseCharacter
     [SerializeField] float healInterval = 5f;
     [SerializeField] float healAmount = 20f;
     [SerializeField] LayerMask enemyLayer;
+    [SerializeField] ParticleSystem healNova;
 
     float healTimer;
 
@@ -54,12 +55,14 @@ public class MageEnemy : BaseCharacter
             detectRange,
             enemyLayer);
 
+        healNova.Play();
+
         foreach (var hit in hits)
         {
             BaseCharacter enemy = hit.GetComponent<BaseCharacter>();
 
             // tránh tự heal nếu bạn không muốn
-            if (enemy == null || enemy == this)
+            if (enemy == null || enemy.isDead)
                 continue;
 
             enemy.Heal(healAmount);

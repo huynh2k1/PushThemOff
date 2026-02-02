@@ -11,6 +11,9 @@ public class ShopUI : BasePopup
     [SerializeField] Transform _contentParent;
     [SerializeField] ShopElement _shopElementPrefab;
 
+    [SerializeField]
+    WeaponData[] _listWeaponData;
+
     List<ShopElement> _listElement;
 
     protected override void Awake()
@@ -27,13 +30,16 @@ public class ShopUI : BasePopup
 
     void Init()
     {
-        int count = 5;
+        int count = _listWeaponData.Length;
 
         _listElement = new List<ShopElement>();
 
         for(int i = 0; i < count; i++)
         {
             ShopElement s = Instantiate(_shopElementPrefab, _contentParent);
+
+            WeaponData data = _listWeaponData[i];   
+            s.LoadData(i, data.Price, data.Icon, data.Name);
             _listElement.Add(s);
         }
     }

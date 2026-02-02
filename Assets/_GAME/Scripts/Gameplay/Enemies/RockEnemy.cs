@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -32,6 +33,8 @@ public class RockEnemy : BaseCharacter
     float wanderTimer;
 
     Transform _targetPlayer;
+
+    public static Action OnAttackAction;
 
     private void OnEnable()
     {
@@ -144,6 +147,8 @@ public class RockEnemy : BaseCharacter
 
     void Anim_Shoot()
     {
+        OnAttackAction?.Invoke();
+
         Vector3 dir = _rotater.forward;
         dir.y = 0f;
         dir.Normalize();
@@ -181,7 +186,7 @@ public class RockEnemy : BaseCharacter
     {
         for (int i = 0; i < 10; i++)
         {
-            Vector3 rand = center + Random.insideUnitSphere * radius;
+            Vector3 rand = center + UnityEngine.Random.insideUnitSphere * radius;
 
             NavMeshHit hit;
             if (NavMesh.SamplePosition(rand, out hit, 2f, NavMesh.AllAreas))

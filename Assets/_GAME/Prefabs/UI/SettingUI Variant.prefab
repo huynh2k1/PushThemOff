@@ -163,7 +163,7 @@ PrefabInstance:
     - target: {fileID: 233839334268629736, guid: c0637f5d286546848a9e9ad14ffe6685,
         type: 3}
       propertyPath: m_Alpha
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2034142266163764795, guid: c0637f5d286546848a9e9ad14ffe6685,
         type: 3}
@@ -268,7 +268,7 @@ PrefabInstance:
     - target: {fileID: 2719629188280981538, guid: c0637f5d286546848a9e9ad14ffe6685,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2836969813641231272, guid: c0637f5d286546848a9e9ad14ffe6685,
         type: 3}
@@ -413,7 +413,7 @@ MonoBehaviour:
   _mask: {fileID: 2295482958766059777}
   _main: {fileID: 2106506787164541579}
   _btnClose: {fileID: 3966648794804061954}
-  _moveEffect: 0
+  _moveEffect: 1
   tweenType: 27
   timeTween: 0.3
 --- !u!1001 &4698718226170496414
@@ -596,6 +596,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 19820162919110370}
     m_Modifications:
+    - target: {fileID: 945838488631633012, guid: 159afd67db666bb488959f2df87c95ad,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 945838488631633012, guid: 159afd67db666bb488959f2df87c95ad,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 55
+      objectReference: {fileID: 0}
     - target: {fileID: 2256562941832392870, guid: 159afd67db666bb488959f2df87c95ad,
         type: 3}
       propertyPath: m_Name
@@ -706,6 +716,12 @@ PrefabInstance:
       propertyPath: _type
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7488291802544958837, guid: 159afd67db666bb488959f2df87c95ad,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c25031178dad4c068ed55b9e33212ad,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -725,6 +741,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 19820162919110370}
     m_Modifications:
+    - target: {fileID: 945838488631633012, guid: 159afd67db666bb488959f2df87c95ad,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 945838488631633012, guid: 159afd67db666bb488959f2df87c95ad,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 55
+      objectReference: {fileID: 0}
     - target: {fileID: 2256562941832392870, guid: 159afd67db666bb488959f2df87c95ad,
         type: 3}
       propertyPath: m_Name
@@ -850,6 +876,12 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 58c88aef05a33426c82ea7b18ebc0427,
+        type: 3}
+    - target: {fileID: 7488291802544958837, guid: 159afd67db666bb488959f2df87c95ad,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bb88c0d3b46b340a38d260d5c455daa9,
         type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

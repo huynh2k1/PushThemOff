@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
 using DG.Tweening;
+using GameConfig;
 using NaughtyAttributes;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ public class PlayerCtrl : BaseCharacter
     [SerializeField] bool _physicMovement = false;
 
     [SerializeField] Transform body;
+    [SerializeField] ParticleSystem _hitEffect;
 
     [SerializeField] float moveSpeed = 5f;
     [SerializeField] float rotateSpeed = 10f;
@@ -25,6 +27,8 @@ public class PlayerCtrl : BaseCharacter
     float maxInputMagnitude = 1f;
 
     public static Action OnPlayerAttackAction;
+    public static Action OnPlayerBeTakeDamage;
+
 
     protected override void Awake()
     {
@@ -91,8 +95,6 @@ public class PlayerCtrl : BaseCharacter
         body.rotation = Quaternion.Slerp(body.rotation, rot, rotateSpeed * Time.deltaTime);
     }
 
-    
-
     protected override void Attack()
     {
         if (isDead)
@@ -105,7 +107,13 @@ public class PlayerCtrl : BaseCharacter
         });
     }
 
-   
+    public override void TakeDamage(float damage)
+    {
+        OnPlayerBeTakeDamage?.Invoke();
+        PopupTextSpawner.I.Spawn(PopupTextType.DAMAGE, transform.position, (int)damage);
+        _hitEffect.Play();
+        base.TakeDamage(damage);
+    }
 
     protected override void Dead()
     {
