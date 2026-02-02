@@ -19946,17 +19946,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 577542811}
     m_Modifications:
-    - target: {fileID: 360335091890840503, guid: dffdd9e1986e984428d44dff78ac9b4a,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: bb88c0d3b46b340a38d260d5c455daa9,
-        type: 3}
-    - target: {fileID: 2106506787164541579, guid: dffdd9e1986e984428d44dff78ac9b4a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2647968182944224402, guid: dffdd9e1986e984428d44dff78ac9b4a,
         type: 3}
       propertyPath: m_Pivot.x
@@ -20057,41 +20046,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4115511656484860999, guid: dffdd9e1986e984428d44dff78ac9b4a,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 0c25031178dad4c068ed55b9e33212ad,
-        type: 3}
-    - target: {fileID: 4304037406865733697, guid: dffdd9e1986e984428d44dff78ac9b4a,
-        type: 3}
-      propertyPath: m_Alpha
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6041216798558059846, guid: dffdd9e1986e984428d44dff78ac9b4a,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 55
-      objectReference: {fileID: 0}
-    - target: {fileID: 6041216798558059846, guid: dffdd9e1986e984428d44dff78ac9b4a,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 55
-      objectReference: {fileID: 0}
     - target: {fileID: 7123317943145521461, guid: dffdd9e1986e984428d44dff78ac9b4a,
         type: 3}
       propertyPath: m_Name
       value: SettingUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 8055708809574509238, guid: dffdd9e1986e984428d44dff78ac9b4a,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 55
-      objectReference: {fileID: 0}
-    - target: {fileID: 8055708809574509238, guid: dffdd9e1986e984428d44dff78ac9b4a,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 55
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
