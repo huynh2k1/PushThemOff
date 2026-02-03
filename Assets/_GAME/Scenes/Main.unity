@@ -20218,6 +20218,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8389041212869519680, guid: 074ad776089aad24399b5ca07951624b,
         type: 3}
+      propertyPath: _moveEffect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389041212869519680, guid: 074ad776089aad24399b5ca07951624b,
+        type: 3}
       propertyPath: _listWeaponData.Array.size
       value: 4
       objectReference: {fileID: 0}

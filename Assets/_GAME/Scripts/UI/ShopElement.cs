@@ -17,7 +17,7 @@ public class ShopElement : MonoBehaviour
 
     public event Action<int> OnBuySuccessAction;
     public event Action OnBuyFailAction;
-
+    public event Action OnEquipAction;
 
     //Element Datas
     int ID;
@@ -26,6 +26,7 @@ public class ShopElement : MonoBehaviour
     private void Awake()
     {
         _btnBye.onClick.AddListener(OnClickBuy);
+        _btnEquip.onClick.AddListener(OnClickEquip);
     }
 
     void OnClickBuy()
@@ -35,6 +36,8 @@ public class ShopElement : MonoBehaviour
         if (canBuy)
         {
             GameDatas.Coin -= _price;
+            GameDatas.SetWeaponUnlock(ID);
+            Unlock();
             OnBuySuccessAction?.Invoke(ID);
         }
         else
@@ -45,7 +48,9 @@ public class ShopElement : MonoBehaviour
 
     void OnClickEquip()
     {
-
+        GameDatas.CurWeapon = ID;
+        Equip();
+        OnEquipAction?.Invoke();    
     }
 
     public void LoadData(int id, int price, Sprite newIcon, string title)
@@ -55,6 +60,8 @@ public class ShopElement : MonoBehaviour
         SetPrice(price);
         SetTitle(title);
         SetIcon(newIcon);
+
+        ReloadUI();
     }
 
 
@@ -75,27 +82,38 @@ public class ShopElement : MonoBehaviour
         _priceText.text = price.ToString();
     }
 
-    void CheckUnlocked()
+    public void ReloadUI()
     {
+        if(ID == GameDatas.CurWeapon)
+        {
+            Equip();
+            return;
+        }
         if (GameDatas.GetWeaponUnlock(ID))
         {
             Unlock();
+            return;
         }
+
+        Lock();
     }
 
     void Unlock()
     {
-
+        ShowBtnEquip(true);
+        ShowBtnBuy(false);
     }
 
     void Lock()
     {
-
+        ShowBtnBuy(true);
+        ShowBtnEquip(false);
     }
 
     void Equip()
     {
-
+        ShowBtnBuy(false);
+        ShowBtnEquip(false);
     }
 
     void ShowBtnBuy(bool isShow) => _btnBye.gameObject.SetActive(isShow);   

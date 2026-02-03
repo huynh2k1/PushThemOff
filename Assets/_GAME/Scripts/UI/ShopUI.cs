@@ -41,6 +41,20 @@ public class ShopUI : BasePopup
             WeaponData data = _listWeaponData[i];   
             s.LoadData(i, data.Price, data.Icon, data.Name);
             _listElement.Add(s);
+
+            s.OnEquipAction += ReloadUI;
+            s.OnBuySuccessAction += (id) =>
+            {
+                _panelCoin.UpdateText(GameDatas.Coin);
+            };
+        }
+    }
+
+    public void ReloadUI()
+    {
+        foreach(var e in _listElement)
+        {
+            e.ReloadUI();
         }
     }
 }
