@@ -2,58 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MageEnemy : BaseCharacter
+public class MageEnemy : BaseEnemy
 {
-    [Header("Rotate / Anim")]
-    [SerializeField] Transform _rotater;
-    [SerializeField] Animator _anim;
-    [SerializeField] AnimEvent _animEvent;
-
     [Header("Heal")]
-    [SerializeField] float detectRange = 6f;
-    [SerializeField] float healInterval = 5f;
     [SerializeField] float healAmount = 20f;
-    [SerializeField] LayerMask enemyLayer;
     [SerializeField] ParticleSystem healNova;
 
-    float healTimer;
-
-    private void OnEnable()
-    {
-        if (_animEvent != null)
-            _animEvent.OnEventAnimAction += CastHeal;
-    }
-
-    private void OnDisable()
-    {
-        if (_animEvent != null)
-            _animEvent.OnEventAnimAction -= CastHeal;
-    }
 
     protected override void OnInit()
     {
         base.OnInit();
 
-        healTimer = healInterval;
+        attackTimer = attackDelay;
     }
 
     void Update()
     {
-        healTimer -= Time.deltaTime;
-
-        if (healTimer <= 0f)
-        {
-            Attack();
-            healTimer = healInterval;
-        }
+        HandleAttack();
     }
 
-    public void CastHeal()
+    public override void HandleEventAttack()
     {
         Collider[] hits = Physics.OverlapSphere(
             transform.position,
             detectRange,
-            enemyLayer);
+            layerTarget);
 
         healNova.Play();
 
@@ -67,27 +40,5 @@ public class MageEnemy : BaseCharacter
 
             enemy.Heal(healAmount);
         }
-    }
-
-    protected override void Attack()
-    {
-        if (_anim != null)
-            _anim.SetTrigger("Attack");
-    }
-
-    protected override void Dead()
-    {
-        EffectPool.I.Spawn(
-            EffectType.EXPLOSION,
-            transform.position,
-            Quaternion.identity);
-
-        Destroy(gameObject);
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, detectRange);
     }
 }

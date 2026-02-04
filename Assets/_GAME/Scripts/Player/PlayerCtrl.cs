@@ -6,12 +6,14 @@ using DG.Tweening;
 using GameConfig;
 using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.Windows;
 
 public class PlayerCtrl : BaseCharacter
 {
     [SerializeField] bool _physicMovement = false;
 
     [SerializeField] Transform body;
+    [SerializeField] Collider collider;
     [SerializeField] ParticleSystem _hitEffect;
 
     [SerializeField] float moveSpeed = 5f;
@@ -59,6 +61,7 @@ public class PlayerCtrl : BaseCharacter
 
         isDead = false;
         rb.isKinematic = false;
+        collider.enabled = true;
 
         animator.RebineAnim();
         animator.Idle();
@@ -70,6 +73,8 @@ public class PlayerCtrl : BaseCharacter
             return;
         if (!_physicMovement)
             TransformMove(MoveInput);
+        else
+            MoveWithRigidbody(new Vector3(MoveInput.x, 0, MoveInput.y));
 
         if (fireRange != null && fireRange.CurrentTarget != null)
         {
@@ -120,6 +125,7 @@ public class PlayerCtrl : BaseCharacter
         isDead = true;
         animator.Dead();
         rb.isKinematic = true;
+        collider.enabled = false;
     }
 
     public void TransformMove(Vector2 input)
@@ -133,7 +139,29 @@ public class PlayerCtrl : BaseCharacter
             animator.Idle();
         }
         Vector3 moveDir = new Vector3(input.x, 0, input.y);
-        transform.Translate(moveDir * moveSpeed * Time.deltaTime, Space.World);
+        //transform.Translate(moveDir * moveSpeed * Time.deltaTime, Space.World);
+        Vector3 pos = transform.position;
+        pos += moveDir * moveSpeed * Time.deltaTime;
+        pos.y = _initPos.y;
+        transform.position = pos;
+    }
+
+    void MoveWithRigidbody(Vector3 dir)
+    {
+        if (rb == null) return;
+
+        if (dir != Vector3.zero)
+        {
+            animator.Move();
+        }
+        else
+        {
+            animator.Idle();
+        }
+        Vector3 velocity = dir.normalized * moveSpeed;
+        velocity.y = rb.velocity.y; // giữ gravity
+
+        rb.velocity = velocity;
     }
 
     public void Rotate(Vector3 lookDir)

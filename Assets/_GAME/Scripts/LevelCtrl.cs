@@ -14,10 +14,17 @@ public class LevelCtrl : MonoBehaviour
     [SerializeField] TextAsset _data;
     [SerializeField] private Transform _mapRoot; // Gán MapTransform trong Inspector    
 
+    [Header("Enemy Prefabs")]
+    [SerializeField] BaseEnemy _enemy1Prefab;
+    [SerializeField] BaseEnemy _enemy2Prefab;
+    [SerializeField] BaseEnemy _enemy3Prefab;
+    [SerializeField] BaseEnemy _enemy4Prefab;
+    [SerializeField] BaseEnemy _enemy5Prefab;
+
     #region LIFECYCLE   
-    public void OnStartGame()
+    public void OnStartGame(int idLevel)
     {
-        //OrderId = idLevel;
+        OrderId = idLevel;
         InitPlayer();
         LoadData();
     }
@@ -125,13 +132,14 @@ public class LevelCtrl : MonoBehaviour
             listEnemy = new List<EnemyData>()
         };
 
-        List<BaseCharacter> enemies = transform.GetComponentsInChildren<BaseCharacter>().ToList();
+        List<BaseEnemy> enemies = _gameplayParent.GetComponentsInChildren<BaseEnemy>().ToList();
 
-        foreach (BaseCharacter e in enemies)
+        foreach (BaseEnemy e in enemies)
         {
             EnemyData enemyData = new EnemyData
             {
                 Transform = TransformObj.FromTransform(e.transform),
+                Type = e.enemyType
             };
 
             newLevel.listEnemy.Add(enemyData);
@@ -193,18 +201,19 @@ public class LevelCtrl : MonoBehaviour
         }
 
         // ================= CLEAR ENEMY =================
-//        List<M1_Enemy> existingEnemies = transform.GetComponentsInChildren<M1_Enemy>().ToList();
-//        foreach (M1_Enemy enemy in existingEnemies)
-//        {
-//#if UNITY_EDITOR
-//            if (!Application.isPlaying)
-//                DestroyImmediate(enemy.gameObject);
-//            else
-//                Destroy(enemy.gameObject);
-//#else
-//        Destroy(enemy.gameObject);
-//#endif
-//        }
+        List<BaseEnemy> existingEnemies = _gameplayParent.GetComponentsInChildren<BaseEnemy>().ToList();
+
+        foreach (BaseEnemy enemy in existingEnemies)
+        {
+#if UNITY_EDITOR
+            if (!Application.isPlaying)
+                DestroyImmediate(enemy.gameObject);
+            else
+                Destroy(enemy.gameObject);
+#else
+    Destroy(enemy.gameObject);
+#endif
+        }
 
         // ================= SPAWN ENEMY =================
         if (levelData.listEnemy == null || levelData.listEnemy.Count == 0)
@@ -216,17 +225,31 @@ public class LevelCtrl : MonoBehaviour
         foreach (EnemyData enemyData in levelData.listEnemy)
         {
             //if (enemyData == null || enemyData.Transform == null)
-            //{
-            //    Debug.LogWarning("EnemyData hoặc Transform bị null, bỏ qua enemy này.");
-            //    continue;
-            //}
+            BaseEnemy prefab = GetEnemyPrefab(enemyData.Type);
 
-            // Tạo enemy mới (không set transform ở Instantiate để tránh set 2 lần)
-            //M1_Enemy newEnemy = Instantiate(_enemyPrefab, this.transform);
-            //enemyData.Transform.ApplyTo(newEnemy.transform);
+            if (prefab == null)
+                continue;
+
+            BaseEnemy newEnemy = Instantiate(prefab, _gameplayParent);
+            enemyData.Transform.ApplyTo(newEnemy.transform);
 
         }
 
         Debug.Log($"Load Level {OrderId} thành công. Enemy count: {levelData.listEnemy.Count}");
+    }
+
+    BaseEnemy GetEnemyPrefab(EnemyType type)
+    {
+        switch (type)
+        {
+            case EnemyType.E1: return _enemy1Prefab;
+            case EnemyType.E2: return _enemy2Prefab;
+            case EnemyType.E3: return _enemy3Prefab;
+            case EnemyType.E4: return _enemy4Prefab;
+            case EnemyType.E5: return _enemy5Prefab;
+            default:
+                Debug.LogError("Unknown EnemyType: " + type);
+                return null;
+        }
     }
 }

@@ -3,54 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class IceEnemy : BaseCharacter
+public class IceEnemy : BaseEnemy
 {
-    [Header("Rotate / Anim")]
-    [SerializeField] Transform _rotater;
-    [SerializeField] Animator _anim;
-
-    [Header("Detect & Attack")]
-    [SerializeField] float detectRange = 8f;
-    [SerializeField] LayerMask playerLayer;
-    [SerializeField] float attackDelay = 1f;
-
     [Header("Shoot")]
     [SerializeField] Transform firePoint;
     [SerializeField] BulletEnemy bulletPrefab;
 
     [Header("Wander (NavMesh)")]
-    [SerializeField] float wanderRadius = 6f;
-    [SerializeField] float wanderInterval = 3f;
-
-    [SerializeField] AnimEvent _animEvent;
+    [SerializeField] float moveRadius = 6f;
+    [SerializeField] float stopTime = 3f;
 
     NavMeshAgent _agent;
-
-    float attackTimer;
-    float lockTimer;
     float wanderTimer;
 
     Transform _targetPlayer;
-
-    private void OnEnable()
-    {
-        if (_animEvent != null)
-            _animEvent.OnEventAnimAction += Anim_Shoot;
-    }
-
-    private void OnDisable()
-    {
-        if (_animEvent != null)
-            _animEvent.OnEventAnimAction -= Anim_Shoot;
-    }
 
     protected override void OnInit()
     {
         base.OnInit();
 
         attackTimer = 0f;
-        lockTimer = 0f;
-        wanderTimer = wanderInterval;
+        wanderTimer = stopTime;
         _targetPlayer = null;
 
         if (_agent == null)
@@ -83,27 +56,17 @@ public class IceEnemy : BaseCharacter
     {
         if (_targetPlayer != null)
             return;
-
-        Collider[] hits = Physics.OverlapSphere(
-            _rotater.position,
-            detectRange,
-            playerLayer);
-
-        if (hits.Length > 0)
-        {
-            _targetPlayer = hits[0].transform;
-
-            attackTimer = 0f;
-            lockTimer = 0f;
-        }
+        Collider[] hits = Physics.OverlapSphere(_rotater.position, detectRange, layerTarget);
+        _targetPlayer = hits.Length > 0 ? hits[0].transform : null;
+        attackTimer = 0;
     }
 
-    void HandleAttack()
+    protected override void HandleAttack()
     {
         if (_targetPlayer == null)
             return;
 
-        FaceTarget(_targetPlayer.position);
+        LookAtTarget(_targetPlayer.position);
 
         float dist = Vector3.Distance(
             _rotater.position,
@@ -112,17 +75,12 @@ public class IceEnemy : BaseCharacter
         if (dist > detectRange)
         {
             _targetPlayer = null;
-            lockTimer = 0f;
             attackTimer = 0f;
 
             ResumeAgent();
             return;
         }
 
-        lockTimer += Time.deltaTime;
-
-        if (lockTimer < attackDelay)
-            return;
 
         attackTimer -= Time.deltaTime;
 
@@ -131,27 +89,6 @@ public class IceEnemy : BaseCharacter
             Attack();
             attackTimer = attackDelay;
         }
-    }
-
-    protected override void Attack()
-    {
-        if (_anim != null)
-            _anim.SetTrigger("Attack");
-    }
-
-    void Anim_Shoot()
-    {
-        Vector3 dir = _rotater.forward;
-        dir.y = 0f;
-        dir.Normalize();
-
-        BulletEnemy b = Instantiate(
-            bulletPrefab,
-            firePoint.position,
-            Quaternion.LookRotation(dir));
-
-        float offSetDistance = Vector3.Distance(transform.position, firePoint.position);
-        b.Init(dir, damage, detectRange - offSetDistance);
     }
 
     void Wander()
@@ -166,12 +103,12 @@ public class IceEnemy : BaseCharacter
 
         Vector3 randomPoint = GetRandomPoint(
             transform.position,
-            wanderRadius);
+            moveRadius);
 
         if (randomPoint != Vector3.zero)
             _agent.SetDestination(randomPoint);
 
-        wanderTimer = wanderInterval;
+        wanderTimer = stopTime;
     }
 
     Vector3 GetRandomPoint(Vector3 center, float radius)
@@ -188,22 +125,6 @@ public class IceEnemy : BaseCharacter
         }
 
         return Vector3.zero;
-    }
-
-    void FaceTarget(Vector3 pos)
-    {
-        Vector3 dir = pos - _rotater.position;
-        dir.y = 0f;
-
-        if (dir.sqrMagnitude < 0.0001f)
-            return;
-
-        Quaternion lookRot = Quaternion.LookRotation(dir.normalized);
-
-        _rotater.rotation = Quaternion.Slerp(
-            _rotater.rotation,
-            lookRot,
-            Time.deltaTime * 10f);
     }
 
     void StopAgent()
@@ -234,22 +155,18 @@ public class IceEnemy : BaseCharacter
         _anim.SetBool("Move", isMoving);
     }
 
-    protected override void Dead()
+    public override void HandleEventAttack()
     {
-        EffectPool.I.Spawn(
-            EffectType.EXPLOSION,
-            transform.position,
-            Quaternion.identity);
+        Vector3 dir = _rotater.forward;
+        dir.y = 0f;
+        dir.Normalize();
 
-        Destroy(gameObject);
-    }
+        BulletEnemy b = Instantiate(
+            bulletPrefab,
+            firePoint.position,
+            Quaternion.LookRotation(dir));
 
-    private void OnDrawGizmosSelected()
-    {
-        if (_rotater == null)
-            return;
-
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(_rotater.position, detectRange);
+        float offSetDistance = Vector3.Distance(transform.position, firePoint.position);
+        b.Init(dir, damage, detectRange - offSetDistance);
     }
 }

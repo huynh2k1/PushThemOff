@@ -38,11 +38,12 @@ public class Knife : BaseWeapon
     {
         if (!other.CompareTag("Enemy")) return;
 
-        EffectPool.I.Spawn(EffectType.KNIFEHIT, transform.position, Quaternion.identity);   
 
         BaseCharacter enemy = other.GetComponent<BaseCharacter>();
         if (enemy == null) return;
 
+        Vector3 pos = enemy.transform.position + Vector3.up;
+        EffectPool.I.Spawn(EffectType.KNIFEHIT, pos, Quaternion.identity);   
         Vector3 hitDir = direction;
         OnWeaponHitAction?.Invoke();
         enemy.TakeDamage(_data.Damage);

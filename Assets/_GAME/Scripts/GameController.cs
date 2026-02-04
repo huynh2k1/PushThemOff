@@ -53,7 +53,7 @@ public class GameController : MonoBehaviour
     {
         ChangeState(GameState.PLAYING);
         _uiCtrl.OnStartGame();
-        _levelCtrl.OnStartGame();
+        _levelCtrl.OnStartGame(GameDatas.CurrentLevel);
     }
     
     public void GamePause()

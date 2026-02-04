@@ -2,16 +2,10 @@
 using UnityEngine.AI;
 using UnityEngine.Animations;
 
-public class Enemy : BaseCharacter
+public class Enemy : BaseEnemy
 {
+    [SerializeField] float attackRange = 1.5f;
     enum State { Idle, Chase, Return }
-
-    [SerializeField] Transform _rotater;
-    [SerializeField] Animator _anim;
-
-    [Header("Detection")]
-    [SerializeField] float detectRange = 8f;
-    [SerializeField] LayerMask playerLayer;
 
     NavMeshAgent _agent;
     State _curState;
@@ -19,16 +13,6 @@ public class Enemy : BaseCharacter
     Vector3 _initPos;
     Quaternion _initRot;
     Transform _targetPlayer;
-
-
-    [Header("Attack")]
-    [SerializeField] float attackRange = 1.5f;
-    [SerializeField] float attackDelay = 1f;
-
-    float attackTimer;
-
-    //Anim Event
-    [SerializeField] AnimEvent _animEvent;
 
     protected override void Awake()
     {
@@ -40,21 +24,12 @@ public class Enemy : BaseCharacter
         _initRot = _rotater.rotation;
     }
 
-    private void OnEnable()
-    {
-        _animEvent.OnEventAnimAction += Anim_DoDamage;
-    }
-
-    private void OnDestroy()
-    {
-        _animEvent.OnEventAnimAction -= Anim_DoDamage;
-    }
-
     protected override void OnInit()
     {
         base.OnInit();
         ChangeState(State.Idle);
     }
+
     void Update()
     {
         DetectPlayer();
@@ -93,15 +68,9 @@ public class Enemy : BaseCharacter
             _anim.SetBool("Move", false);
 
             _agent.ResetPath();
-            FaceTarget(_targetPlayer.position);
+            LookAtTarget(_targetPlayer.position);
 
-            attackTimer -= Time.deltaTime;
-
-            if (attackTimer <= 0f)
-            {
-                Attack();
-                attackTimer = attackDelay;
-            }
+            HandleAttack();
         }
         else
         {
@@ -110,6 +79,8 @@ public class Enemy : BaseCharacter
             FaceMovementDirection();
         }
     }
+
+    
 
     void UpdateReturn()
     {
@@ -144,7 +115,7 @@ public class Enemy : BaseCharacter
 
     void DetectPlayer()
     {
-        Collider[] hits = Physics.OverlapSphere(_rotater.position, detectRange, playerLayer);
+        Collider[] hits = Physics.OverlapSphere(_rotater.position, detectRange, layerTarget);
         _targetPlayer = hits.Length > 0 ? hits[0].transform : null;
     }
 
@@ -153,19 +124,23 @@ public class Enemy : BaseCharacter
         if (_curState == newState) return;
 
         _curState = newState;
-
-        if (newState != State.Chase)
-        {
-            attackTimer = 0f;
-        }
     }
 
-    protected override void Attack()
+    protected override void Dead()
     {
-        _anim.SetTrigger("Attack");
+        base.Dead();
+        _agent.enabled = false;
     }
 
-    public void Anim_DoDamage()
+    protected override void OnDrawGizmosSelected()
+    {
+        base.OnDrawGizmosSelected();    
+        // Attack range
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+    }
+
+    public override void HandleEventAttack()
     {
         if (_targetPlayer == null) return;
 
@@ -173,39 +148,8 @@ public class Enemy : BaseCharacter
 
         if (dist > attackRange + 0.2f) return;
 
-        var player = _targetPlayer.GetComponent<BaseCharacter>();
+        var player = _targetPlayer.GetComponent<PlayerCtrl>();
         if (player)
             player.TakeDamage(damage);
-    }
-
-    protected override void Dead()
-    {
-        _agent.enabled = false;
-        EffectPool.I.Spawn(EffectType.EXPLOSION, transform.position, Quaternion.identity);
-        Destroy(gameObject);
-    }
-
-    void FaceTarget(Vector3 pos)
-    {
-        Vector3 dir = pos - _rotater.position;
-        dir.y = 0;
-
-        if (dir.sqrMagnitude < 0.0001f) return;
-
-        Quaternion lookRot = Quaternion.LookRotation(dir.normalized);
-        _rotater.rotation = Quaternion.Slerp(_rotater.rotation, lookRot, Time.deltaTime * 10f);
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        if (_rotater == null) return;
-
-        // Detect range
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, detectRange);
-
-        // Attack range
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }

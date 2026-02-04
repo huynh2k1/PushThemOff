@@ -26,12 +26,12 @@ public class PopupText : PooledObject
         canvasGroup.DOKill();
 
         float x = Random.Range(0.8f, 0.2f);
-        float y = Random.Range(2f, 3f);
+        float y = Random.Range(0.5f, 1.5f);
 
         canvasGroup.alpha = 0;
         canvasGroup.DOFade(1f, 0.2f);
 
-        transform.DOMove(startPos + new Vector3(x, y), timeTween)
+        transform.DOMove(startPos + new Vector3(x, 2, y), timeTween)
             .SetEase(ease)
             .OnComplete(() =>
             {

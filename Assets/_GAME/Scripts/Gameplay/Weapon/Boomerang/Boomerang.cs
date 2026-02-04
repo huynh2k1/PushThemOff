@@ -69,10 +69,11 @@ public class Boomerang : BaseWeapon
     {
         if (!other.CompareTag("Enemy")) return;
 
-        EffectPool.I.Spawn(EffectType.BOOMERANGHIT, transform.position, Quaternion.identity);
-
         BaseCharacter enemy = other.GetComponent<BaseCharacter>();
         if (enemy == null) return;
+
+        Vector3 pos = enemy.transform.position + Vector3.up;
+        EffectPool.I.Spawn(EffectType.BOOMERANGHIT, pos, Quaternion.identity);
 
         bool returning = isReturning; // trạng thái tại thời điểm va chạm
 

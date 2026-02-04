@@ -5,10 +5,16 @@ using UnityEngine;
 
 public class AnimEvent : MonoBehaviour
 {
-    public event Action OnEventAnimAction;
+    public event Action OnAttackAction;
+    public event Action OnEndAnimAction;
 
-    public void HandleEvent()
+    public void HandleAttack()
     {
-        OnEventAnimAction?.Invoke();
+        OnAttackAction?.Invoke();
+    }
+
+    public void HandleEndAttack()
+    {
+        OnEndAnimAction?.Invoke();
     }
 }

@@ -28,7 +28,17 @@ public class PlayerData
 public class EnemyData
 {
     public TransformObj Transform;
+    public EnemyType Type;
+}
 
+[Serializable]
+public enum EnemyType
+{
+    E1 = 0,
+    E2 = 1,
+    E3 = 2,
+    E4 = 3,
+    E5 = 4,
 }
 
 [Serializable]

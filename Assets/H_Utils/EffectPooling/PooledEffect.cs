@@ -19,6 +19,7 @@ public class PooledEffect : MonoBehaviour
     public void Play()
     {
         ps.Play();
+        StartCoroutine(DisableWhenDone());
     }
 
     IEnumerator DisableWhenDone()
