@@ -16,7 +16,7 @@ public abstract class BaseEnemy : BaseCharacter
     [SerializeField] protected LayerMask layerTarget;
     protected float attackTimer;
 
-    public static Action OnEnemyDeadAction;
+    public event Action<BaseEnemy> OnEnemyDeadAction;
     protected bool _isAttacking;
 
     protected virtual void OnEnable()
@@ -68,7 +68,7 @@ public abstract class BaseEnemy : BaseCharacter
             transform.position,
             Quaternion.identity);
 
-        OnEnemyDeadAction?.Invoke();
+        OnEnemyDeadAction?.Invoke(this);
     }
 
     protected virtual void LookAtTarget(Vector3 pos)

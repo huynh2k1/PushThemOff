@@ -15,6 +15,13 @@ public class LevelData
     public int OrderId = 0;
     public int MapId;
     public PlayerData PlayerData;
+    public List<AreaData> listArea = new List<AreaData>();
+}
+
+[Serializable]
+public class AreaData
+{
+    public int AreaId;
     public List<EnemyData> listEnemy = new List<EnemyData>();
 }
 

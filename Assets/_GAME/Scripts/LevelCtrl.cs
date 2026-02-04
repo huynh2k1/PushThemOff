@@ -12,7 +12,9 @@ public class LevelCtrl : MonoBehaviour
     [SerializeField] Transform _gameplayParent;
     [SerializeField] PlayerCtrl _player;
     [SerializeField] TextAsset _data;
-    [SerializeField] private Transform _mapRoot; // Gán MapTransform trong Inspector    
+    [SerializeField] private Transform _mapRoot; // Gán MapTransform trong Inspector
+                                                 // 
+    [SerializeField] private AreaContainer _areaContainerPrefab;
 
     [Header("Enemy Prefabs")]
     [SerializeField] BaseEnemy _enemy1Prefab;
@@ -21,18 +23,99 @@ public class LevelCtrl : MonoBehaviour
     [SerializeField] BaseEnemy _enemy4Prefab;
     [SerializeField] BaseEnemy _enemy5Prefab;
 
+    LevelData _currentLevelData;
+    int _currentAreaIndex;
+    AreaContainer _currentArea;
+
     #region LIFECYCLE   
     public void OnStartGame(int idLevel)
     {
         OrderId = idLevel;
         InitPlayer();
-        LoadData();
+        LoadLevelDataOnLy();
+        StartFirstArea();
     }
 
     public void InitPlayer()
     {
         _player.OnInitGame();
     }
+
+    public void LoadLevelDataOnLy()
+    {
+        string json = _data.text;
+
+        DataContainer dataContainer = JsonUtility.FromJson<DataContainer>(json);
+
+        _currentLevelData =
+        dataContainer.levels.FirstOrDefault(l => l.OrderId == OrderId);
+
+        if (_currentLevelData == null)
+        {
+            Debug.LogError("Level not found " + OrderId);
+            return;
+        }
+
+        ApplyMap(_currentLevelData.MapId);
+
+        if (_currentLevelData.PlayerData != null)
+            _currentLevelData.PlayerData.Transform.ApplyTo(_playerTransform);
+    }
+
+    void StartFirstArea()
+    {
+        _currentAreaIndex = 0;
+        SpawnCurrentArea();
+    }
+
+    void SpawnCurrentArea()
+    {
+        if (_currentLevelData == null ||
+            _currentLevelData.listArea == null ||
+            _currentAreaIndex >= _currentLevelData.listArea.Count)
+        {
+            Debug.Log("Level Completed");
+            return;
+        }
+
+        var areaData = _currentLevelData.listArea
+            .OrderBy(a => a.AreaId)
+            .ToList()[_currentAreaIndex];
+
+        AreaContainer areaContainer =
+            Instantiate(_areaContainerPrefab, _gameplayParent);
+
+        areaContainer.AreaId = areaData.AreaId;
+        areaContainer.name = $"Area_{areaData.AreaId}";
+
+        foreach (EnemyData enemyData in areaData.listEnemy)
+        {
+            BaseEnemy prefab = GetEnemyPrefab(enemyData.Type);
+            if (prefab == null) continue;
+
+            BaseEnemy enemy =
+                Instantiate(prefab, areaContainer.transform);
+
+            enemyData.Transform.ApplyTo(enemy.transform);
+        }
+
+        _currentArea = areaContainer;
+
+        _currentArea.Init();
+        _currentArea.OnAreaCleared += HandleAreaCleared;
+    }
+
+    void HandleAreaCleared(AreaContainer area)
+    {
+        area.OnAreaCleared -= HandleAreaCleared;
+
+        Destroy(area.gameObject);
+
+        _currentAreaIndex++;
+
+        SpawnCurrentArea();
+    }
+
     #endregion
 
     public int OrderId;
@@ -129,21 +212,32 @@ public class LevelCtrl : MonoBehaviour
             {
                 Transform = TransformObj.FromTransform(_playerTransform)
             },
-            listEnemy = new List<EnemyData>()
+            listArea = new List<AreaData>()
         };
 
-        List<BaseEnemy> enemies = _gameplayParent.GetComponentsInChildren<BaseEnemy>().ToList();
+        AreaContainer[] areas = _gameplayParent.GetComponentsInChildren<AreaContainer>();
 
-        foreach (BaseEnemy e in enemies)
+        for(int i = 0; i < areas.Length; i++)
         {
-            EnemyData enemyData = new EnemyData
-            {
-                Transform = TransformObj.FromTransform(e.transform),
-                Type = e.enemyType
-            };
+            AreaData areaData = new AreaData();
+            areaData.AreaId = i;
+            areaData.listEnemy = new List<EnemyData>(); 
 
-            newLevel.listEnemy.Add(enemyData);
+            BaseEnemy[] enemies = areas[i].transform.GetComponentsInChildren<BaseEnemy>();
+
+            foreach (BaseEnemy e in enemies)
+            {
+                EnemyData enemyData = new EnemyData
+                {
+                    Transform = TransformObj.FromTransform(e.transform),
+                    Type = e.enemyType
+                };
+
+                areaData.listEnemy.Add(enemyData);
+            }
+            newLevel.listArea.Add(areaData);    
         }
+
 
         int existingIndex = dataContainer.levels.FindIndex(l => l.OrderId == OrderId);
         if (existingIndex >= 0)
@@ -201,41 +295,52 @@ public class LevelCtrl : MonoBehaviour
         }
 
         // ================= CLEAR ENEMY =================
-        List<BaseEnemy> existingEnemies = _gameplayParent.GetComponentsInChildren<BaseEnemy>().ToList();
+        AreaContainer[] oldAreas = _gameplayParent.GetComponentsInChildren<AreaContainer>();
 
-        foreach (BaseEnemy enemy in existingEnemies)
+        foreach (var a in oldAreas)
         {
 #if UNITY_EDITOR
             if (!Application.isPlaying)
-                DestroyImmediate(enemy.gameObject);
+                DestroyImmediate(a.gameObject);
             else
-                Destroy(enemy.gameObject);
+                Destroy(a.gameObject);
 #else
-    Destroy(enemy.gameObject);
+    Destroy(a.gameObject);
 #endif
         }
 
-        // ================= SPAWN ENEMY =================
-        if (levelData.listEnemy == null || levelData.listEnemy.Count == 0)
+        // ================= SPAWN ALL AREA (spawn cả AreaContainer) =================
+
+        if (levelData.listArea == null || levelData.listArea.Count == 0)
         {
-            Debug.LogWarning("Level không có enemy nào để load.");
+            Debug.LogWarning("Level không có area nào để load.");
             return;
         }
 
-        foreach (EnemyData enemyData in levelData.listEnemy)
+        foreach (AreaData area in levelData.listArea)
         {
-            //if (enemyData == null || enemyData.Transform == null)
-            BaseEnemy prefab = GetEnemyPrefab(enemyData.Type);
+            AreaContainer areaContainer =
+                Instantiate(_areaContainerPrefab, _gameplayParent);
 
-            if (prefab == null)
+            areaContainer.AreaId = area.AreaId;
+            areaContainer.name = $"Area_{area.AreaId}";
+
+            if (area.listEnemy == null || area.listEnemy.Count == 0)
                 continue;
 
-            BaseEnemy newEnemy = Instantiate(prefab, _gameplayParent);
-            enemyData.Transform.ApplyTo(newEnemy.transform);
+            foreach (EnemyData enemyData in area.listEnemy)
+            {
+                BaseEnemy prefab = GetEnemyPrefab(enemyData.Type);
 
+                if (prefab == null)
+                    continue;
+
+                BaseEnemy newEnemy =
+                    Instantiate(prefab, areaContainer.transform);
+
+                enemyData.Transform.ApplyTo(newEnemy.transform);
+            }
         }
-
-        Debug.Log($"Load Level {OrderId} thành công. Enemy count: {levelData.listEnemy.Count}");
     }
 
     BaseEnemy GetEnemyPrefab(EnemyType type)
