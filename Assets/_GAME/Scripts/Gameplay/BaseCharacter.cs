@@ -19,12 +19,7 @@ public abstract class BaseCharacter : MonoBehaviour
             rb = GetComponent<Rigidbody>();
     }
 
-    protected virtual void Start()
-    {
-        OnInit();
-    }
-
-    protected virtual void OnInit()
+    public virtual void OnInit()
     {
         _curHP = maxHealth;
         _heathBar.Init(_curHP);

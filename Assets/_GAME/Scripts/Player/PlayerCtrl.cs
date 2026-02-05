@@ -13,7 +13,7 @@ public class PlayerCtrl : BaseCharacter
     [SerializeField] bool _physicMovement = false;
 
     [SerializeField] Transform body;
-    [SerializeField] Collider collider;
+    [SerializeField] Collider _collider;
     [SerializeField] ParticleSystem _hitEffect;
 
     [SerializeField] float moveSpeed = 5f;
@@ -22,29 +22,15 @@ public class PlayerCtrl : BaseCharacter
     //Variables
     [SerializeField] PlayerAnimator animator;
     [SerializeField] PlayerFireRange fireRange;
+    [SerializeField] PlayerAttack playerAttack;
 
     Vector2 MoveInput;
-    Vector3 _initPos;
     Quaternion _initRotation;
     float maxInputMagnitude = 1f;
+    float groundY;
 
     public static Action OnPlayerAttackAction;
     public static Action OnPlayerBeTakeDamage;
-
-
-    protected override void Awake()
-    {
-        base.Awake();
-        _initPos = transform.position;
-        _initRotation = body.rotation;
-
-    }
-
-    protected void OnEnable()
-    {
-        GameUI.OnClickAttackAction += Attack;
-        JoystickCtrl.OnJoystickMove += Movement;
-    }
 
     protected void OnDestroy()
     {
@@ -52,19 +38,23 @@ public class PlayerCtrl : BaseCharacter
         JoystickCtrl.OnJoystickMove -= Movement;
     }
 
-
-    [Button("Init Player")]
-    public void OnInitGame()
+    public override void OnInit()
     {
-        transform.position = _initPos;
-        body.rotation = _initRotation;
+        base.OnInit();
+        groundY = transform.position.y;
+        //_initRotation = body.rotation;
 
         isDead = false;
-        rb.isKinematic = false;
-        collider.enabled = true;
+       
+        _collider.enabled = true;
 
-        animator.RebineAnim();
+        //animator.RebineAnim();
         animator.Idle();
+
+        playerAttack.OnInit();
+
+        GameUI.OnClickAttackAction += Attack;
+        JoystickCtrl.OnJoystickMove += Movement;
     }
 
     public void Movement(Vector2 MoveInput)
@@ -125,7 +115,7 @@ public class PlayerCtrl : BaseCharacter
         isDead = true;
         animator.Dead();
         rb.isKinematic = true;
-        collider.enabled = false;
+        _collider.enabled = false;
     }
 
     public void TransformMove(Vector2 input)
@@ -139,10 +129,10 @@ public class PlayerCtrl : BaseCharacter
             animator.Idle();
         }
         Vector3 moveDir = new Vector3(input.x, 0, input.y);
-        //transform.Translate(moveDir * moveSpeed * Time.deltaTime, Space.World);
+        transform.Translate(moveDir * moveSpeed * Time.deltaTime, Space.World);
         Vector3 pos = transform.position;
         pos += moveDir * moveSpeed * Time.deltaTime;
-        pos.y = _initPos.y;
+        pos.y = groundY;
         transform.position = pos;
     }
 

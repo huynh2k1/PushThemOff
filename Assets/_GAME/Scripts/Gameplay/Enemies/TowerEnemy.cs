@@ -8,7 +8,7 @@ public class TowerEnemy : BaseEnemy
 
     Transform _targetPlayer;
 
-    protected override void OnInit()
+    public override void OnInit()
     {
         base.OnInit();
         attackTimer = 0f;

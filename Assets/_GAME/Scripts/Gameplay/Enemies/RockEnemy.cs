@@ -23,7 +23,7 @@ public class RockEnemy : BaseEnemy
 
     public static Action OnAttackAction;
 
-    protected override void OnInit()
+    public override void OnInit()
     {
         base.OnInit();
 

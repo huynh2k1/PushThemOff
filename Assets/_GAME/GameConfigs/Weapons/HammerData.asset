@@ -18,5 +18,5 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: 7bbcc799c3f55024e9cdffbd5ff861c2, type: 3}
   Speed: 15
   MaxDistance: 5
-  Damage: 30
+  Damage: 100
   rotateSpeed: 3600

@@ -24,10 +24,9 @@ public class PlayerFireRange : MonoBehaviour
     {
         if (!other.CompareTag("Enemy")) return;
 
-        if (enemiesInRange.Remove(other.transform))
+        if (enemiesInRange.Contains(other.transform))
         {
-            if (CurrentTarget == other.transform)
-                CurrentTarget = enemiesInRange.Count > 0 ? enemiesInRange[0] : null;
+            RemoveEnemy(other.transform);
         }
     }
 

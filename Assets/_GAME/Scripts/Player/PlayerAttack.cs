@@ -1,4 +1,5 @@
-﻿using NaughtyAttributes;
+﻿using H_Utils;
+using NaughtyAttributes;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
@@ -22,11 +23,6 @@ public class PlayerAttack : MonoBehaviour
     [Header("Range UI")]
     [SerializeField] private GameObject rangeGraphic;
 
-    private void Awake()
-    {
-        ChangeKnife();
-    }
-
     private void OnEnable()
     {
         PlayerCtrl.OnPlayerAttackAction += Attack;
@@ -37,6 +33,11 @@ public class PlayerAttack : MonoBehaviour
     {
         PlayerCtrl.OnPlayerAttackAction -= Attack;
         ButtonWeapon.OnClickThisAction -= SwapWeapon;
+    }
+
+    public void OnInit()
+    {
+        SwapWeapon(GameDatas.CurWeapon);
     }
 
     public void SwapWeapon(int id)

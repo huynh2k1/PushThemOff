@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -8,9 +9,9 @@ using UnityEngine;
 
 public class LevelCtrl : MonoBehaviour
 {
-    [SerializeField] private Transform _playerTransform;
+    [SerializeField] GameObject _playerPrefab;
+    //[SerializeField] private Transform _playerTransform;
     [SerializeField] Transform _gameplayParent;
-    [SerializeField] PlayerCtrl _player;
     [SerializeField] TextAsset _data;
     [SerializeField] private Transform _mapRoot; // Gán MapTransform trong Inspector
                                                  // 
@@ -27,18 +28,55 @@ public class LevelCtrl : MonoBehaviour
     int _currentAreaIndex;
     AreaContainer _currentArea;
 
+    public static Action<Transform> OnPlayerInitAction;
+    public static Action<int> OnAreaClearedGlobal;
+
     #region LIFECYCLE   
     public void OnStartGame(int idLevel)
     {
         OrderId = idLevel;
-        InitPlayer();
+        ClearLevel();
         LoadLevelDataOnLy();
         StartFirstArea();
     }
 
-    public void InitPlayer()
+    public void ClearLevel()
     {
-        _player.OnInitGame();
+        StopAllCoroutines();
+
+        // 🔹 Clear Area hiện tại (nếu còn)
+        if (_currentArea != null)
+        {
+            _currentArea.OnAreaCleared -= HandleAreaCleared;
+            Destroy(_currentArea.gameObject);
+            _currentArea = null;
+        }
+
+        // 🔹 Xóa toàn bộ AreaContainer còn sót
+        AreaContainer[] areas = _gameplayParent.GetComponentsInChildren<AreaContainer>();
+        foreach (var area in areas)
+        {
+            Destroy(area.gameObject);
+        }
+
+        // 🔹 Xóa Player đã spawn
+        PlayerCtrl player = _gameplayParent.GetComponentInChildren<PlayerCtrl>();
+        if (player != null)
+        {
+            Destroy(player.gameObject);
+        }
+
+        // 🔹 Reset map (tắt toàn bộ)
+        foreach (Transform map in _mapRoot)
+        {
+            map.gameObject.SetActive(false);
+        }
+
+        // 🔹 Reset data runtime
+        _currentLevelData = null;
+        _currentAreaIndex = 0;
+
+        Debug.Log("Cleaned Level → Back Home");
     }
 
     public void LoadLevelDataOnLy()
@@ -56,10 +94,15 @@ public class LevelCtrl : MonoBehaviour
             return;
         }
 
-        ApplyMap(_currentLevelData.MapId);
 
         if (_currentLevelData.PlayerData != null)
-            _currentLevelData.PlayerData.Transform.ApplyTo(_playerTransform);
+        {
+            GameObject player = Instantiate(_playerPrefab.gameObject, _gameplayParent);
+            _currentLevelData.PlayerData.Transform.ApplyTo(player.transform);
+            OnPlayerInitAction?.Invoke(player.transform);   
+            player.GetComponent<PlayerCtrl>().OnInit();
+        }
+        ApplyMap(_currentLevelData.MapId);
     }
 
     void StartFirstArea()
@@ -96,7 +139,9 @@ public class LevelCtrl : MonoBehaviour
             BaseEnemy enemy =
                 Instantiate(prefab, areaContainer.transform);
 
+            Debug.Log("Spawn Enemy: " + enemyData.Transform.Position);
             enemyData.Transform.ApplyTo(enemy.transform);
+            enemy.OnInit();
         }
 
         _currentArea = areaContainer;
@@ -108,6 +153,8 @@ public class LevelCtrl : MonoBehaviour
     void HandleAreaCleared(AreaContainer area)
     {
         area.OnAreaCleared -= HandleAreaCleared;
+
+        OnAreaClearedGlobal?.Invoke(_currentAreaIndex);
 
         Destroy(area.gameObject);
 
@@ -204,13 +251,14 @@ public class LevelCtrl : MonoBehaviour
             dataContainer.levels = new List<LevelData>();
         }
 
+        Transform playerTranform = _gameplayParent.GetComponentInChildren<PlayerCtrl>().transform;
         LevelData newLevel = new LevelData
         {
             OrderId = this.OrderId,
             MapId = GetCurrentMapId(),
             PlayerData = new PlayerData
             {
-                Transform = TransformObj.FromTransform(_playerTransform)
+                Transform = TransformObj.FromTransform(playerTranform)
             },
             listArea = new List<AreaData>()
         };
@@ -287,7 +335,8 @@ public class LevelCtrl : MonoBehaviour
         // ================= PLAYER =================
         if (levelData.PlayerData != null)
         {
-            levelData.PlayerData.Transform.ApplyTo(_playerTransform);
+            GameObject player = Instantiate(_playerPrefab.gameObject, _gameplayParent);
+            levelData.PlayerData.Transform.ApplyTo(player.transform);
         }
         else
         {

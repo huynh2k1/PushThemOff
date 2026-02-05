@@ -14,24 +14,21 @@ public class Enemy : BaseEnemy
     Quaternion _initRot;
     Transform _targetPlayer;
 
-    protected override void Awake()
-    {
-        base.Awake();
-        _agent = GetComponent<NavMeshAgent>();
-        _agent.updateRotation = false;
-
-        _initPos = _rotater.position;
-        _initRot = _rotater.rotation;
-    }
-
-    protected override void OnInit()
+    public override void OnInit()
     {
         base.OnInit();
+        _agent = GetComponent<NavMeshAgent>();
+        _agent.enabled = true;
+        _agent.updateRotation = false;
+        _initPos = _rotater.position;
+        _initRot = _rotater.rotation;
         ChangeState(State.Idle);
     }
 
     void Update()
     {
+        if (GameController.I.CurState != H_Utils.GameState.PLAYING)
+            return;
         DetectPlayer();
 
         switch (_curState)

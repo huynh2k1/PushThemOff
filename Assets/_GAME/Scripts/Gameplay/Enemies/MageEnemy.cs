@@ -9,7 +9,7 @@ public class MageEnemy : BaseEnemy
     [SerializeField] ParticleSystem healNova;
 
 
-    protected override void OnInit()
+    public override void OnInit()
     {
         base.OnInit();
 

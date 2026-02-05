@@ -18,7 +18,7 @@ public class IceEnemy : BaseEnemy
 
     Transform _targetPlayer;
 
-    protected override void OnInit()
+    public override void OnInit()
     {
         base.OnInit();
 
