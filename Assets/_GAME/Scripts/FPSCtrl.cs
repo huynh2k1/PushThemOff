@@ -6,7 +6,6 @@ public class FPSCtrl : MonoBehaviour
 {
     private void Start()
     {
-        Application.targetFrameRate = 60;
-
+        Application.targetFrameRate = 120;
     }
 }
