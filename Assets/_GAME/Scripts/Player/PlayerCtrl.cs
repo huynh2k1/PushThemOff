@@ -31,6 +31,7 @@ public class PlayerCtrl : BaseCharacter
 
     public static Action OnPlayerAttackAction;
     public static Action OnPlayerBeTakeDamage;
+    public static Action OnPlayerDeadAction;
 
     protected void OnDestroy()
     {
@@ -116,6 +117,8 @@ public class PlayerCtrl : BaseCharacter
         animator.Dead();
         rb.isKinematic = true;
         _collider.enabled = false;
+
+        OnPlayerDeadAction?.Invoke();
     }
 
     public void TransformMove(Vector2 input)

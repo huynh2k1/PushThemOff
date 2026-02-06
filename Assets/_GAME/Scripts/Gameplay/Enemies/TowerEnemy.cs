@@ -11,17 +11,19 @@ public class TowerEnemy : BaseEnemy
     public override void OnInit()
     {
         base.OnInit();
-        attackTimer = 0f;
+        attackTimer = 1;
         _targetPlayer = null;
     }
 
     void Update()
     {
+        if (GameController.I.CurState != H_Utils.GameState.PLAYING)
+            return;
         DetectPlayer();
 
         if (_targetPlayer == null)
         {
-            attackTimer = 0f;
+            attackTimer = attackDelay;
             return;
         }
 
@@ -33,7 +35,7 @@ public class TowerEnemy : BaseEnemy
         if (dist > detectRange)
         {
             _targetPlayer = null;
-            attackTimer = 0f;
+            attackTimer = attackDelay;
             return;
         }
 

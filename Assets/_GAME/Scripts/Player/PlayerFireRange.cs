@@ -1,10 +1,21 @@
 ﻿using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerFireRange : MonoBehaviour
 {
     private readonly List<Transform> enemiesInRange = new();
     public Transform CurrentTarget { get; private set; }
+
+    private void OnEnable()
+    {
+        BaseEnemy.OnEnemyKilled += RemoveEnemy;
+    }
+
+    private void OnDestroy()
+    {
+        BaseEnemy.OnEnemyKilled -= RemoveEnemy;
+    }
 
     private void OnTriggerEnter(Collider other)
     {

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using H_Utils;
 using NaughtyAttributes;
 using UnityEditor;
 using UnityEngine;
@@ -30,6 +31,7 @@ public class LevelCtrl : MonoBehaviour
 
     public static Action<Transform> OnPlayerInitAction;
     public static Action<int> OnAreaClearedGlobal;
+    public event Action OnLevelCompletedEvent;
 
     #region LIFECYCLE   
     public void OnStartGame(int idLevel)
@@ -38,6 +40,26 @@ public class LevelCtrl : MonoBehaviour
         ClearLevel();
         LoadLevelDataOnLy();
         StartFirstArea();
+    }
+
+    public void OnGameWin()
+    {
+        if(GameDatas.CurrentLevel < GetMaxLevelOrder() - 1)
+        {
+            GameDatas.CurrentLevel++;
+        }
+        else
+        {
+            GameDatas.CurrentLevel = 0; 
+        }
+    }
+
+    public void OnReplayGame(bool isWin)
+    {
+        if (!isWin)
+            return;
+        if (GameDatas.CurrentLevel > 0)
+            GameDatas.CurrentLevel--;
     }
 
     public void ClearLevel()
@@ -117,7 +139,7 @@ public class LevelCtrl : MonoBehaviour
             _currentLevelData.listArea == null ||
             _currentAreaIndex >= _currentLevelData.listArea.Count)
         {
-            Debug.Log("Level Completed");
+            OnLevelCompletedEvent?.Invoke();
             return;
         }
 

@@ -1,18 +1,49 @@
-using System.Collections;
-using System.Collections.Generic;
+using H_Utils;
 using UnityEngine;
+using UnityEngine.UI;
+using System;
 
-public class WinUI : MonoBehaviour
+public class WinUI : BasePopup
 {
-    // Start is called before the first frame update
-    void Start()
+    public override UIType Type => UIType.WIN;
+
+    [SerializeField] Button _btnHome;
+    [SerializeField] Button _btnReplay;
+    [SerializeField] Button _btnNext;
+
+    public static Action OnClickHomeAction;
+    public static Action<bool> OnClickReplayAction;
+    public static Action OnClickNextAction;
+
+    protected override void Awake()
     {
-        
+        base.Awake();
+        _btnHome.onClick.AddListener(OnClickHome);
+        _btnReplay.onClick.AddListener(OnClickReplay);
+        _btnNext.onClick.AddListener(OnClickNext);  
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnClickHome()
     {
-        
+        Hide(() =>
+        {
+            OnClickHomeAction?.Invoke();
+        });
+    }
+
+    void OnClickReplay()
+    {
+        Hide(() =>
+        {
+            OnClickReplayAction?.Invoke(true);
+        });
+    }
+
+    void OnClickNext()
+    {
+        Hide(() =>
+        {
+            OnClickNextAction?.Invoke();
+        });
     }
 }

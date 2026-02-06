@@ -33,12 +33,12 @@ public class UICtrl : BaseUICtrl
 
     public void OnGameWin()
     {
-
+        Show(UIType.WIN);
     }
 
     public void OnGameLose()
     {
-
+        Show(UIType.LOSE);
     }
 
     public void OnGamePause()

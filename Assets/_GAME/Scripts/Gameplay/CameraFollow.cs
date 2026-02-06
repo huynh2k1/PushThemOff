@@ -20,7 +20,7 @@ public class CameraFollow : MonoBehaviour
         LevelCtrl.OnPlayerInitAction -= SetTarget;
     }
 
-    void Update()
+    void LateUpdate()
     {
         if (target == null) return;
 
@@ -32,7 +32,6 @@ public class CameraFollow : MonoBehaviour
 
         transform.position = smoothedPosition;
 
-        transform.LookAt(target);
     }
 
     public void SetTarget(Transform newTarget)

@@ -191,7 +191,7 @@ MonoBehaviour:
   _anim: {fileID: 1626956946871622539}
   _animEvent: {fileID: 7856988502961727830}
   detectRange: 3
-  attackDelay: 2
+  attackDelay: 1.5
   layerTarget:
     serializedVersion: 2
     m_Bits: 512

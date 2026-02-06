@@ -10,25 +10,16 @@ public class PauseUI : BasePopup
     public override UIType Type => UIType.PAUSE;
 
     [SerializeField] Button _btnHome;
-    [SerializeField] Button _btnReplay;
+    [SerializeField] Button _btnResume;
 
     public static Action OnClickHomeAction;
-    public static Action OnClickReplayAction;
+    public static Action OnClickResumeAction;
 
     protected override void Awake()
     {
         base.Awake();
         _btnHome.onClick.AddListener(OnClickHome);
-        _btnReplay.onClick.AddListener(OnClickReplay);
-    }
-
-    public override void OnClickClose()
-    {
-        Hide(() =>
-        {
-            GameController.I.GameResume();
-        });
-
+        _btnResume.onClick.AddListener(OnClickResume);
     }
 
     void OnClickHome()
@@ -39,11 +30,11 @@ public class PauseUI : BasePopup
         });
     }
 
-    void OnClickReplay()
+    void OnClickResume()
     {
         Hide(() =>
         {
-            OnClickReplayAction?.Invoke();
+            OnClickResumeAction?.Invoke();
         });
     }
 }

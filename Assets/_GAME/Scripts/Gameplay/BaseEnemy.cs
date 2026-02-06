@@ -17,6 +17,7 @@ public abstract class BaseEnemy : BaseCharacter
     protected float attackTimer;
 
     public event Action<BaseEnemy> OnEnemyDeadAction;
+    public static Action<Transform> OnEnemyKilled;
     protected bool _isAttacking;
 
     protected virtual void OnEnable()
@@ -69,6 +70,7 @@ public abstract class BaseEnemy : BaseCharacter
             Quaternion.identity);
 
         OnEnemyDeadAction?.Invoke(this);
+        OnEnemyKilled?.Invoke(transform);
     }
 
     protected virtual void LookAtTarget(Vector3 pos)

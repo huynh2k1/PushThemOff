@@ -13,7 +13,14 @@ public class JoystickCtrl : MonoBehaviour
     private void Update()
     {
         if (GameController.I.CurState != H_Utils.GameState.PLAYING)
+        {
+            if(direction != Vector2.zero)
+            {
+                direction = Vector2.zero;
+                OnJoystickMove?.Invoke(direction);
+            }
             return;
+        }
         direction = new Vector2(-_joystick.Horizontal, -_joystick.Vertical);
         direction.Normalize();
         OnJoystickMove?.Invoke(direction);
