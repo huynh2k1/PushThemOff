@@ -23,10 +23,10 @@ public class Boomerang : BaseWeapon
         startPos = transform.position;
 
         if (flyOutCurve == null || flyOutCurve.length == 0)
-            flyOutCurve = AnimationCurve.EaseInOut(0, 1, 1, 0.2f);
+            flyOutCurve = AnimationCurve.EaseInOut(0, 1, 1, 0.4f);
 
         if (returnCurve == null || returnCurve.length == 0)
-            returnCurve = AnimationCurve.EaseInOut(0, 0.2f, 1, 1);
+            returnCurve = AnimationCurve.EaseInOut(0, 0.4f, 1, 1);
     }
 
     void Update()

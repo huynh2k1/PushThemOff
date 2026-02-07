@@ -2,7 +2,7 @@
 using UnityEngine.AI;
 using UnityEngine.Animations;
 
-public class Enemy : BaseEnemy
+public class E1 : BaseEnemy
 {
     [SerializeField] float attackRange = 1.5f;
     enum State { Idle, Chase, Return }
@@ -18,7 +18,9 @@ public class Enemy : BaseEnemy
     {
         base.OnInit();
         _agent = GetComponent<NavMeshAgent>();
-        _agent.enabled = true;
+
+        _agent.Warp(transform.position);   // <<< dòng này
+
         _agent.updateRotation = false;
         _initPos = _rotater.position;
         _initRot = _rotater.rotation;

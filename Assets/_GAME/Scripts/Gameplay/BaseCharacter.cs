@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using GameConfig;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -30,6 +31,8 @@ public abstract class BaseCharacter : MonoBehaviour
 
     public virtual void TakeDamage(float damage)
     {
+        PopupTextSpawner.I.Spawn(PopupTextType.DAMAGE, transform.position, (int)damage);
+
         if (damage >= _curHP)
         {
             _curHP = 0;

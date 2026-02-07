@@ -44,8 +44,9 @@ public enum EnemyType
     E1 = 0,
     E2 = 1,
     E3 = 2,
-    E4 = 3,
-    E5 = 4,
+    E1_BOSS = 3,
+    E2_BOSS = 4,
+    E3_BOSS = 5,
 }
 
 [Serializable]

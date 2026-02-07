@@ -18,4 +18,4 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: c40b20bb9233b6e44a63ce3a094c1cbf, type: 3}
   Speed: 10
   MaxDistance: 3
-  Damage: 10
+  Damage: 20

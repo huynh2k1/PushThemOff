@@ -23,13 +23,13 @@ public abstract class BaseEnemy : BaseCharacter
     protected virtual void OnEnable()
     {
         _animEvent.OnAttackAction += HandleEventAttack;
-        _animEvent.OnEndAnimAction += HandleEventEndAttack;
+        _animEvent.OnEndAttackAction += HandleEventEndAttack;
     }
 
     protected virtual void OnDestroy()
     {
         _animEvent.OnAttackAction -= HandleEventAttack;
-        _animEvent.OnEndAnimAction -= HandleEventEndAttack;
+        _animEvent.OnEndAttackAction -= HandleEventEndAttack;
     }
 
     public abstract void HandleEventAttack();

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -7,6 +6,7 @@ using H_Utils;
 using NaughtyAttributes;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class LevelCtrl : MonoBehaviour
 {
@@ -19,11 +19,12 @@ public class LevelCtrl : MonoBehaviour
     [SerializeField] private AreaContainer _areaContainerPrefab;
 
     [Header("Enemy Prefabs")]
-    [SerializeField] BaseEnemy _enemy1Prefab;
-    [SerializeField] BaseEnemy _enemy2Prefab;
-    [SerializeField] BaseEnemy _enemy3Prefab;
-    [SerializeField] BaseEnemy _enemy4Prefab;
-    [SerializeField] BaseEnemy _enemy5Prefab;
+    [SerializeField] BaseEnemy _e1Prefab;
+    [SerializeField] BaseEnemy _e2Prefab;
+    [SerializeField] BaseEnemy _e3Prefab;
+    [SerializeField] BaseEnemy _boss1Prefab;
+    [SerializeField] BaseEnemy _boss2Prefab;
+    [SerializeField] BaseEnemy _boss3Prefab;
 
     LevelData _currentLevelData;
     int _currentAreaIndex;
@@ -409,6 +410,9 @@ public class LevelCtrl : MonoBehaviour
                 BaseEnemy newEnemy =
                     Instantiate(prefab, areaContainer.transform);
 
+                var agent = newEnemy.GetComponent<NavMeshAgent>();
+                if (agent != null)
+                    agent.Warp(enemyData.Transform.Position);
                 enemyData.Transform.ApplyTo(newEnemy.transform);
             }
         }
@@ -418,11 +422,12 @@ public class LevelCtrl : MonoBehaviour
     {
         switch (type)
         {
-            case EnemyType.E1: return _enemy1Prefab;
-            case EnemyType.E2: return _enemy2Prefab;
-            case EnemyType.E3: return _enemy3Prefab;
-            case EnemyType.E4: return _enemy4Prefab;
-            case EnemyType.E5: return _enemy5Prefab;
+            case EnemyType.E1: return _e1Prefab;
+            case EnemyType.E2: return _e2Prefab;
+            case EnemyType.E3: return _e3Prefab;
+            case EnemyType.E1_BOSS: return _boss1Prefab;
+            case EnemyType.E2_BOSS: return _boss2Prefab;
+            case EnemyType.E3_BOSS: return _boss3Prefab;
             default:
                 Debug.LogError("Unknown EnemyType: " + type);
                 return null;

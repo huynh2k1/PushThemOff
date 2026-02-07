@@ -106,7 +106,6 @@ public class PlayerCtrl : BaseCharacter
     public override void TakeDamage(float damage)
     {
         OnPlayerBeTakeDamage?.Invoke();
-        PopupTextSpawner.I.Spawn(PopupTextType.DAMAGE, transform.position, (int)damage);
         _hitEffect.Play();
         base.TakeDamage(damage);
     }
