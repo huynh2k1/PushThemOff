@@ -216,7 +216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 6672577853203870503}
   _heathBar: {fileID: 2517431579008790467}
-  maxHealth: 100
+  maxHealth: 30
   isDead: 0
   damage: 10
   enemyType: 0

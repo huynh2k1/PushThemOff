@@ -243,7 +243,7 @@ MonoBehaviour:
   _heathBar: {fileID: 2517431579008790467}
   maxHealth: 300
   isDead: 0
-  damage: 20
+  damage: 100
   enemyType: 3
   _rotater: {fileID: 8418451663665832127}
   _anim: {fileID: 151511825092205038}

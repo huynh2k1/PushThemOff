@@ -4,6 +4,7 @@ namespace H_Utils
 {
     public class ConstDatas
     {
+        public const string IS_FIRST_PLAY_GAME = "IS_FIRST_PLAY_GAME";
         public const string CURRENT_LEVEL = "CURRENT_LEVEL";
         public const string COIN = "COIN";
         public const string WEAPON_UNLOCK = "WEAPON_UNLOCK";
@@ -64,6 +65,12 @@ namespace H_Utils
         {
             get => PlayerPrefs.GetInt(ConstDatas.PLAYER_PREFS_VIBRATION, 1) == 1;
             set => PlayerPrefs.SetInt(ConstDatas.PLAYER_PREFS_VIBRATION, value ? 1 : 0);
+        }
+
+        public static bool IsFirstPlayGame
+        {
+            get => PlayerPrefs.GetInt(ConstDatas.IS_FIRST_PLAY_GAME, 1) == 1;
+            set => PlayerPrefs.SetInt(ConstDatas.IS_FIRST_PLAY_GAME, value ? 1 : 0);
         }
     }
 }

@@ -64,6 +64,8 @@ public class BasePopup : BaseUI
 
         if (_btnClose != null)
             _btnClose.onClick.AddListener(OnClickClose);
+
+        Initialize();
     }
 
     void Prewarm()

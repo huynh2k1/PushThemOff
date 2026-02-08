@@ -7,9 +7,21 @@ public class npc : MonoBehaviour
 {
     public int idDoor;
 
-    public static Action<int> OnPlayMeetNPC;
-
+    public static Action<DialogueData> OnPlayMeetNPC;
+    public static Action<int> OnTalkEndAction;
+    [SerializeField] DialogueData data;
     bool isMeet = false;
+
+    private void OnEnable()
+    {
+        DialogueUI.OnEndShowAction += HandleTalkEndAction;
+    }
+
+    private void OnDisable()
+    {
+        DialogueUI.OnEndShowAction -= HandleTalkEndAction;
+
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,8 +29,17 @@ public class npc : MonoBehaviour
         {
             if (isMeet)
                 return;
-            isMeet = true;  
-            OnPlayMeetNPC?.Invoke(idDoor);
+            isMeet = true;
+
+            Debug.Log("Meet Player");
+            GameController.I.ChangeState(H_Utils.GameState.NONE);
+            OnPlayMeetNPC?.Invoke(data);
         }
+    }
+
+    void HandleTalkEndAction()
+    {
+        OnTalkEndAction?.Invoke(idDoor);
+        GameController.I.GameResume();
     }
 }

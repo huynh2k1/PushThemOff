@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cec438872f9aaf47868ed9d3c2e5250, type: 3}
+  m_Name: TutorialDialogueData
+  m_EditorClassIdentifier: 
+  listData:
+  - characterUI: {fileID: 21300000, guid: 94a85fc8411a28140bbe95f0131a8d45, type: 3}
+    content: "Ninja\u2026 it is time for you to leave this mountain."
+  - characterUI: {fileID: 21300000, guid: 94a85fc8411a28140bbe95f0131a8d45, type: 3}
+    content: Someone in our clan has betrayed us and revealed our secrets.
+  - characterUI: {fileID: 21300000, guid: 94a85fc8411a28140bbe95f0131a8d45, type: 3}
+    content: I assign you the mission to go down the mountain and secretly investigate
+      who is behind this betrayal.
+  - characterUI: {fileID: 21300000, guid: 4c05954cb4242394196d65490ee64f4a, type: 3}
+    content: I understand. I will find the traitor.
+  - characterUI: {fileID: 21300000, guid: 94a85fc8411a28140bbe95f0131a8d45, type: 3}
+    content: "Be careful\u2026 the enemy may be closer than you think."

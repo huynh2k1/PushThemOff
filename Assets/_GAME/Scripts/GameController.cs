@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
     public static GameController I;
     [SerializeField] UICtrl _uiCtrl;
     [SerializeField] LevelCtrl _levelCtrl;
+    [SerializeField] Tutorial _tutorial;
 
     public GameState CurState;
     private void Awake()
@@ -38,6 +39,7 @@ public class GameController : MonoBehaviour
         LoseUI.OnClickHomeAction += GameHome;
         LoseUI.OnClickReplayAction += GameReplay;
 
+        Tutorial.OnTutorialEnd += GameHome;
     }
 
     private void OnDestroy()
@@ -60,14 +62,22 @@ public class GameController : MonoBehaviour
 
         LoseUI.OnClickHomeAction -= GameHome;
         LoseUI.OnClickReplayAction -= GameReplay;
+
+        Tutorial.OnTutorialEnd -= GameHome;    
     }
 
     private void Start()
     {
+        if (GameDatas.IsFirstPlayGame)
+        {
+            GameDatas.IsFirstPlayGame = false;
+            _tutorial.Play();
+            return;
+        }
         GameHome();
     }
 
-    void ChangeState(GameState newState)
+    public void ChangeState(GameState newState)
     {
         CurState = newState;
     }
@@ -110,6 +120,8 @@ public class GameController : MonoBehaviour
 
     public void GameWin()
     {
+        if (CurState != GameState.PLAYING)
+            return;
         ChangeState(GameState.NONE);
         _levelCtrl.OnGameWin();
         _uiCtrl.Hide(UIType.GAME);
@@ -121,6 +133,8 @@ public class GameController : MonoBehaviour
 
     public void GameLose()
     {
+        if (CurState != GameState.PLAYING)
+            return;
         ChangeState(GameState.NONE);
         _uiCtrl.Hide(UIType.GAME);
         DOVirtual.DelayedCall(1f, () =>
