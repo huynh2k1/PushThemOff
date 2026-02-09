@@ -5,6 +5,7 @@ using UnityEngine.Animations;
 public class E1 : BaseEnemy
 {
     [SerializeField] float attackRange = 1.5f;
+    [SerializeField] EnemyDetect _detect;
     enum State { Idle, Chase, Return }
 
     NavMeshAgent _agent;
@@ -13,7 +14,7 @@ public class E1 : BaseEnemy
     Vector3 _initPos;
     Quaternion _initRot;
     Transform _targetPlayer;
-
+   
     public override void OnInit()
     {
         base.OnInit();
@@ -24,6 +25,10 @@ public class E1 : BaseEnemy
         _agent.updateRotation = false;
         _initPos = _rotater.position;
         _initRot = _rotater.rotation;
+
+        _detect.OnPlayerEnter += HandlePlayerEnter;
+        _detect.OnPlayerExit += HandlePlayerExit;
+
         ChangeState(State.Idle);
     }
 
@@ -31,7 +36,6 @@ public class E1 : BaseEnemy
     {
         if (GameController.I.CurState != H_Utils.GameState.PLAYING)
             return;
-        DetectPlayer();
 
         switch (_curState)
         {
@@ -47,9 +51,6 @@ public class E1 : BaseEnemy
 
         if (_agent.hasPath)
             _agent.ResetPath();
-
-        if (_targetPlayer != null)
-            ChangeState(State.Chase);
     }
 
     void UpdateChase()
@@ -112,10 +113,18 @@ public class E1 : BaseEnemy
         }
     }
 
-    void DetectPlayer()
+    void HandlePlayerEnter(Transform player)
     {
-        Collider[] hits = Physics.OverlapSphere(_rotater.position, detectRange, layerTarget);
-        _targetPlayer = hits.Length > 0 ? hits[0].transform : null;
+        if (_curState == State.Return) return;
+
+        _targetPlayer = player;
+        ChangeState(State.Chase);
+    }
+
+    void HandlePlayerExit()
+    {
+        _targetPlayer = null;
+        ChangeState(State.Return);
     }
 
     void ChangeState(State newState)
@@ -129,6 +138,9 @@ public class E1 : BaseEnemy
     {
         base.Dead();
         _agent.enabled = false;
+
+        _detect.OnPlayerEnter -= HandlePlayerEnter;
+        _detect.OnPlayerExit -= HandlePlayerExit;
     }
 
     protected override void OnDrawGizmosSelected()

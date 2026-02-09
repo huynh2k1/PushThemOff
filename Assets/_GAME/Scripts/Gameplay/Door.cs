@@ -18,6 +18,8 @@ public class Door : MonoBehaviour
     {
         LevelCtrl.OnAreaClearedGlobal += HandleAreaCleared;
         npc.OnTalkEndAction += HandleKeyUnlock;
+
+        InitDoor();
     }
 
     private void OnDisable()
@@ -44,6 +46,15 @@ public class Door : MonoBehaviour
         }
     }
 
+    void InitDoor()
+    {
+        Vector3 pos = _model.transform.position;
+        pos.y = 0;
+        _model.transform.position = pos;
+
+        _model.SetActive(true);
+        _collider.enabled = true;
+    }
     void OpenDoor()
     {
         _virtualCam.SetActive(true);

@@ -6,6 +6,7 @@ using UnityEngine;
 public abstract class BaseEnemy : BaseCharacter
 {
     public EnemyType enemyType;
+
     [Header("Rotate/Anim")]
     [SerializeField] protected Transform _rotater;
     [SerializeField] protected Animator _anim;

@@ -15,6 +15,8 @@ public class npc : MonoBehaviour
     private void OnEnable()
     {
         DialogueUI.OnEndShowAction += HandleTalkEndAction;
+        if(isMeet)
+            isMeet = false;
     }
 
     private void OnDisable()

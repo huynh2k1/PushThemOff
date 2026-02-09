@@ -296,6 +296,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 334668937637016994}
+    - targetCorrespondingSourceObject: {fileID: 1627629313751412156, guid: bb35e85f2b2b08c41bf0814715e759f5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6655485142274691583}
+    - targetCorrespondingSourceObject: {fileID: 1627629313751412156, guid: bb35e85f2b2b08c41bf0814715e759f5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1251550715733054884}
   m_SourcePrefab: {fileID: 100100000, guid: bb35e85f2b2b08c41bf0814715e759f5, type: 3}
 --- !u!114 &2517431579008790467 stripped
 MonoBehaviour:
@@ -307,6 +315,45 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d41cf275e190992449da5dc3b3c1c08a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &3019430599471927409 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1627629313751412156, guid: bb35e85f2b2b08c41bf0814715e759f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 4571624338139282893}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &6655485142274691583
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3019430599471927409}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1251550715733054884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3019430599471927409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c2b39c700869ee408fd0e70e6e9c966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4917722161148356425 stripped
@@ -337,7 +384,7 @@ MonoBehaviour:
   _anim: {fileID: 6397309677147599061}
   _animEvent: {fileID: 398925114148880062}
   detectRange: 4
-  attackDelay: 2
+  attackDelay: 1.5
   layerTarget:
     serializedVersion: 2
     m_Bits: 512

@@ -27,7 +27,6 @@ public class HomeUI : BaseUI
 
     void OnClickPlay()
     {
-        Hide();
         OnClickPlayAction();
     }
 

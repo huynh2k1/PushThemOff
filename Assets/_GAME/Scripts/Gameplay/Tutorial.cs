@@ -41,9 +41,9 @@ public class Tutorial : MonoBehaviour
     {
         _blendCam.m_DefaultBlend.m_Time = 1f;
         _virtualCam?.SetActive(false);
+        OnTutorialEnd?.Invoke();
         DOVirtual.DelayedCall(1f, () =>
         {
-            OnTutorialEnd?.Invoke();
             gameObject.SetActive(false);
         });
     }

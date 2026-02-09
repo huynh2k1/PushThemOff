@@ -243,7 +243,7 @@ MonoBehaviour:
   _heathBar: {fileID: 2517431579008790467}
   maxHealth: 300
   isDead: 0
-  damage: 100
+  damage: 40
   enemyType: 3
   _rotater: {fileID: 8418451663665832127}
   _anim: {fileID: 151511825092205038}
@@ -256,7 +256,7 @@ MonoBehaviour:
   hpPercentToChange: 0.5
   attackRange: 1.5
   firePoint: {fileID: 2064036587380598849}
-  bulletPrefab: {fileID: 2179911392908389086, guid: 97a5844c0e4705d409e570aeee7b9980,
+  bulletPrefab: {fileID: 7434980144860265112, guid: 1866272e5d3a5c24d8f9d1f67165847e,
     type: 3}
   moveRadius: 6
   stopTime: 1

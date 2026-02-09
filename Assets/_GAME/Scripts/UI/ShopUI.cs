@@ -7,6 +7,7 @@ public class ShopUI : BasePopup
 {
     public override UIType Type => UIType.SHOP;
 
+    [SerializeField] SwipeMenu _swipeMenu;
     [SerializeField] PanelCoin _panelCoin;
     [SerializeField] Transform _contentParent;
     [SerializeField] ShopElement _shopElementPrefab;
@@ -48,6 +49,9 @@ public class ShopUI : BasePopup
                 _panelCoin.UpdateText(GameDatas.Coin);
             };
         }
+
+        _swipeMenu.InitPages(_listElement);
+
     }
 
     public void ReloadUI()

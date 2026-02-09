@@ -22,6 +22,8 @@ public class BulletEnemy : MonoBehaviour
 
     void Update()
     {
+        if (!GameController.I.IsPlaying)
+            return;
         transform.position += dir * speed * Time.deltaTime;
 
         if (Vector3.Distance(startPos, transform.position) >= maxDistance)

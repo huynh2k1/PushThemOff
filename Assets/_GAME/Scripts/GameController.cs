@@ -12,10 +12,14 @@ public class GameController : MonoBehaviour
     [SerializeField] Tutorial _tutorial;
 
     public GameState CurState;
+
+    public bool IsPlaying => CurState == GameState.PLAYING;
+
     private void Awake()
     {
         Application.targetFrameRate = 120;
         I = this;
+        _uiCtrl.OnInit();
     }
 
     private void OnEnable()
@@ -27,7 +31,7 @@ public class GameController : MonoBehaviour
 
         GameUI.OnClickPauseAction += GamePause; 
 
-        PauseUI.OnClickHomeAction += GameHome;
+        PauseUI.OnClickHomeAction += BackToHome;
         PauseUI.OnClickResumeAction += GameResume;
 
 
@@ -36,10 +40,10 @@ public class GameController : MonoBehaviour
         WinUI.OnClickReplayAction += GameReplay;
         WinUI.OnClickNextAction += GameStart;
 
-        LoseUI.OnClickHomeAction += GameHome;
+        LoseUI.OnClickHomeAction += BackToHome;
         LoseUI.OnClickReplayAction += GameReplay;
 
-        Tutorial.OnTutorialEnd += GameHome;
+        Tutorial.OnTutorialEnd += HandleEndTutorial;
     }
 
     private void OnDestroy()
@@ -51,7 +55,7 @@ public class GameController : MonoBehaviour
 
         GameUI.OnClickPauseAction -= GamePause;
 
-        PauseUI.OnClickHomeAction -= GameHome;
+        PauseUI.OnClickHomeAction -= BackToHome;
         PauseUI.OnClickResumeAction -= GameResume;
 
 
@@ -60,10 +64,10 @@ public class GameController : MonoBehaviour
         WinUI.OnClickReplayAction -= GameReplay;
         WinUI.OnClickNextAction -= GameStart;
 
-        LoseUI.OnClickHomeAction -= GameHome;
+        LoseUI.OnClickHomeAction -= BackToHome;
         LoseUI.OnClickReplayAction -= GameReplay;
 
-        Tutorial.OnTutorialEnd -= GameHome;    
+        Tutorial.OnTutorialEnd -= HandleEndTutorial;    
     }
 
     private void Start()
@@ -82,6 +86,14 @@ public class GameController : MonoBehaviour
         CurState = newState;
     }
 
+    public void HandleEndTutorial()
+    {
+        _uiCtrl.LoadingSplash(() =>
+        {
+            SetUpGame();
+        });
+    }
+
     public void GameHome()
     {
         ChangeState(GameState.NONE);
@@ -89,6 +101,13 @@ public class GameController : MonoBehaviour
         _levelCtrl.ClearLevel();    
     }
 
+    public void BackToHome()
+    {
+        _uiCtrl.LoadingSplash(() =>
+        {
+            GameHome();
+        });
+    }
 
     void SetUpGame()
     {
@@ -98,7 +117,7 @@ public class GameController : MonoBehaviour
     }
     public void GameStart()
     {
-        SetUpGame();
+        _uiCtrl.LoadingSplash(() => SetUpGame());
     }
     
     public void GamePause()
