@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using H_Utils;
+using TMPro;
 using UnityEngine;
 
 public class ShopUI : BasePopup
@@ -17,10 +18,27 @@ public class ShopUI : BasePopup
 
     List<ShopElement> _listElement;
 
+    [Header("Stat Weapons")]
+    [SerializeField] TMP_Text txtName;
+    [SerializeField] TMP_Text txtHealth;
+    [SerializeField] TMP_Text txtDamage;
+    [SerializeField] TMP_Text txtRange;
+    [SerializeField] TMP_Text txtBonusSkill;
+
     protected override void Awake()
     {
         base.Awake();
+        _swipeMenu.OnPageChanged += HandleOnPageChangedEvent;
+    }
+
+    private void Start()
+    {
         Init();
+    }
+
+    private void OnDestroy()
+    {
+        _swipeMenu.OnPageChanged -= HandleOnPageChangedEvent;
     }
 
     public override void Show()
@@ -50,7 +68,7 @@ public class ShopUI : BasePopup
             };
         }
 
-        _swipeMenu.InitPages(_listElement);
+        _swipeMenu.Init(_listElement);
 
     }
 
@@ -60,5 +78,20 @@ public class ShopUI : BasePopup
         {
             e.ReloadUI();
         }
+    }
+
+    void HandleOnPageChangedEvent(int id)
+    {
+        WeaponData data = _listWeaponData[id - 1];
+        UpdateStatsWeapon(data.Name, data.BonusHealth, (int)data.Damage, data.MaxDistance, data.Skill);
+    }
+
+    void UpdateStatsWeapon(string NameWeapon, int Health, int Damage, int Range, string Skill)
+    {
+        txtName.text = NameWeapon;
+        txtDamage.text = $"- Damage: {Damage}";
+        txtHealth.text = $"- Health: {Health}";  
+        txtRange.text = $"- Range: {Range}";
+        txtBonusSkill.text = "- Skill: " + Skill.ToString();
     }
 }

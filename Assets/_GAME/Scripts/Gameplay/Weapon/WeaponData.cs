@@ -13,7 +13,13 @@ public abstract class WeaponData : ScriptableObject
 
 
     [Header("Gameplay")]
-    public float Speed;
-    public int MaxDistance;
     public float Damage;
+    public int BonusHealth;
+    public int MaxDistance;
+    public string Skill;
+    public float Speed;
+
+    [Header("Effects")]
+    public float shakeDuration;
+    public float shakeMagnitude;
 }

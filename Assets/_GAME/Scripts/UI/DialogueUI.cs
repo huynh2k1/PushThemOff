@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using H_Utils;
 using TMPro;
 using UnityEngine;
@@ -22,6 +23,7 @@ public class DialogueUI : BasePopup
     DialogueData current;
 
     int index;
+    string content;
     protected override void Awake()
     {
         base.Awake();
@@ -66,7 +68,17 @@ public class DialogueUI : BasePopup
 
         _characterUI.sprite = data.characterUI;
         _characterUI.SetNativeSize();
-        _contentText.text = data.content;
+        AnimText(data.content);
+    }
+
+    void AnimText(string Content)
+    {
+        content = "";
+        DOTween.Kill(this);
+        DOTween.To(() => content, x => content = x, Content, 1f).OnUpdate(() =>
+        {
+            _contentText.text = content;
+        });
     }
 
     void Skip()

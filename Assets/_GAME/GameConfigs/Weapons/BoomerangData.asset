@@ -16,7 +16,11 @@ MonoBehaviour:
   Name: Boomerang
   Price: 2000
   Icon: {fileID: 21300000, guid: 27d59abc5e900ff4384799616422b1ca, type: 3}
-  Speed: 25
+  Damage: 20
+  BonusHealth: 100
   MaxDistance: 4
-  Damage: 15
-  forcePush: 10
+  Skill: Thrown forward to deal damage, then deals a second hit when returning to
+    the player.
+  Speed: 15
+  shakeDuration: 0.2
+  shakeMagnitude: 0.3

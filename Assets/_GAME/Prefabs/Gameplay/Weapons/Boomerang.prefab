@@ -80,6 +80,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dacdc196934bdb94a8eab1d8876e289a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _trail: {fileID: 5824223358310361159}
   _data: {fileID: 11400000, guid: 5a8a22e782ec43d489e137550e6bfa04, type: 2}
   flyOutCurve:
     serializedVersion: 2
@@ -4929,7 +4930,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5824223358328738121
 Transform:
   m_ObjectHideFlags: 0

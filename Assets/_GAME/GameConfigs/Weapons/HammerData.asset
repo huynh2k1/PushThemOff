@@ -16,7 +16,11 @@ MonoBehaviour:
   Name: Hammer
   Price: 4000
   Icon: {fileID: 21300000, guid: 7bbcc799c3f55024e9cdffbd5ff861c2, type: 3}
-  Speed: 15
+  Damage: 50
+  BonusHealth: 200
   MaxDistance: 5
-  Damage: 100
+  Skill: On hit, creates an explosion that deals area damage to nearby enemies.
+  Speed: 15
+  shakeDuration: 0.2
+  shakeMagnitude: 0.5
   rotateSpeed: 3600

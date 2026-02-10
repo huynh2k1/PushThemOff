@@ -83,7 +83,7 @@ public class Boomerang : BaseWeapon
 
         float force = 6f * curveValue;
 
-        OnWeaponHitAction?.Invoke();
+        OnWeaponHitAction?.Invoke(data.shakeDuration, data.shakeDuration);
         enemy.TakeDamage(_data.Damage);
 
         Debug.Log(returning ? "Hit while RETURNING" : "Hit while FLYING OUT");

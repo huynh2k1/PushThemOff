@@ -45,7 +45,7 @@ public class Knife : BaseWeapon
         Vector3 pos = enemy.transform.position + Vector3.up;
         EffectPool.I.Spawn(EffectType.KNIFEHIT, pos, Quaternion.identity);   
         Vector3 hitDir = direction;
-        OnWeaponHitAction?.Invoke();
+        OnWeaponHitAction?.Invoke(data.shakeDuration, data.shakeMagnitude);
         enemy.TakeDamage(_data.Damage);
 
         Destroy(gameObject);

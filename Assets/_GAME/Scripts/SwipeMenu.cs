@@ -1,5 +1,6 @@
 ﻿using DG.Tweening;
 using NaughtyAttributes;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -31,13 +32,18 @@ public class SwipeMenu : MonoBehaviour, IEndDragHandler, IDragHandler
     [SerializeField] float _minScale = 1.0f;
     [SerializeField] float _scaleRange = 500f; // khoảng cách để scale từ max → min
 
-    private void Awake()
+    public event Action<int> OnPageChanged;
+
+    public void Init(List<ShopElement> elements)
     {
         _currentPage = 1;
         _targetPos = pagesRect.anchoredPosition;
         _swipeThreshold = Screen.width / 20f;
         _scaleRange = -_pageStep.x;
 
+        OnPageChanged?.Invoke(_currentPage);
+
+        InitPages(elements);
     }
 
 
@@ -47,6 +53,7 @@ public class SwipeMenu : MonoBehaviour, IEndDragHandler, IDragHandler
         if (_currentPage < maxPage)
         {
             _currentPage++;
+            OnPageChanged?.Invoke(_currentPage);
             _targetPos += _pageStep;
             MovePage();
         }
@@ -58,6 +65,7 @@ public class SwipeMenu : MonoBehaviour, IEndDragHandler, IDragHandler
         if (_currentPage > 1)
         {
             _currentPage--;
+            OnPageChanged?.Invoke(_currentPage);
             _targetPos -= _pageStep;
             MovePage();
         }

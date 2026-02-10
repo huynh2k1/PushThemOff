@@ -115,7 +115,7 @@ public class E1 : BaseEnemy
 
     void HandlePlayerEnter(Transform player)
     {
-        if (_curState == State.Return) return;
+        if (isDead) return;
 
         _targetPlayer = player;
         ChangeState(State.Chase);
@@ -123,6 +123,8 @@ public class E1 : BaseEnemy
 
     void HandlePlayerExit()
     {
+        if (isDead) return;
+
         _targetPlayer = null;
         ChangeState(State.Return);
     }

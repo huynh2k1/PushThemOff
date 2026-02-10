@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3322127952499443478}
-  - component: {fileID: 902007437990679410}
+  - component: {fileID: 1085485317405254054}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -34,7 +34,7 @@ Transform:
   - {fileID: 136663619591212681}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &902007437990679410
+--- !u!114 &1085485317405254054
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,13 +43,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 4096570623879184169}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 762eedabf50bd784983741b517ab8de9, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ed70ad37a4c2b44eb01694483a41f5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   DoorID: 0
+  type: 0
+  _virtualCam: {fileID: 7502558551238909992}
   _model: {fileID: 6897200475961807086}
   _collider: {fileID: 7010028996457761286}
-  _virtualCam: {fileID: 7502558551238909992}
 --- !u!1 &7502558551238909992
 GameObject:
   m_ObjectHideFlags: 0

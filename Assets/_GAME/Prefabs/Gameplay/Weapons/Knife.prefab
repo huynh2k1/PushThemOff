@@ -75,6 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7091e4cf4ceadbe41b277382f01b668d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _trail: {fileID: 2801653583379677364}
   _data: {fileID: 11400000, guid: 959ef065813d94544830a9c4b0e8a6ab, type: 2}
 --- !u!65 &4787281546370052794
 BoxCollider:
@@ -114,7 +115,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5128325340573937417
 Transform:
   m_ObjectHideFlags: 0

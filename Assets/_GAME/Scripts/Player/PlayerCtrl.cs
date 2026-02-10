@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Cinemachine;
 using DG.Tweening;
 using GameConfig;
+using H_Utils;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Windows;
@@ -24,6 +25,9 @@ public class PlayerCtrl : BaseCharacter
     [SerializeField] PlayerFireRange fireRange;
     [SerializeField] PlayerAttack playerAttack;
 
+    [SerializeField]
+    WeaponData[] _listWeaponData;
+
     Vector2 MoveInput;
     Quaternion _initRotation;
     float maxInputMagnitude = 1f;
@@ -41,7 +45,9 @@ public class PlayerCtrl : BaseCharacter
 
     public override void OnInit()
     {
-        base.OnInit();
+        maxHealth = 100 + _listWeaponData[GameDatas.CurWeapon].BonusHealth;
+        _curHP = maxHealth ;
+        _heathBar.Init(_curHP);
         groundY = transform.position.y;
         //_initRotation = body.rotation;
 

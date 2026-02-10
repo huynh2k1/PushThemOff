@@ -5,16 +5,16 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     [Header("Weapon")]
-    [SerializeField] GameObject boomerangPrefab;
+    [SerializeField] BaseWeapon boomerangPrefab;
     [SerializeField] WeaponData boomerangData;
 
-    [SerializeField] GameObject knifePrefab;
+    [SerializeField] BaseWeapon knifePrefab;
     [SerializeField] WeaponData knifeData;
 
-    [SerializeField] GameObject hammerPrefab;
+    [SerializeField] BaseWeapon hammerPrefab;
     [SerializeField] WeaponData hammerData;
 
-    GameObject currentWeaponPrefab;
+    BaseWeapon currentWeaponPrefab;
     WeaponData _curWeaponData;
 
     [Header("Fire")]
@@ -73,7 +73,13 @@ public class PlayerAttack : MonoBehaviour
 
     void Attack()
     {
-        GameObject weaponGO = Instantiate(
+        //GameObject weaponGO = Instantiate(
+        //    currentWeaponPrefab,
+        //    firePoint.position,
+        //    firePoint.rotation
+        //);
+
+        var weaponGO = PoolManager.I.Spawn(
             currentWeaponPrefab,
             firePoint.position,
             firePoint.rotation
@@ -89,7 +95,7 @@ public class PlayerAttack : MonoBehaviour
         weapon.Init(_curWeaponData, firePoint, firePoint.forward);
     }
 
-    public void ChangeWeapon(GameObject newPrefab, WeaponData data)
+    public void ChangeWeapon(BaseWeapon newPrefab, WeaponData data)
     {
         currentWeaponPrefab = newPrefab;
         _curWeaponData = data;
