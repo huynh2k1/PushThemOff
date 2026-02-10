@@ -14,7 +14,6 @@ public class Hammer : BaseWeapon
         base.Init(weaponData, ownerTf, dir);
         hammerData = (HammerData)weaponData; // ép kiểu an toàn vì prefab đúng loại
         startPos = transform.position;
-        _isStart = true;
     }
 
     void Update()
@@ -66,17 +65,16 @@ public class Hammer : BaseWeapon
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Enemy")) return;
+        if (other.CompareTag("Enemy"))
+        {
+            Explode(transform.position);
+            OnDestroyed();
+        }
+        if(other.CompareTag("Ground"))
+        {
+            OnDestroyed();
+        }
 
-
-        //BaseCharacter enemy = other.GetComponent<BaseCharacter>();
-        //if (enemy == null) return;
-
-        //EffectPool.I.Spawn(EffectType.HAMMERHIT, enemy.transform.position, Quaternion.identity);
-        //enemy.TakeDamage(hammerData.Damage);
-        //OnWeaponHitAction?.Invoke(data.shakeDuration, data.shakeMagnitude);
-        Explode(transform.position);
-        OnDestroyed();
     }
 
     private void OnDrawGizmosSelected()

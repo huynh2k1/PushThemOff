@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using GameConfig;
+using H_Utils;
 using UnityEngine;
 
 public abstract class BaseEnemy : BaseCharacter
@@ -15,6 +17,7 @@ public abstract class BaseEnemy : BaseCharacter
     [SerializeField] protected float detectRange;
     [SerializeField] protected float attackDelay;
     [SerializeField] protected LayerMask layerTarget;
+    [SerializeField] protected int coinBonus;
     protected float attackTimer;
 
     public event Action<BaseEnemy> OnEnemyDeadAction;
@@ -63,6 +66,9 @@ public abstract class BaseEnemy : BaseCharacter
 
     protected override void Dead()
     {
+        GameDatas.Coin += coinBonus;
+        PopupTextSpawner.I.Spawn(PopupTextType.COIN, transform.position, coinBonus);
+
         isDead = true;
         Destroy(gameObject);
         EffectPool.I.Spawn(

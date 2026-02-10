@@ -176,6 +176,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4090225317524808692, guid: bb35e85f2b2b08c41bf0814715e759f5,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4202741058718909429, guid: bb35e85f2b2b08c41bf0814715e759f5,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -388,6 +393,7 @@ MonoBehaviour:
   layerTarget:
     serializedVersion: 2
     m_Bits: 512
+  coinBonus: 40
   firePoint: {fileID: 7888339385256130696}
   bulletPrefab: {fileID: 1008710147120780041, guid: 441f054c996c7cc4f822a2f20764a6fa,
     type: 3}

@@ -31,7 +31,6 @@ public abstract class BaseCharacter : MonoBehaviour
 
     public virtual void TakeDamage(float damage)
     {
-        PopupTextSpawner.I.Spawn(PopupTextType.DAMAGE, transform.position, (int)damage);
 
         if (damage >= _curHP)
         {
@@ -41,6 +40,7 @@ public abstract class BaseCharacter : MonoBehaviour
             return;
         }
 
+        PopupTextSpawner.I.Spawn(PopupTextType.DAMAGE, transform.position, (int)damage);
         _curHP -= damage;
         _heathBar.UpdateHealthBar(_curHP);
     }

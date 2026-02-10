@@ -175,9 +175,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1161486344028972, guid: a47598e6e09d5ef449907751bebf40ba, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 1784150957079328, guid: a47598e6e09d5ef449907751bebf40ba, type: 3}
       propertyPath: m_Name
       value: Door2 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 1784150957079328, guid: a47598e6e09d5ef449907751bebf40ba, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 1925896781809694, guid: a47598e6e09d5ef449907751bebf40ba, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4015986768035106, guid: a47598e6e09d5ef449907751bebf40ba, type: 3}
       propertyPath: m_LocalPosition.x

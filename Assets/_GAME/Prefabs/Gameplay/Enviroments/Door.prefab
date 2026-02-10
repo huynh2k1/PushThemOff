@@ -49,8 +49,8 @@ MonoBehaviour:
   DoorID: 0
   type: 0
   _virtualCam: {fileID: 7502558551238909992}
-  _model: {fileID: 6897200475961807086}
   _collider: {fileID: 7010028996457761286}
+  _model: {fileID: 6897200475961807086}
 --- !u!1 &7502558551238909992
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,6 +285,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5466892317734116634, guid: 9ef95a6613cfcf44cbffd7dc92663313,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 5466892317734116634, guid: 9ef95a6613cfcf44cbffd7dc92663313,
         type: 3}

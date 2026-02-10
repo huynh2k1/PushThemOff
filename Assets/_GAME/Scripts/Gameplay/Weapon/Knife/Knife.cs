@@ -16,6 +16,8 @@ public class Knife : BaseWeapon
 
     void Update()
     {
+        if (!_isStart || !GameController.I.IsPlaying)
+            return;
         FlyForward();
         CheckMaxDistance();
     }
@@ -30,24 +32,30 @@ public class Knife : BaseWeapon
         float distance = Vector3.Distance(startPos, transform.position);
         if (distance >= _data.MaxDistance)
         {
-            Destroy(gameObject); // sau này đổi thành SetActive(false) cho pool
+            OnDestroyed(); // sau này đổi thành SetActive(false) cho pool
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Enemy")) return;
+        if (other.CompareTag("Enemy"))
+        {
+            BaseCharacter enemy = other.GetComponent<BaseCharacter>();
+            if (enemy == null) return;
 
+            Vector3 pos = enemy.transform.position + Vector3.up;
+            EffectPool.I.Spawn(EffectType.KNIFEHIT, pos, Quaternion.identity);   
+            Vector3 hitDir = direction;
+            OnWeaponHitAction?.Invoke(data.shakeDuration, data.shakeMagnitude);
+            enemy.TakeDamage(_data.Damage);
 
-        BaseCharacter enemy = other.GetComponent<BaseCharacter>();
-        if (enemy == null) return;
+            OnDestroyed();
+        }
 
-        Vector3 pos = enemy.transform.position + Vector3.up;
-        EffectPool.I.Spawn(EffectType.KNIFEHIT, pos, Quaternion.identity);   
-        Vector3 hitDir = direction;
-        OnWeaponHitAction?.Invoke(data.shakeDuration, data.shakeMagnitude);
-        enemy.TakeDamage(_data.Damage);
+        if (other.CompareTag("Ground"))
+        {
+            OnDestroyed();
+        }
 
-        Destroy(gameObject);
     }
 }

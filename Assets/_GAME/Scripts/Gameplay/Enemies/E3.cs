@@ -1,11 +1,12 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class RockEnemy : BaseEnemy
+public class E3 : BaseEnemy
 {
+    [Header("Detect (Trigger)")]
+    [SerializeField] EnemyDetect _detect;
+
     [Header("Shoot")]
     [SerializeField] Transform firePoint;
     [SerializeField] BulletEnemy bulletPrefab;
@@ -33,18 +34,24 @@ public class RockEnemy : BaseEnemy
         wanderTimer = wanderInterval;
         _targetPlayer = null;
 
-        if (_agent == null)
-            _agent = GetComponent<NavMeshAgent>();
+        _agent = GetComponent<NavMeshAgent>();
 
-        if (_agent != null)
+        _agent.Warp(transform.position);   // <<< dòng này
+
+        _agent.updateRotation = false;
+
+        // >>> detect bằng trigger giống E1
+        if (_detect != null)
         {
-            _agent.updateRotation = false;
+            _detect.OnPlayerEnter += HandlePlayerEnter;
+            _detect.OnPlayerExit += HandlePlayerExit;
         }
     }
 
     void Update()
     {
-        DetectPlayer();
+        if (GameController.I.CurState != H_Utils.GameState.PLAYING)
+            return;
 
         if (_targetPlayer != null)
         {
@@ -59,14 +66,27 @@ public class RockEnemy : BaseEnemy
         UpdateAnim();
     }
 
-    void DetectPlayer()
-    {
-        if (_targetPlayer != null)
-            return;
+    // ================== Detect bằng trigger ==================
 
-        Collider[] hits = Physics.OverlapSphere(_rotater.position, detectRange, layerTarget);
-        _targetPlayer = hits.Length > 0 ? hits[0].transform : null;
+    void HandlePlayerEnter(Transform player)
+    {
+        if (isDead) return;
+
+        _targetPlayer = player;
+        attackTimer = 0f;
     }
+
+    void HandlePlayerExit()
+    {
+        if (isDead) return;
+
+        _targetPlayer = null;
+        attackTimer = 0f;
+
+        ResumeAgent();
+    }
+
+    // =========================================================
 
     protected override void HandleAttack()
     {
@@ -74,19 +94,6 @@ public class RockEnemy : BaseEnemy
             return;
 
         LookAtTarget(_targetPlayer.position);
-
-        float dist = Vector3.Distance(
-            _rotater.position,
-            _targetPlayer.position);
-
-        if (dist > detectRange)
-        {
-            _targetPlayer = null;
-            attackTimer = 0f;
-
-            ResumeAgent();
-            return;
-        }
 
         attackTimer -= Time.deltaTime;
 
@@ -107,9 +114,7 @@ public class RockEnemy : BaseEnemy
         if (wanderTimer > 0f)
             return;
 
-        Vector3 randomPoint = GetRandomPoint(
-            _initPos,
-            wanderRadius);
+        Vector3 randomPoint = GetRandomPoint(_initPos, wanderRadius);
 
         if (randomPoint != Vector3.zero)
             _agent.SetDestination(randomPoint);
@@ -123,11 +128,8 @@ public class RockEnemy : BaseEnemy
         {
             Vector3 rand = center + UnityEngine.Random.insideUnitSphere * radius;
 
-            NavMeshHit hit;
-            if (NavMesh.SamplePosition(rand, out hit, 2f, NavMesh.AllAreas))
-            {
+            if (NavMesh.SamplePosition(rand, out NavMeshHit hit, 2f, NavMesh.AllAreas))
                 return hit.position;
-            }
         }
 
         return Vector3.zero;
@@ -157,24 +159,37 @@ public class RockEnemy : BaseEnemy
             return;
 
         bool isMoving = !_agent.isStopped && _agent.velocity.sqrMagnitude > 0.05f;
-
         _anim.SetBool("Move", isMoving);
     }
 
     public override void HandleEventAttack()
     {
+        if (_targetPlayer == null)
+            return;
+
         OnAttackAction?.Invoke();
 
         Vector3 dir = _rotater.forward;
         dir.y = 0f;
         dir.Normalize();
 
-        BulletEnemy b = Instantiate(
+        BulletEnemy b = PoolManager.I.Spawn(
             bulletPrefab,
             firePoint.position,
             Quaternion.LookRotation(dir));
 
         float offSetDistance = Vector3.Distance(transform.position, firePoint.position);
         b.Init(dir, damage, detectRange - offSetDistance);
+    }
+
+    protected override void Dead()
+    {
+        base.Dead();
+
+        if (_detect != null)
+        {
+            _detect.OnPlayerEnter -= HandlePlayerEnter;
+            _detect.OnPlayerExit -= HandlePlayerExit;
+        }
     }
 }

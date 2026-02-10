@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class BulletEnemy : MonoBehaviour
+public class BulletEnemy : PooledObject
 {
     [SerializeField] float speed = 10f;
 
@@ -12,22 +13,32 @@ public class BulletEnemy : MonoBehaviour
 
     Vector3 startPos;
 
+    bool _isStart = false;
+
     public void Init(Vector3 dir, float damage, float maxDistance)
     {
         this.dir = dir;
         this.damage = damage;
         this.maxDistance = maxDistance;
         startPos = transform.position;
+        _isStart = true;
     }
 
     void Update()
     {
-        if (!GameController.I.IsPlaying)
+        if (!_isStart || !GameController.I.IsPlaying)
             return;
         transform.position += dir * speed * Time.deltaTime;
 
         if (Vector3.Distance(startPos, transform.position) >= maxDistance)
-            Destroy(gameObject);
+            DestroyObj();
+    }
+
+    void DestroyObj()
+    {
+        _isStart = false;
+        gameObject.SetActive(false);
+        RequestDespawn();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -38,8 +49,13 @@ public class BulletEnemy : MonoBehaviour
             if (c)
             {
                 c.TakeDamage(damage);
-                Destroy(gameObject);
+                DestroyObj();   
             }
+        }
+
+        if (other.CompareTag("Ground"))
+        {
+            DestroyObj();
         }
     }
 }

@@ -25,7 +25,7 @@ namespace H_Utils
 
         public static int Coin
         {
-            get => PlayerPrefs.GetInt(ConstDatas.COIN, 20000);
+            get => PlayerPrefs.GetInt(ConstDatas.COIN, 0);
             set => PlayerPrefs.SetInt(ConstDatas.COIN, value);
         }
 

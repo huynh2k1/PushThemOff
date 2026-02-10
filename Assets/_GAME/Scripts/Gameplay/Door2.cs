@@ -10,14 +10,12 @@ public class Door2 : BaseDoor
 
     protected override void InitDoor()
     {
-        _collider.enabled = true;
         _leftDoor.eulerAngles = Vector3.zero;   
         _rightDoor.eulerAngles = Vector3.zero;
     }
 
     protected override void OpenDoor()
     {
-        _collider.enabled = false;
         _virtualCam.SetActive(true);
         GameController.I.ChangeState(GameState.NONE);
         DOVirtual.DelayedCall(1f, () =>

@@ -23,6 +23,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4090225317524808692, guid: bb35e85f2b2b08c41bf0814715e759f5,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4202741058718909429, guid: bb35e85f2b2b08c41bf0814715e759f5,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -304,7 +309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 6672577853203870503}
   _heathBar: {fileID: 2517431579008790467}
-  maxHealth: 30
+  maxHealth: 50
   isDead: 0
   damage: 10
   enemyType: 0
@@ -316,6 +321,7 @@ MonoBehaviour:
   layerTarget:
     serializedVersion: 2
     m_Bits: 512
+  coinBonus: 20
   attackRange: 1.5
   _detect: {fileID: 8010338153465597664}
 --- !u!54 &6672577853203870503 stripped

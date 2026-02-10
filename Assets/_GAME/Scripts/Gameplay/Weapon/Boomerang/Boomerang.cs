@@ -31,6 +31,8 @@ public class Boomerang : BaseWeapon
 
     void Update()
     {
+        if (!_isStart || !GameController.I.IsPlaying)
+            return;
         if (!isReturning)
             FlyOut();
         else
@@ -62,30 +64,26 @@ public class Boomerang : BaseWeapon
         transform.position += dir * speed * Time.deltaTime;
 
         if (distance < 0.5f)
-            Destroy(gameObject);
+            OnDestroyed();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Enemy")) return;
+        if (other.CompareTag("Enemy"))
+        {
+            BaseCharacter enemy = other.GetComponent<BaseCharacter>();
+            if (enemy == null) return;
 
-        BaseCharacter enemy = other.GetComponent<BaseCharacter>();
-        if (enemy == null) return;
+            Vector3 pos = enemy.transform.position + Vector3.up;
+            EffectPool.I.Spawn(EffectType.BOOMERANGHIT, pos, Quaternion.identity);
 
-        Vector3 pos = enemy.transform.position + Vector3.up;
-        EffectPool.I.Spawn(EffectType.BOOMERANGHIT, pos, Quaternion.identity);
+            OnWeaponHitAction?.Invoke(data.shakeDuration, data.shakeDuration);
+            enemy.TakeDamage(_data.Damage);
+        }
 
-        bool returning = isReturning; // trạng thái tại thời điểm va chạm
-
-        float curveValue = returning
-            ? returnCurve.Evaluate(0.1f)
-            : flyOutCurve.Evaluate(0.1f);
-
-        float force = 6f * curveValue;
-
-        OnWeaponHitAction?.Invoke(data.shakeDuration, data.shakeDuration);
-        enemy.TakeDamage(_data.Damage);
-
-        Debug.Log(returning ? "Hit while RETURNING" : "Hit while FLYING OUT");
+        if (other.CompareTag("Ground"))
+        {
+            OnDestroyed();
+        }
     }
 }

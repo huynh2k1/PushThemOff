@@ -328,6 +328,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base2 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1651509947787794, guid: efe555334b6acd4429f41f455e9dce38, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4503950947680072, guid: efe555334b6acd4429f41f455e9dce38, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.68
@@ -390,6 +394,10 @@ PrefabInstance:
     - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_Name
       value: wall_base1 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
@@ -893,6 +901,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pylon_1 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 1071598300590324, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4266232457532948, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.2
@@ -1258,6 +1270,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base1 (76)
       objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.13
@@ -1470,6 +1486,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base1 (42)
       objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
       value: 21.5
@@ -1611,6 +1631,10 @@ PrefabInstance:
     - target: {fileID: 1071598300590324, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
       propertyPath: m_Name
       value: pylon_1 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1071598300590324, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4266232457532948, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1922,6 +1946,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base1 (72)
       objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4119
@@ -2021,6 +2049,10 @@ PrefabInstance:
     - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_Name
       value: wall_base1 (83)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2163,6 +2195,10 @@ PrefabInstance:
     - target: {fileID: 1614362118113332, guid: 994639c8f88d6a1448fb2ac40fe22ce4, type: 3}
       propertyPath: m_Name
       value: fire_cup_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1614362118113332, guid: 994639c8f88d6a1448fb2ac40fe22ce4, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4046471859851416, guid: 994639c8f88d6a1448fb2ac40fe22ce4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2522,6 +2558,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base1 (43)
       objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
       value: 20.048
@@ -2584,6 +2624,10 @@ PrefabInstance:
     - target: {fileID: 1200972980685922, guid: 09c12bbc62e3ed148859f20022ea163d, type: 3}
       propertyPath: m_Name
       value: chest_base (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1200972980685922, guid: 09c12bbc62e3ed148859f20022ea163d, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4076462556185080, guid: 09c12bbc62e3ed148859f20022ea163d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2772,6 +2816,10 @@ PrefabInstance:
     - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_Name
       value: wall_base1 (51)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3068,6 +3116,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pylon_1 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 1071598300590324, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4266232457532948, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8
@@ -3130,6 +3182,10 @@ PrefabInstance:
     - target: {fileID: 1651509947787794, guid: efe555334b6acd4429f41f455e9dce38, type: 3}
       propertyPath: m_Name
       value: wall_base2 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1651509947787794, guid: efe555334b6acd4429f41f455e9dce38, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4503950947680072, guid: efe555334b6acd4429f41f455e9dce38, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3617,6 +3673,59 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 216697897}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &220250916
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 220250917}
+  - component: {fileID: 220250918}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Ground
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &220250917
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220250916}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.52, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 793603754}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &220250918
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220250916}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 3, z: 5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &229017978
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3930,6 +4039,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pylon_1 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 1117568352000570, guid: cf384f0d2ce565b4eaf074a63f64ac39, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4681688305636730, guid: cf384f0d2ce565b4eaf074a63f64ac39, type: 3}
       propertyPath: m_LocalPosition.x
       value: 23.59
@@ -3993,6 +4106,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base1 (85)
       objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.41
@@ -4055,6 +4172,10 @@ PrefabInstance:
     - target: {fileID: 1814514316972548, guid: 4507003633afb764dbe083265373544a, type: 3}
       propertyPath: m_Name
       value: table (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1814514316972548, guid: 4507003633afb764dbe083265373544a, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4788166296897784, guid: 4507003633afb764dbe083265373544a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4192,6 +4313,10 @@ PrefabInstance:
     - target: {fileID: 1660177784642758, guid: 1f7bd7a0d72743b4181c28af4b82c3d5, type: 3}
       propertyPath: m_Name
       value: vase_3 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1660177784642758, guid: 1f7bd7a0d72743b4181c28af4b82c3d5, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4122578872411068, guid: 1f7bd7a0d72743b4181c28af4b82c3d5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4583,6 +4708,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: table
       objectReference: {fileID: 0}
+    - target: {fileID: 1627203633998950, guid: 1e6ac13f467c9bd4e81c7570f5427429, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4273332695316008, guid: 1e6ac13f467c9bd4e81c7570f5427429, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.4718866
@@ -4645,6 +4774,10 @@ PrefabInstance:
     - target: {fileID: 1742296839927304, guid: d5204fad194f4c14fbc275a63ff2c613, type: 3}
       propertyPath: m_Name
       value: vase_2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742296839927304, guid: d5204fad194f4c14fbc275a63ff2c613, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4808450614922808, guid: d5204fad194f4c14fbc275a63ff2c613, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5473,6 +5606,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: fire_cup_1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1665304194515082, guid: 67caafe28606d6a44b17be7be9fc6216, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4469856545089346, guid: 67caafe28606d6a44b17be7be9fc6216, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.18
@@ -5610,6 +5747,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pylon_1 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1071598300590324, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4266232457532948, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6
@@ -5673,6 +5814,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pylon_1 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1117568352000570, guid: cf384f0d2ce565b4eaf074a63f64ac39, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4681688305636730, guid: cf384f0d2ce565b4eaf074a63f64ac39, type: 3}
       propertyPath: m_LocalPosition.x
       value: 23.59
@@ -5735,6 +5880,10 @@ PrefabInstance:
     - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_Name
       value: wall_base1 (52)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6359,6 +6508,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pylon_1 (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 1071598300590324, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4266232457532948, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.0099993
@@ -6902,6 +7055,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base1 (65)
       objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
       value: 27.54
@@ -7257,6 +7414,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: chest_base (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1200972980685922, guid: 09c12bbc62e3ed148859f20022ea163d, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4076462556185080, guid: 09c12bbc62e3ed148859f20022ea163d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.2113357
@@ -7404,6 +7565,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base1 (82)
       objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.41
@@ -7466,6 +7631,10 @@ PrefabInstance:
     - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_Name
       value: wall_base1 (60)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalScale.x
@@ -7537,6 +7706,10 @@ PrefabInstance:
     - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_Name
       value: wall_base1 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7944,6 +8117,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pylon_1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1071598300590324, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4266232457532948, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.968
@@ -8165,6 +8342,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base1 (47)
       objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.709
@@ -8352,6 +8533,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base1 (63)
       objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.30000007
@@ -8423,6 +8608,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base1 (70)
       objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
       value: 27.54
@@ -8485,6 +8674,10 @@ PrefabInstance:
     - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_Name
       value: wall_base1 (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalScale.x
@@ -9287,6 +9480,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base1 (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.30000007
@@ -9358,6 +9555,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base1 (41)
       objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
       value: 21.5
@@ -9420,6 +9621,10 @@ PrefabInstance:
     - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_Name
       value: wall_base1 (46)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9563,6 +9768,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base1 (45)
       objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.2
@@ -9705,6 +9914,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base1 (50)
       objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.39
@@ -9785,6 +9998,10 @@ PrefabInstance:
     - target: {fileID: 1651509947787794, guid: efe555334b6acd4429f41f455e9dce38, type: 3}
       propertyPath: m_Name
       value: wall_base2 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1651509947787794, guid: efe555334b6acd4429f41f455e9dce38, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4503950947680072, guid: efe555334b6acd4429f41f455e9dce38, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9958,6 +10175,10 @@ PrefabInstance:
     - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_Name
       value: wall_base1 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10796,6 +11017,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base1 (80)
       objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.30000007
@@ -11107,6 +11332,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pylon_1
       objectReference: {fileID: 0}
+    - target: {fileID: 1071598300590324, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4266232457532948, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4
@@ -11169,6 +11398,10 @@ PrefabInstance:
     - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_Name
       value: wall_base1 (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalScale.x
@@ -11707,6 +11940,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base1 (29)
       objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.30000007
@@ -11805,7 +12042,6 @@ Transform:
   - {fileID: 804890173}
   - {fileID: 591253155}
   - {fileID: 838455473}
-  - {fileID: 1376111597}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &737383250
@@ -12036,11 +12272,11 @@ MonoBehaviour:
     type: 3}
   _e2Prefab: {fileID: 8971383875049626661, guid: 6e165328ff9895145bf4d9188dc2895f,
     type: 3}
-  _e3Prefab: {fileID: 5231784712332891365, guid: a2528062145fd434ea45b88f4f229277,
+  _e3Prefab: {fileID: 5231784712332891365, guid: 839bc481dbe3e1a4c8ab3d8d29056278,
     type: 3}
   _boss1Prefab: {fileID: 8831618923498165852, guid: d7f29f256758f5c48bd0d20ee9ce42d7,
     type: 3}
-  _boss2Prefab: {fileID: 6467901717267947573, guid: 839bc481dbe3e1a4c8ab3d8d29056278,
+  _boss2Prefab: {fileID: 6467901717267947573, guid: 84c23b915e7f5cb40bcdabec02c4b214,
     type: 3}
   _boss3Prefab: {fileID: 0}
   OrderId: 2
@@ -12055,6 +12291,10 @@ PrefabInstance:
     - target: {fileID: 1651509947787794, guid: efe555334b6acd4429f41f455e9dce38, type: 3}
       propertyPath: m_Name
       value: wall_base2 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1651509947787794, guid: efe555334b6acd4429f41f455e9dce38, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4503950947680072, guid: efe555334b6acd4429f41f455e9dce38, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12351,6 +12591,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pylon_1 (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 1071598300590324, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4266232457532948, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.6600008
@@ -12505,11 +12749,11 @@ GameObject:
   - component: {fileID: 793603756}
   m_Layer: 0
   m_Name: Map 2
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &793603754
 Transform:
   m_ObjectHideFlags: 0
@@ -12523,8 +12767,12 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 220250917}
   - {fileID: 2047125753}
   - {fileID: 313564793}
+  - {fileID: 1410263822}
+  - {fileID: 1454806939}
+  - {fileID: 1063359399}
   m_Father: {fileID: 591253155}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &793603755
@@ -12725,6 +12973,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base1 (84)
       objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.61
@@ -12787,6 +13039,10 @@ PrefabInstance:
     - target: {fileID: 1071598300590324, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
       propertyPath: m_Name
       value: pylon_1 (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1071598300590324, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4266232457532948, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13258,6 +13514,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base2 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 1651509947787794, guid: efe555334b6acd4429f41f455e9dce38, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4503950947680072, guid: efe555334b6acd4429f41f455e9dce38, type: 3}
       propertyPath: m_LocalPosition.x
       value: 27.54
@@ -13511,6 +13771,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base1 (32)
       objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.30000007
@@ -13581,6 +13845,10 @@ PrefabInstance:
     - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_Name
       value: wall_base1 (39)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13863,6 +14131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pylon_1 (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 1071598300590324, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4266232457532948, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
       propertyPath: m_LocalPosition.x
       value: 27.54
@@ -14076,6 +14348,10 @@ PrefabInstance:
     - target: {fileID: 1651509947787794, guid: efe555334b6acd4429f41f455e9dce38, type: 3}
       propertyPath: m_Name
       value: wall_base2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1651509947787794, guid: efe555334b6acd4429f41f455e9dce38, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4503950947680072, guid: efe555334b6acd4429f41f455e9dce38, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14654,6 +14930,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pylon_1 (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 1071598300590324, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4266232457532948, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.54
@@ -15024,6 +15304,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pylon_1 (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 1071598300590324, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4266232457532948, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.5
@@ -15235,6 +15519,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: chest_base
       objectReference: {fileID: 0}
+    - target: {fileID: 1200972980685922, guid: 09c12bbc62e3ed148859f20022ea163d, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4076462556185080, guid: 09c12bbc62e3ed148859f20022ea163d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.49
@@ -15297,6 +15585,10 @@ PrefabInstance:
     - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_Name
       value: wall_base1 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15588,6 +15880,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base1 (87)
       objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.61
@@ -15734,6 +16030,10 @@ PrefabInstance:
     - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_Name
       value: wall_base1 (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalScale.x
@@ -15894,6 +16194,10 @@ PrefabInstance:
     - target: {fileID: 1627203633998950, guid: 1e6ac13f467c9bd4e81c7570f5427429, type: 3}
       propertyPath: m_Name
       value: table (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1627203633998950, guid: 1e6ac13f467c9bd4e81c7570f5427429, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4273332695316008, guid: 1e6ac13f467c9bd4e81c7570f5427429, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16110,6 +16414,10 @@ PrefabInstance:
     - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_Name
       value: wall_base1 (53)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16778,6 +17086,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: chest_base (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1200972980685922, guid: 09c12bbc62e3ed148859f20022ea163d, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4076462556185080, guid: 09c12bbc62e3ed148859f20022ea163d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 26.68346
@@ -16939,6 +17251,10 @@ PrefabInstance:
     - target: {fileID: 1742296839927304, guid: d5204fad194f4c14fbc275a63ff2c613, type: 3}
       propertyPath: m_Name
       value: vase_2 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742296839927304, guid: d5204fad194f4c14fbc275a63ff2c613, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4808450614922808, guid: d5204fad194f4c14fbc275a63ff2c613, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17127,6 +17443,95 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1063359398
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 793603754}
+    m_Modifications:
+    - target: {fileID: 618381361588447028, guid: 5e9e06d72b7325949bdff62b340048de,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 618381361588447028, guid: 5e9e06d72b7325949bdff62b340048de,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12.271
+      objectReference: {fileID: 0}
+    - target: {fileID: 618381361588447028, guid: 5e9e06d72b7325949bdff62b340048de,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 618381361588447028, guid: 5e9e06d72b7325949bdff62b340048de,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 618381361588447028, guid: 5e9e06d72b7325949bdff62b340048de,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 618381361588447028, guid: 5e9e06d72b7325949bdff62b340048de,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.000000021855694
+      objectReference: {fileID: 0}
+    - target: {fileID: 618381361588447028, guid: 5e9e06d72b7325949bdff62b340048de,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -1.134464e-16
+      objectReference: {fileID: 0}
+    - target: {fileID: 618381361588447028, guid: 5e9e06d72b7325949bdff62b340048de,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 1.134464e-16
+      objectReference: {fileID: 0}
+    - target: {fileID: 618381361588447028, guid: 5e9e06d72b7325949bdff62b340048de,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 618381361588447028, guid: 5e9e06d72b7325949bdff62b340048de,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 618381361588447028, guid: 5e9e06d72b7325949bdff62b340048de,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 620648731939512630, guid: 5e9e06d72b7325949bdff62b340048de,
+        type: 3}
+      propertyPath: m_Name
+      value: Door2 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 620648731939512630, guid: 5e9e06d72b7325949bdff62b340048de,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 6272623337341650892, guid: 5e9e06d72b7325949bdff62b340048de,
+        type: 3}
+      propertyPath: DoorID
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5e9e06d72b7325949bdff62b340048de, type: 3}
+--- !u!4 &1063359399 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 618381361588447028, guid: 5e9e06d72b7325949bdff62b340048de,
+    type: 3}
+  m_PrefabInstance: {fileID: 1063359398}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1068751129
 GameObject:
   m_ObjectHideFlags: 0
@@ -17564,6 +17969,10 @@ PrefabInstance:
     - target: {fileID: 1071598300590324, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
       propertyPath: m_Name
       value: pylon_1 (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1071598300590324, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4266232457532948, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18032,6 +18441,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base2 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1651509947787794, guid: efe555334b6acd4429f41f455e9dce38, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4503950947680072, guid: efe555334b6acd4429f41f455e9dce38, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.5
@@ -18094,6 +18507,10 @@ PrefabInstance:
     - target: {fileID: 1921420367739960, guid: 42cb403d8c1fc544c99a63edfa93463e, type: 3}
       propertyPath: m_Name
       value: fire_cup_base
+      objectReference: {fileID: 0}
+    - target: {fileID: 1921420367739960, guid: 42cb403d8c1fc544c99a63edfa93463e, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4484247511031752, guid: 42cb403d8c1fc544c99a63edfa93463e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18256,6 +18673,10 @@ PrefabInstance:
     - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_Name
       value: wall_base1 (37)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18547,6 +18968,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pylon_1 (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 1071598300590324, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4266232457532948, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
       propertyPath: m_LocalPosition.x
       value: 21.55
@@ -18613,6 +19038,10 @@ PrefabInstance:
     - target: {fileID: 1948595301981340, guid: 9be0fc43ef0dab943b5c07e2c9725047, type: 3}
       propertyPath: m_Name
       value: fire_cup_base
+      objectReference: {fileID: 0}
+    - target: {fileID: 1948595301981340, guid: 9be0fc43ef0dab943b5c07e2c9725047, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4378209386760978, guid: 9be0fc43ef0dab943b5c07e2c9725047, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18714,6 +19143,10 @@ PrefabInstance:
     - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_Name
       value: wall_base1 (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18857,6 +19290,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: vase_2
       objectReference: {fileID: 0}
+    - target: {fileID: 1742296839927304, guid: d5204fad194f4c14fbc275a63ff2c613, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4808450614922808, guid: d5204fad194f4c14fbc275a63ff2c613, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.465
@@ -18932,6 +19369,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base1 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6
@@ -18994,6 +19435,10 @@ PrefabInstance:
     - target: {fileID: 1071598300590324, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
       propertyPath: m_Name
       value: pylon_1 (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1071598300590324, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4266232457532948, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19386,6 +19831,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base1 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.4
@@ -19449,6 +19898,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base2 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1651509947787794, guid: efe555334b6acd4429f41f455e9dce38, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4503950947680072, guid: efe555334b6acd4429f41f455e9dce38, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8
@@ -19511,6 +19964,10 @@ PrefabInstance:
     - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_Name
       value: wall_base1 (57)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalScale.x
@@ -19582,6 +20039,10 @@ PrefabInstance:
     - target: {fileID: 1117568352000570, guid: cf384f0d2ce565b4eaf074a63f64ac39, type: 3}
       propertyPath: m_Name
       value: pylon_1 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1117568352000570, guid: cf384f0d2ce565b4eaf074a63f64ac39, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4681688305636730, guid: cf384f0d2ce565b4eaf074a63f64ac39, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19707,6 +20168,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base1 (35)
       objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.7
@@ -19769,6 +20234,10 @@ PrefabInstance:
     - target: {fileID: 1651509947787794, guid: efe555334b6acd4429f41f455e9dce38, type: 3}
       propertyPath: m_Name
       value: wall_base2 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1651509947787794, guid: efe555334b6acd4429f41f455e9dce38, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4503950947680072, guid: efe555334b6acd4429f41f455e9dce38, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20065,6 +20534,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.4
@@ -20127,6 +20600,10 @@ PrefabInstance:
     - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_Name
       value: wall_base1 (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalScale.x
@@ -20651,6 +21128,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base1 (55)
       objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.2
@@ -20713,6 +21194,10 @@ PrefabInstance:
     - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_Name
       value: wall_base1 (74)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20984,6 +21469,10 @@ PrefabInstance:
     - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_Name
       value: wall_base1 (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalScale.x
@@ -21298,6 +21787,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base1 (79)
       objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.5299997
@@ -21475,6 +21968,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base2 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1651509947787794, guid: efe555334b6acd4429f41f455e9dce38, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4503950947680072, guid: efe555334b6acd4429f41f455e9dce38, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.3
@@ -21525,90 +22022,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4503950947680072, guid: efe555334b6acd4429f41f455e9dce38,
     type: 3}
   m_PrefabInstance: {fileID: 1371221449}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &1376111596
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 730893666}
-    m_Modifications:
-    - target: {fileID: 1298468893905875169, guid: 6f6e95f7994c2fc4d9ad01f4751929e7,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1298468893905875169, guid: 6f6e95f7994c2fc4d9ad01f4751929e7,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6543403269481985626, guid: 6f6e95f7994c2fc4d9ad01f4751929e7,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6543403269481985626, guid: 6f6e95f7994c2fc4d9ad01f4751929e7,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6543403269481985626, guid: 6f6e95f7994c2fc4d9ad01f4751929e7,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6543403269481985626, guid: 6f6e95f7994c2fc4d9ad01f4751929e7,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6543403269481985626, guid: 6f6e95f7994c2fc4d9ad01f4751929e7,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6543403269481985626, guid: 6f6e95f7994c2fc4d9ad01f4751929e7,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6543403269481985626, guid: 6f6e95f7994c2fc4d9ad01f4751929e7,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6543403269481985626, guid: 6f6e95f7994c2fc4d9ad01f4751929e7,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6543403269481985626, guid: 6f6e95f7994c2fc4d9ad01f4751929e7,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6543403269481985626, guid: 6f6e95f7994c2fc4d9ad01f4751929e7,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8222163507179405073, guid: 6f6e95f7994c2fc4d9ad01f4751929e7,
-        type: 3}
-      propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6f6e95f7994c2fc4d9ad01f4751929e7, type: 3}
---- !u!4 &1376111597 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6543403269481985626, guid: 6f6e95f7994c2fc4d9ad01f4751929e7,
-    type: 3}
-  m_PrefabInstance: {fileID: 1376111596}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1385098387
 PrefabInstance:
@@ -21705,6 +22118,10 @@ PrefabInstance:
     - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_Name
       value: wall_base1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalScale.x
@@ -21815,6 +22232,10 @@ PrefabInstance:
     - target: {fileID: 1071598300590324, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
       propertyPath: m_Name
       value: pylon_1 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1071598300590324, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4266232457532948, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
       propertyPath: m_LocalPosition.x
@@ -21956,6 +22377,10 @@ PrefabInstance:
     - target: {fileID: 1651509947787794, guid: efe555334b6acd4429f41f455e9dce38, type: 3}
       propertyPath: m_Name
       value: wall_base2 (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1651509947787794, guid: efe555334b6acd4429f41f455e9dce38, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4503950947680072, guid: efe555334b6acd4429f41f455e9dce38, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22171,6 +22596,90 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1406451459}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1410263821
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 793603754}
+    m_Modifications:
+    - target: {fileID: 618381361588447028, guid: 5e9e06d72b7325949bdff62b340048de,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 14.902
+      objectReference: {fileID: 0}
+    - target: {fileID: 618381361588447028, guid: 5e9e06d72b7325949bdff62b340048de,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 618381361588447028, guid: 5e9e06d72b7325949bdff62b340048de,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 618381361588447028, guid: 5e9e06d72b7325949bdff62b340048de,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 618381361588447028, guid: 5e9e06d72b7325949bdff62b340048de,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.000000021855694
+      objectReference: {fileID: 0}
+    - target: {fileID: 618381361588447028, guid: 5e9e06d72b7325949bdff62b340048de,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -1.134464e-16
+      objectReference: {fileID: 0}
+    - target: {fileID: 618381361588447028, guid: 5e9e06d72b7325949bdff62b340048de,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 1.134464e-16
+      objectReference: {fileID: 0}
+    - target: {fileID: 618381361588447028, guid: 5e9e06d72b7325949bdff62b340048de,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 618381361588447028, guid: 5e9e06d72b7325949bdff62b340048de,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 618381361588447028, guid: 5e9e06d72b7325949bdff62b340048de,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 620648731939512630, guid: 5e9e06d72b7325949bdff62b340048de,
+        type: 3}
+      propertyPath: m_Name
+      value: Door2 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 620648731939512630, guid: 5e9e06d72b7325949bdff62b340048de,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 6272623337341650892, guid: 5e9e06d72b7325949bdff62b340048de,
+        type: 3}
+      propertyPath: DoorID
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5e9e06d72b7325949bdff62b340048de, type: 3}
+--- !u!4 &1410263822 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 618381361588447028, guid: 5e9e06d72b7325949bdff62b340048de,
+    type: 3}
+  m_PrefabInstance: {fileID: 1410263821}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1422489413
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22182,6 +22691,10 @@ PrefabInstance:
     - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_Name
       value: wall_base1 (86)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22245,6 +22758,10 @@ PrefabInstance:
     - target: {fileID: 1371114339288856, guid: 2585150f9874d874a8a49784f3b91b0d, type: 3}
       propertyPath: m_Name
       value: vase_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1371114339288856, guid: 2585150f9874d874a8a49784f3b91b0d, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4474793301400060, guid: 2585150f9874d874a8a49784f3b91b0d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22383,6 +22900,10 @@ PrefabInstance:
     - target: {fileID: 1651509947787794, guid: efe555334b6acd4429f41f455e9dce38, type: 3}
       propertyPath: m_Name
       value: wall_base2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1651509947787794, guid: efe555334b6acd4429f41f455e9dce38, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4503950947680072, guid: efe555334b6acd4429f41f455e9dce38, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22673,6 +23194,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pylon_1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1071598300590324, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4266232457532948, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.9
@@ -22803,6 +23328,95 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1448571975}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1454806938
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 793603754}
+    m_Modifications:
+    - target: {fileID: 618381361588447028, guid: 5e9e06d72b7325949bdff62b340048de,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 618381361588447028, guid: 5e9e06d72b7325949bdff62b340048de,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 618381361588447028, guid: 5e9e06d72b7325949bdff62b340048de,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 618381361588447028, guid: 5e9e06d72b7325949bdff62b340048de,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 618381361588447028, guid: 5e9e06d72b7325949bdff62b340048de,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 618381361588447028, guid: 5e9e06d72b7325949bdff62b340048de,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.000000021855694
+      objectReference: {fileID: 0}
+    - target: {fileID: 618381361588447028, guid: 5e9e06d72b7325949bdff62b340048de,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -1.134464e-16
+      objectReference: {fileID: 0}
+    - target: {fileID: 618381361588447028, guid: 5e9e06d72b7325949bdff62b340048de,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 1.134464e-16
+      objectReference: {fileID: 0}
+    - target: {fileID: 618381361588447028, guid: 5e9e06d72b7325949bdff62b340048de,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 618381361588447028, guid: 5e9e06d72b7325949bdff62b340048de,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 618381361588447028, guid: 5e9e06d72b7325949bdff62b340048de,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 620648731939512630, guid: 5e9e06d72b7325949bdff62b340048de,
+        type: 3}
+      propertyPath: m_Name
+      value: Door2 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 620648731939512630, guid: 5e9e06d72b7325949bdff62b340048de,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 6272623337341650892, guid: 5e9e06d72b7325949bdff62b340048de,
+        type: 3}
+      propertyPath: DoorID
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5e9e06d72b7325949bdff62b340048de, type: 3}
+--- !u!4 &1454806939 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 618381361588447028, guid: 5e9e06d72b7325949bdff62b340048de,
+    type: 3}
+  m_PrefabInstance: {fileID: 1454806938}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1464652520
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22888,6 +23502,10 @@ PrefabInstance:
     - target: {fileID: 1071598300590324, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
       propertyPath: m_Name
       value: pylon_1 (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1071598300590324, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4266232457532948, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23025,6 +23643,10 @@ PrefabInstance:
     - target: {fileID: 1401574015351142, guid: c996903a78aeba24cb9906c138cd7c03, type: 3}
       propertyPath: m_Name
       value: candle_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401574015351142, guid: c996903a78aeba24cb9906c138cd7c03, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4902360216324622, guid: c996903a78aeba24cb9906c138cd7c03, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23211,6 +23833,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base1 (58)
       objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.30000007
@@ -23282,6 +23908,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: vase_1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1371114339288856, guid: 2585150f9874d874a8a49784f3b91b0d, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4474793301400060, guid: 2585150f9874d874a8a49784f3b91b0d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.119152
@@ -23344,6 +23974,10 @@ PrefabInstance:
     - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_Name
       value: wall_base1 (38)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23486,6 +24120,10 @@ PrefabInstance:
     - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_Name
       value: wall_base1 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23994,6 +24632,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: chest_base (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1200972980685922, guid: 09c12bbc62e3ed148859f20022ea163d, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4076462556185080, guid: 09c12bbc62e3ed148859f20022ea163d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.164917
@@ -24155,6 +24797,10 @@ PrefabInstance:
     - target: {fileID: 1071598300590324, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
       propertyPath: m_Name
       value: pylon_1 (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1071598300590324, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4266232457532948, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
       propertyPath: m_LocalPosition.x
@@ -24544,6 +25190,10 @@ PrefabInstance:
     - target: {fileID: 1660177784642758, guid: 1f7bd7a0d72743b4181c28af4b82c3d5, type: 3}
       propertyPath: m_Name
       value: vase_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1660177784642758, guid: 1f7bd7a0d72743b4181c28af4b82c3d5, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4122578872411068, guid: 1f7bd7a0d72743b4181c28af4b82c3d5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25045,6 +25695,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: fire_cup_1 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1614362118113332, guid: 994639c8f88d6a1448fb2ac40fe22ce4, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4046471859851416, guid: 994639c8f88d6a1448fb2ac40fe22ce4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 20.649338
@@ -25256,6 +25910,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pylon_1 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1071598300590324, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4266232457532948, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.48
@@ -25319,6 +25977,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base1 (71)
       objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
       value: 26.07
@@ -25381,6 +26043,10 @@ PrefabInstance:
     - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_Name
       value: wall_base1 (61)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalScale.x
@@ -25615,6 +26281,10 @@ PrefabInstance:
     - target: {fileID: 1071598300590324, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
       propertyPath: m_Name
       value: pylon_1 (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1071598300590324, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4266232457532948, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25858,6 +26528,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base1 (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.30000007
@@ -26031,6 +26705,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base1 (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.30000007
@@ -26138,6 +26816,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base2 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 1651509947787794, guid: efe555334b6acd4429f41f455e9dce38, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4503950947680072, guid: efe555334b6acd4429f41f455e9dce38, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.24
@@ -26200,6 +26882,10 @@ PrefabInstance:
     - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_Name
       value: wall_base1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
@@ -26342,6 +27028,10 @@ PrefabInstance:
     - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_Name
       value: wall_base1 (67)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
@@ -26491,6 +27181,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pylon_1
       objectReference: {fileID: 0}
+    - target: {fileID: 1071598300590324, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4266232457532948, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6
@@ -26553,6 +27247,10 @@ PrefabInstance:
     - target: {fileID: 1925254825110136, guid: a70d0f9c99a36034cb19fed7f2ad5452, type: 3}
       propertyPath: m_Name
       value: stairs_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1925254825110136, guid: a70d0f9c99a36034cb19fed7f2ad5452, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4399416860492652, guid: a70d0f9c99a36034cb19fed7f2ad5452, type: 3}
       propertyPath: m_LocalPosition.x
@@ -26942,6 +27640,10 @@ PrefabInstance:
     - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_Name
       value: wall_base1 (59)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalScale.x
@@ -28267,6 +28969,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pylon_1 (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 1117568352000570, guid: cf384f0d2ce565b4eaf074a63f64ac39, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4681688305636730, guid: cf384f0d2ce565b4eaf074a63f64ac39, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.2
@@ -28329,6 +29035,10 @@ PrefabInstance:
     - target: {fileID: 1117568352000570, guid: cf384f0d2ce565b4eaf074a63f64ac39, type: 3}
       propertyPath: m_Name
       value: pylon_1 (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1117568352000570, guid: cf384f0d2ce565b4eaf074a63f64ac39, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4681688305636730, guid: cf384f0d2ce565b4eaf074a63f64ac39, type: 3}
       propertyPath: m_LocalPosition.x
@@ -28748,6 +29458,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base1 (73)
       objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.04
@@ -29087,6 +29801,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: fire_cup_1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1614362118113332, guid: 994639c8f88d6a1448fb2ac40fe22ce4, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4046471859851416, guid: 994639c8f88d6a1448fb2ac40fe22ce4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.355
@@ -29349,6 +30067,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base1 (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.30000007
@@ -29419,6 +30141,10 @@ PrefabInstance:
     - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_Name
       value: wall_base1 (69)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
@@ -29557,6 +30283,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base1 (33)
       objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.30000007
@@ -29627,6 +30357,10 @@ PrefabInstance:
     - target: {fileID: 1071598300590324, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
       propertyPath: m_Name
       value: pylon_1 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1071598300590324, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4266232457532948, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
       propertyPath: m_LocalPosition.x
@@ -29839,6 +30573,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base1 (81)
       objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.30000007
@@ -29909,6 +30647,10 @@ PrefabInstance:
     - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_Name
       value: wall_base1 (66)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
@@ -30126,6 +30868,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base1 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.9
@@ -30188,6 +30934,10 @@ PrefabInstance:
     - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_Name
       value: wall_base1 (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalScale.x
@@ -30265,6 +31015,10 @@ PrefabInstance:
     - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_Name
       value: wall_base1 (48)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
@@ -30397,6 +31151,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base1 (77)
       objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.2399998
@@ -30460,6 +31218,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base1 (75)
       objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.6600008
@@ -30522,6 +31284,10 @@ PrefabInstance:
     - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_Name
       value: wall_base1 (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalScale.x
@@ -30677,6 +31443,10 @@ PrefabInstance:
     - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_Name
       value: wall_base1 (36)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
@@ -31003,6 +31773,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base1 (31)
       objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.30000007
@@ -31233,6 +32007,10 @@ PrefabInstance:
     - target: {fileID: 1071598300590324, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
       propertyPath: m_Name
       value: pylon_1 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1071598300590324, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4266232457532948, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
       propertyPath: m_LocalPosition.x
@@ -31490,6 +32268,10 @@ PrefabInstance:
     - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_Name
       value: wall_base1 (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalScale.x
@@ -32867,6 +33649,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base1 (78)
       objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.84000015
@@ -33404,6 +34190,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pylon_1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1071598300590324, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4266232457532948, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8
@@ -33531,6 +34321,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_base2 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1651509947787794, guid: efe555334b6acd4429f41f455e9dce38, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4503950947680072, guid: efe555334b6acd4429f41f455e9dce38, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.2
@@ -33593,6 +34387,10 @@ PrefabInstance:
     - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_Name
       value: wall_base1 (34)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058297304955348, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4163867260197006, guid: efbd5efcba36b344abbcbc09b00fb495, type: 3}
       propertyPath: m_LocalScale.x
@@ -33664,6 +34462,10 @@ PrefabInstance:
     - target: {fileID: 1071598300590324, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
       propertyPath: m_Name
       value: pylon_1 (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1071598300590324, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4266232457532948, guid: dd83a30ea4459a8449330dd3728186ee, type: 3}
       propertyPath: m_LocalPosition.x

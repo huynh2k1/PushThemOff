@@ -114,6 +114,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 620098752483673865, guid: 19da86142b99a364aa214083939d2105,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 620098752483673865, guid: 19da86142b99a364aa214083939d2105,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 620098752483673865, guid: 19da86142b99a364aa214083939d2105,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 620098752483673865, guid: 19da86142b99a364aa214083939d2105,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -242,7 +257,7 @@ PrefabInstance:
     - target: {fileID: 4090225317524808692, guid: bb35e85f2b2b08c41bf0814715e759f5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4202741058718909429, guid: bb35e85f2b2b08c41bf0814715e759f5,
         type: 3}
@@ -342,7 +357,7 @@ PrefabInstance:
     - target: {fileID: 8885301198685608580, guid: bb35e85f2b2b08c41bf0814715e759f5,
         type: 3}
       propertyPath: m_Name
-      value: E3
+      value: E2_Boss
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -423,7 +438,7 @@ MonoBehaviour:
   maxHealth: 100
   isDead: 0
   damage: 0
-  enemyType: 2
+  enemyType: 4
   _rotater: {fileID: 1240111465420148871}
   _anim: {fileID: 8467259613659058605}
   _animEvent: {fileID: 0}
@@ -432,6 +447,7 @@ MonoBehaviour:
   layerTarget:
     serializedVersion: 2
     m_Bits: 256
+  coinBonus: 80
   healAmount: 20
   healNova: {fileID: 6998548115631922586}
 --- !u!54 &4141158631909491487 stripped

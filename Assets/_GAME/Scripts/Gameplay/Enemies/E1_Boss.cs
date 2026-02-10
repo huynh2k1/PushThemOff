@@ -388,7 +388,7 @@ public class E1_Boss : BaseEnemy
         dir.y = 0f;
         dir.Normalize();
 
-        BulletEnemy b = Instantiate(
+        BulletEnemy b = PoolManager.I.Spawn(
             bulletPrefab,
             firePoint.position,
             Quaternion.LookRotation(dir));

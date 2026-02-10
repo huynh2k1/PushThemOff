@@ -20,6 +20,7 @@ public abstract class BaseWeapon : PooledObject
         data = newData;
         owner = ownerTf;
         direction = dir;
+        _isStart = true;
     }
 
     protected virtual void OnHitEnemy(E1 enemy, Vector3 hitDir)
