@@ -20,6 +20,7 @@ public class npc : MonoBehaviour
         {
             isMeet = false;
             _hint.SetActive(true);
+            gameObject.SetActive(true);
         }
     }
 
