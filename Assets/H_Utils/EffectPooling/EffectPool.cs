@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class EffectPool : MonoBehaviour
@@ -39,21 +39,29 @@ public class EffectPool : MonoBehaviour
         }
     }
 
-    public PooledEffect Spawn(EffectType id, Vector3 pos, Quaternion rot)
+    void OnEnable()
     {
-        if (!poolDict.ContainsKey(id))
-        {
-            Debug.LogWarning("No effect id: " + id);
-            return null;
-        }
+        PooledEffect.OnEffectCompleteAction += Release;
+    }
 
+    void OnDisable()
+    {
+        PooledEffect.OnEffectCompleteAction -= Release;
+    }
+
+    public PooledEffect Spawn(EffectType id, Vector3 pos, Quaternion? rot = null)
+    {
         Queue<PooledEffect> queue = poolDict[id];
 
         PooledEffect effect = queue.Count > 0
             ? queue.Dequeue()
             : CreateNew(id);
 
-        effect.transform.SetPositionAndRotation(pos, rot);
+        effect.transform.position = pos;
+
+        if (rot.HasValue)
+            effect.transform.rotation = rot.Value; // chỉ override khi cần
+
         effect.gameObject.SetActive(true);
         effect.Play();
 
@@ -78,6 +86,10 @@ public enum EffectType
     KNIFEHIT,
     BOOMERANGHIT,
     HAMMERHIT,
+    HAMMERLIGHTNING,
     SWORDHIT,
     EXPLOSION,
+    COINFLYING,
+    HITGROUND,
+    SMOKEPUFF,
 }

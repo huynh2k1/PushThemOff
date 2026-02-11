@@ -20,18 +20,22 @@ public class UICtrl : BaseUICtrl
     {
         HomeUI.OnClickSettingAction += Setting;
         HomeUI.OnClickShopAction += Shop;
+        HomeUI.OnClickPlayAction += OnShowSelectLevel;
 
         npc.OnPlayMeetNPC += ShowDialogue;
         Tutorial.OnTutorialPlay += ShowDialogue;
+        FinalBattleTrigger.OnPlayerTriggerAction += ShowDialogue;   
     }
 
     private void OnDestroy()
     {
         HomeUI.OnClickSettingAction -= Setting;
         HomeUI.OnClickShopAction -= Shop;
+        HomeUI.OnClickPlayAction -= OnShowSelectLevel;
 
         npc.OnPlayMeetNPC -= ShowDialogue;
         Tutorial.OnTutorialPlay -= ShowDialogue;
+        FinalBattleTrigger.OnPlayerTriggerAction -= ShowDialogue;
     }
 
     public void OnInit()
@@ -65,6 +69,11 @@ public class UICtrl : BaseUICtrl
     public void OnGamePause()
     {
         Show(UIType.PAUSE);
+    }
+
+    public void OnShowSelectLevel()
+    {
+        Show(UIType.LEVEL_SELECT);
     }
 
     public void Setting()

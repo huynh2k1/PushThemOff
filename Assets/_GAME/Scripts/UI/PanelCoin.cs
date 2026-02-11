@@ -11,6 +11,17 @@ public class PanelCoin : MonoBehaviour
     private void OnEnable()
     {
         UpdateText(GameDatas.Coin);
+        GameController.OnCoinChanged += UpdateUI;
+    }
+
+    private void OnDisable()
+    {
+        GameController.OnCoinChanged -= UpdateUI;
+    }
+
+    void UpdateUI()
+    {
+        UpdateText(GameDatas.Coin);
     }
 
     public void UpdateText(int coin)

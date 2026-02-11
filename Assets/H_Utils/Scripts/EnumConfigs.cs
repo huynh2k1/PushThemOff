@@ -10,7 +10,8 @@ namespace H_Utils
         WIN,
         LOSE,
         SHOP,
-        DIALOGUE
+        DIALOGUE,
+        LEVEL_SELECT,
     }
 
     public enum GameState

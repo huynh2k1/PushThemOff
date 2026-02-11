@@ -4,11 +4,15 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class SwipeMenu : MonoBehaviour, IEndDragHandler, IDragHandler
 {
     int maxPage;
 
+    [SerializeField] Button _btnNext;
+    [SerializeField] Button _btnPrev;
+    
     [SerializeField] Transform _content;
     List<Transform> levelPages = new List<Transform>();
 
@@ -34,6 +38,12 @@ public class SwipeMenu : MonoBehaviour, IEndDragHandler, IDragHandler
 
     public event Action<int> OnPageChanged;
 
+    private void Awake()
+    {
+        _btnNext.onClick.AddListener(Next);
+        _btnPrev.onClick.AddListener(Previous); 
+    }
+
     public void Init(List<ShopElement> elements)
     {
         _currentPage = 1;
@@ -44,6 +54,7 @@ public class SwipeMenu : MonoBehaviour, IEndDragHandler, IDragHandler
         OnPageChanged?.Invoke(_currentPage);
 
         InitPages(elements);
+        OnPageChange();
     }
 
 
@@ -71,6 +82,20 @@ public class SwipeMenu : MonoBehaviour, IEndDragHandler, IDragHandler
         }
     }
 
+    void OnPageChange()
+    {
+        int lastPageIndex = levelPages.Count;
+
+        // Đảm bảo page không bị out of range
+        _currentPage = Mathf.Clamp(_currentPage, 1, lastPageIndex);
+
+        bool isFirstPage = _currentPage == 1;
+        bool isLastPage = _currentPage == lastPageIndex;
+
+        _btnPrev.gameObject.SetActive(!isFirstPage);
+        _btnNext.gameObject.SetActive(!isLastPage);
+    }
+
     public void InitPages(List<ShopElement> elements)
     {
         maxPage = elements.Count;
@@ -90,6 +115,8 @@ public class SwipeMenu : MonoBehaviour, IEndDragHandler, IDragHandler
             .SetEase(_tweenType)
             .OnUpdate(UpdatePageScaleByDistance)
             .OnComplete(UpdatePageScaleInstant);
+
+        OnPageChange(); 
     }
 
     // ================= DRAG =================

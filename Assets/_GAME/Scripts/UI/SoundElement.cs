@@ -63,9 +63,11 @@ public class SoundElement : MonoBehaviour
         {
             case SoundType.SOUND:
                 GameDatas.IsSoundOn = _isOn;
+                SoundCtrl.I.OnVolumeSoundChange();
                 break;
             case SoundType.MUSIC:
                 GameDatas.IsMusicOn = _isOn;
+                SoundCtrl.I.OnVolumeMusicChange();
                 break;
             case SoundType.VIBRATION:
                 GameDatas.IsVibrationOn = _isOn;

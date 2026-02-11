@@ -20,6 +20,7 @@ public class Door1 : BaseDoor
 
     protected override void OpenDoor()
     {
+        SoundCtrl.I.PlaySFXByType(TypeSFX.DOORSTONEOPEN);
         _virtualCam.SetActive(true);
         GameController.I.ChangeState(GameState.NONE);
         DOVirtual.DelayedCall(1f, () =>

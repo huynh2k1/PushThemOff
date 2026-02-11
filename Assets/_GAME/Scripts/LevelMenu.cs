@@ -1,0 +1,171 @@
+﻿using DG.Tweening;
+using NaughtyAttributes;
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
+public class LevelMenu : MonoBehaviour, IEndDragHandler, IDragHandler
+{
+    int maxPage;
+
+    [SerializeField] Button _btnNext;
+    [SerializeField] Button _btnPrev;
+
+    [SerializeField] Transform _content;
+    [SerializeField] List<Transform> levelPages = new List<Transform>();
+
+    [SerializeField] Vector2 _pageStep;
+    [SerializeField] RectTransform pagesRect;
+    [SerializeField] RectTransform _viewport; // Rect cha (vùng hiển thị)
+
+    [SerializeField] int _currentPage = 0;
+    [SerializeField] int _pageWidth = 0;
+    private Vector2 _targetPos;
+
+    [Header("Set Up Tween")]
+    [SerializeField] float _tweenTime;
+    [SerializeField] Ease _tweenType;
+
+    [Header("Swipe Settings")]
+    float _swipeThreshold;
+
+    [Header("Scale Settings")]
+    [SerializeField] float _maxScale = 1.2f;
+    [SerializeField] float _minScale = 1.0f;
+    [SerializeField] float _scaleRange = 500f; // khoảng cách để scale từ max → min
+
+    public event Action<int> OnPageChanged;
+
+    private void Awake()
+    {
+        _btnNext.onClick.AddListener(Next);
+        _btnPrev.onClick.AddListener(Previous);
+    }
+
+    public void Init()
+    {
+        _currentPage = 1;
+        maxPage = levelPages.Count;
+        _targetPos = pagesRect.anchoredPosition;
+        _swipeThreshold = Screen.width / 20f;
+        _scaleRange = -_pageStep.x;
+
+        OnPageChanged?.Invoke(_currentPage);
+
+        UpdatePageScaleByDistance();
+        OnPageChange();
+    }
+
+
+    [Button("Next")]
+    public void Next()
+    {
+        if (_currentPage < maxPage)
+        {
+            _currentPage++;
+            OnPageChanged?.Invoke(_currentPage);
+            _targetPos += _pageStep;
+            MovePage();
+        }
+    }
+
+    [Button("Previous")]
+    public void Previous()
+    {
+        if (_currentPage > 1)
+        {
+            _currentPage--;
+            OnPageChanged?.Invoke(_currentPage);
+            _targetPos -= _pageStep;
+            MovePage();
+        }
+    }
+
+    void OnPageChange()
+    {
+        int lastPageIndex = levelPages.Count;
+
+        // Đảm bảo page không bị out of range
+        _currentPage = Mathf.Clamp(_currentPage, 1, lastPageIndex);
+
+        bool isFirstPage = _currentPage == 1;
+        bool isLastPage = _currentPage == lastPageIndex;
+
+        _btnPrev.gameObject.SetActive(!isFirstPage);
+        _btnNext.gameObject.SetActive(!isLastPage);
+    }
+
+    public void MovePage()
+    {
+        pagesRect.DOKill(); // Hủy tween đang chạy (nếu có)
+        pagesRect
+            .DOAnchorPos(_targetPos, _tweenTime)
+            .SetEase(_tweenType)
+            .OnUpdate(UpdatePageScaleByDistance)
+            .OnComplete(UpdatePageScaleInstant);
+
+        OnPageChange();
+    }
+
+    // ================= DRAG =================
+    public void OnDrag(PointerEventData eventData)
+    {
+        // Cho kéo content theo tay
+        //levelPagesRect.anchoredPosition += new Vector2(eventData.delta.x, 0);
+
+        // Scale theo khoảng cách realtime
+        UpdatePageScaleByDistance();
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        if (Mathf.Abs(eventData.position.x - eventData.pressPosition.x) > _swipeThreshold)
+        {
+            if (eventData.position.x >= eventData.pressPosition.x)
+                Previous();
+            else
+                Next();
+        }
+        else
+        {
+            MovePage();
+        }
+    }
+
+    // ================= SCALE BY DISTANCE =================
+    private void UpdatePageScaleByDistance()
+    {
+        Vector3 viewportCenter = _viewport.TransformPoint(_viewport.rect.center);
+
+        for (int i = 0; i < levelPages.Count; i++)
+        {
+            RectTransform pageRect = levelPages[i].GetComponent<RectTransform>();
+
+            Vector3 pageCenter = pageRect.TransformPoint(pageRect.rect.center);
+            float distance = Mathf.Abs(pageCenter.x - viewportCenter.x);
+            float t = Mathf.Clamp01(distance / (_pageWidth / 2f - 100f));
+            float scale = Mathf.Lerp(_maxScale, _minScale, t);
+
+            pageRect.localScale = Vector3.one * scale;
+        }
+    }
+
+    // ================= SNAP SAU KHI DỪNG =================
+    private void UpdatePageScaleInstant()
+    {
+        for (int i = 0; i < levelPages.Count; i++)
+        {
+            Transform page = levelPages[i].transform;
+            bool isSelected = (i == _currentPage - 1);
+            float scale = isSelected ? _maxScale : _minScale;
+            page.localScale = Vector3.one * scale;
+        }
+    }
+
+    public int CurrentPage
+    {
+        get { return _currentPage; }
+    }
+}

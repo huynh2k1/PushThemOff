@@ -52,7 +52,8 @@ public class ButtonJelly : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     void OnClick()
     {
         if (!canClick) return;
-        
+
+        SoundCtrl.I.PlaySFXByType(TypeSFX.CLICK);
         StartDelay();
     }
 

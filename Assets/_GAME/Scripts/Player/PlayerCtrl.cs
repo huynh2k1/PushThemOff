@@ -114,6 +114,7 @@ public class PlayerCtrl : BaseCharacter
         OnPlayerBeTakeDamage?.Invoke();
         _hitEffect.Play();
         base.TakeDamage(damage);
+        SoundCtrl.I.PlaySFXByType(TypeSFX.SWORDHIT);
     }
 
     protected override void Dead()

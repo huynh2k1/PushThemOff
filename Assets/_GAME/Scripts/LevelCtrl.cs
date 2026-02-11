@@ -48,6 +48,10 @@ public class LevelCtrl : MonoBehaviour
         if(GameDatas.CurrentLevel < GetMaxLevelOrder() - 1)
         {
             GameDatas.CurrentLevel++;
+            if(GameDatas.CurrentLevel > GameDatas.LevelUnlock)
+            {
+                GameDatas.LevelUnlock = GameDatas.CurrentLevel; 
+            }
         }
         else
         {

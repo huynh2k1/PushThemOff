@@ -29,12 +29,20 @@ public class ShopElement : MonoBehaviour
         _btnEquip.onClick.AddListener(OnClickEquip);
     }
 
+    private void OnEnable()
+    {
+        _priceText.color = GameDatas.Coin >= _price ? Color.white : Color.red;
+        _btnBye.interactable = GameDatas.Coin >= _price ? true : false;
+        _btnBye.targetGraphic.raycastTarget = GameDatas.Coin >= _price ? true : false;
+    }
+
     void OnClickBuy()
     {
         bool canBuy = GameDatas.Coin >= _price ? true : false;
 
         if (canBuy)
         {
+            SoundCtrl.I.PlaySFXByType(TypeSFX.BYE);
             GameDatas.Coin -= _price;
             GameDatas.SetWeaponUnlock(ID);
             Unlock();

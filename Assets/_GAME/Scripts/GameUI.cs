@@ -22,12 +22,15 @@ public class GameUI : BaseUI
 
     void OnClickAttack()
     {
-
+        if (!GameController.I.IsPlaying)
+            return;
         OnClickAttackAction?.Invoke();
     }
 
     void OnClickPause()
     {
+        if (!GameController.I.IsPlaying)
+            return;
         OnClickPauseAction?.Invoke();   
     }
 }

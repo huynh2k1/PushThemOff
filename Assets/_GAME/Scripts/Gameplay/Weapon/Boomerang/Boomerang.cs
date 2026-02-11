@@ -75,14 +75,22 @@ public class Boomerang : BaseWeapon
             if (enemy == null) return;
 
             Vector3 pos = enemy.transform.position + Vector3.up;
-            EffectPool.I.Spawn(EffectType.BOOMERANGHIT, pos, Quaternion.identity);
+            EffectPool.I.Spawn(EffectType.BOOMERANGHIT, pos);
 
             OnWeaponHitAction?.Invoke(data.shakeDuration, data.shakeDuration);
             enemy.TakeDamage(_data.Damage);
+            
+            SoundCtrl.I.PlaySFXByType(TypeSFX.SWORDHIT);
         }
 
         if (other.CompareTag("Ground"))
         {
+            EffectPool.I.Spawn(
+            EffectType.HITGROUND,
+            transform.position);
+
+            SoundCtrl.I.PlaySFXByType(TypeSFX.HITGROUND);
+
             OnDestroyed();
         }
     }

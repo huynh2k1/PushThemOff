@@ -10,6 +10,16 @@ public class JoystickCtrl : MonoBehaviour
     [SerializeField] Joystick _joystick;
     Vector2 direction;
 
+    private void OnEnable()
+    {
+        GameController.OnGameEnd += ResetJoyStick;
+    }
+
+    private void OnDestroy()
+    {
+        GameController.OnGameEnd -= ResetJoyStick;
+    }
+
     private void Update()
     {
         if (GameController.I.CurState != H_Utils.GameState.PLAYING)
@@ -26,6 +36,10 @@ public class JoystickCtrl : MonoBehaviour
         OnJoystickMove?.Invoke(direction);
     }
 
+    public void ResetJoyStick()
+    {
+        _joystick.ResetJoystick();
+    }
     //private void FixedUpdate()
     //{
     //    JoystickMove(direction);

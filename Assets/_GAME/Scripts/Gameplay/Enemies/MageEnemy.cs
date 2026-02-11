@@ -18,6 +18,8 @@ public class MageEnemy : BaseEnemy
 
     void Update()
     {
+        if (GameController.I.CurState != H_Utils.GameState.PLAYING)
+            return;
         HandleAttack();
     }
 

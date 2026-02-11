@@ -24,13 +24,15 @@ public class CameraShake : MonoBehaviour
     private void OnEnable()
     {
         BaseWeapon.OnWeaponHitAction += StartShake;
-        //RockEnemy.OnAttackAction += StartShake; 
+        E3.OnAttackAction += StartShake;
+        E3_Boss.OnAttackAction += StartShake;
     }
 
     private void OnDestroy()
     {
         BaseWeapon.OnWeaponHitAction -= StartShake;
-        //RockEnemy.OnAttackAction -= StartShake;
+        E3.OnAttackAction -= StartShake;
+        E3_Boss.OnAttackAction -= StartShake;
     }
 
     public void StartShake(float shakeTime, float shakeMagnitude)

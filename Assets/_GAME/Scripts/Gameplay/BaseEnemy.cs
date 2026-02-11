@@ -68,13 +68,18 @@ public abstract class BaseEnemy : BaseCharacter
     {
         GameDatas.Coin += coinBonus;
         PopupTextSpawner.I.Spawn(PopupTextType.COIN, transform.position, coinBonus);
+        GameController.OnCoinChanged?.Invoke();
 
+        EffectPool.I.Spawn(
+            EffectType.COINFLYING,
+            transform.position);
+
+        SoundCtrl.I.PlaySFXByType(TypeSFX.COIN);
         isDead = true;
         Destroy(gameObject);
         EffectPool.I.Spawn(
             EffectType.EXPLOSION,
-            transform.position,
-            Quaternion.identity);
+            transform.position);
 
         OnEnemyDeadAction?.Invoke(this);
         OnEnemyKilled?.Invoke(transform);

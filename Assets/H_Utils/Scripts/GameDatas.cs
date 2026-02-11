@@ -6,6 +6,7 @@ namespace H_Utils
     {
         public const string IS_FIRST_PLAY_GAME = "IS_FIRST_PLAY_GAME";
         public const string CURRENT_LEVEL = "CURRENT_LEVEL";
+        public const string LEVEL_UNLOCK = "LEVEL_UNLOCK";
         public const string COIN = "COIN";
         public const string WEAPON_UNLOCK = "WEAPON_UNLOCK";
         public const string CURRENT_WEAPON = "CURRENT_WEAPON";
@@ -21,6 +22,12 @@ namespace H_Utils
         {
             get => PlayerPrefs.GetInt(ConstDatas.CURRENT_LEVEL, 0);
             set => PlayerPrefs.SetInt(ConstDatas.CURRENT_LEVEL, value);
+        }
+
+        public static int LevelUnlock
+        {
+            get => PlayerPrefs.GetInt(ConstDatas.LEVEL_UNLOCK, 0);
+            set => PlayerPrefs.SetInt(ConstDatas.LEVEL_UNLOCK, value);
         }
 
         public static int Coin

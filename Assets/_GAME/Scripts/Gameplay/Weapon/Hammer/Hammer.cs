@@ -51,13 +51,17 @@ public class Hammer : BaseWeapon
             BaseCharacter enemy = hit.GetComponent<BaseCharacter>();
             if (enemy == null) continue;
 
+            EffectPool.I.Spawn(
+            EffectType.HAMMERLIGHTNING,
+            center);
+
+
             enemy.TakeDamage(hammerData.Damage);
         }
 
         EffectPool.I.Spawn(
             EffectType.HAMMERHIT,
-            center,
-            Quaternion.identity
+            center
         );
 
         OnWeaponHitAction?.Invoke(data.shakeDuration, data.shakeMagnitude);
@@ -69,10 +73,15 @@ public class Hammer : BaseWeapon
         {
             Explode(transform.position);
             OnDestroyed();
+
+            SoundCtrl.I.PlaySFXByType(TypeSFX.HAMMERHIT);
         }
         if(other.CompareTag("Ground"))
         {
             OnDestroyed();
+
+            EffectPool.I.Spawn(EffectType.HITGROUND, transform.position, Quaternion.identity);
+            SoundCtrl.I.PlaySFXByType(TypeSFX.HAMMERHIT);
         }
 
     }

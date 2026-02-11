@@ -73,12 +73,6 @@ public class PlayerAttack : MonoBehaviour
 
     void Attack()
     {
-        //GameObject weaponGO = Instantiate(
-        //    currentWeaponPrefab,
-        //    firePoint.position,
-        //    firePoint.rotation
-        //);
-
         var weaponGO = PoolManager.I.Spawn(
             currentWeaponPrefab,
             firePoint.position,

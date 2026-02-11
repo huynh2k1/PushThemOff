@@ -22,7 +22,7 @@ public class E3 : BaseEnemy
 
     Transform _targetPlayer;
 
-    public static Action OnAttackAction;
+    public static Action<float, float> OnAttackAction;
 
     public override void OnInit()
     {
@@ -167,7 +167,7 @@ public class E3 : BaseEnemy
         if (_targetPlayer == null)
             return;
 
-        OnAttackAction?.Invoke();
+        OnAttackAction?.Invoke(0.2f, 0.3f);
 
         Vector3 dir = _rotater.forward;
         dir.y = 0f;

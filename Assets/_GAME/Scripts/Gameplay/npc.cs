@@ -10,13 +10,17 @@ public class npc : MonoBehaviour
     public static Action<DialogueData> OnPlayMeetNPC;
     public static Action<int> OnTalkEndAction;
     [SerializeField] DialogueData data;
+    [SerializeField] GameObject _hint;
     bool isMeet = false;
 
     private void OnEnable()
     {
         DialogueUI.OnEndShowAction += HandleTalkEndAction;
-        if(isMeet)
+        if (isMeet)
+        {
             isMeet = false;
+            _hint.SetActive(true);
+        }
     }
 
     private void OnDisable()
@@ -32,8 +36,7 @@ public class npc : MonoBehaviour
             if (isMeet)
                 return;
             isMeet = true;
-
-            Debug.Log("Meet Player");
+            _hint.SetActive(false);
             GameController.I.ChangeState(H_Utils.GameState.NONE);
             OnPlayMeetNPC?.Invoke(data);
         }
@@ -43,5 +46,7 @@ public class npc : MonoBehaviour
     {
         OnTalkEndAction?.Invoke(idDoor);
         GameController.I.GameResume();
+        gameObject.SetActive(false);
+        EffectPool.I.Spawn(EffectType.SMOKEPUFF, transform.position);
     }
 }

@@ -44,16 +44,29 @@ public class Knife : BaseWeapon
             if (enemy == null) return;
 
             Vector3 pos = enemy.transform.position + Vector3.up;
-            EffectPool.I.Spawn(EffectType.KNIFEHIT, pos, Quaternion.identity);   
             Vector3 hitDir = direction;
             OnWeaponHitAction?.Invoke(data.shakeDuration, data.shakeMagnitude);
             enemy.TakeDamage(_data.Damage);
+
+            EffectPool.I.Spawn(
+            EffectType.KNIFEHIT,
+            pos,
+            Quaternion.identity);
+
+            SoundCtrl.I.PlaySFXByType(TypeSFX.SWORDHIT);
 
             OnDestroyed();
         }
 
         if (other.CompareTag("Ground"))
         {
+            EffectPool.I.Spawn(
+            EffectType.HITGROUND,
+            transform.position,
+            Quaternion.identity);
+
+            SoundCtrl.I.PlaySFXByType(TypeSFX.HITGROUND);
+
             OnDestroyed();
         }
 

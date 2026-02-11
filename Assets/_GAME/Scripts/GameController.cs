@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
@@ -13,11 +14,14 @@ public class GameController : MonoBehaviour
 
     public GameState CurState;
 
+    public static Action OnCoinChanged;
+
     public bool IsPlaying => CurState == GameState.PLAYING;
+
+    public static Action OnGameEnd;
 
     private void Awake()
     {
-        Application.targetFrameRate = 120;
         I = this;
         _uiCtrl.OnInit();
     }
@@ -26,8 +30,7 @@ public class GameController : MonoBehaviour
     {
         _levelCtrl.OnLevelCompletedEvent += GameWin;
         PlayerCtrl.OnPlayerDeadAction += GameLose;
-
-        HomeUI.OnClickPlayAction += GameStart;
+        LevelSelectUI.OnClickPlayAction += PlayFromSelectLevel;
 
         GameUI.OnClickPauseAction += GamePause; 
 
@@ -50,8 +53,7 @@ public class GameController : MonoBehaviour
     {
         _levelCtrl.OnLevelCompletedEvent -= GameWin;
         PlayerCtrl.OnPlayerDeadAction -= GameLose;
-
-        HomeUI.OnClickPlayAction -= GameStart;
+        LevelSelectUI.OnClickPlayAction -= PlayFromSelectLevel;
 
         GameUI.OnClickPauseAction -= GamePause;
 
@@ -70,8 +72,9 @@ public class GameController : MonoBehaviour
         Tutorial.OnTutorialEnd -= HandleEndTutorial;    
     }
 
-    private void Start()
+    public void OnInit()
     {
+        SoundCtrl.I.PlayMusic();
         if (GameDatas.IsFirstPlayGame)
         {
             GameDatas.IsFirstPlayGame = false;
@@ -115,6 +118,16 @@ public class GameController : MonoBehaviour
         _levelCtrl.OnStartGame(GameDatas.CurrentLevel);
         ChangeState(GameState.PLAYING);
     }
+
+    void PlayFromSelectLevel()
+    {
+        _uiCtrl.LoadingSplash(() =>
+        {
+            _uiCtrl.Hide(UIType.LEVEL_SELECT);
+            SetUpGame();
+        });
+    }
+
     public void GameStart()
     {
         _uiCtrl.LoadingSplash(() => SetUpGame());
@@ -141,6 +154,7 @@ public class GameController : MonoBehaviour
     {
         if (CurState != GameState.PLAYING)
             return;
+        OnGameEnd?.Invoke();
         ChangeState(GameState.NONE);
         _levelCtrl.OnGameWin();
         _uiCtrl.Hide(UIType.GAME);
@@ -154,6 +168,7 @@ public class GameController : MonoBehaviour
     {
         if (CurState != GameState.PLAYING)
             return;
+        OnGameEnd?.Invoke();
         ChangeState(GameState.NONE);
         _uiCtrl.Hide(UIType.GAME);
         DOVirtual.DelayedCall(1f, () =>
