@@ -12519,7 +12519,7 @@ MonoBehaviour:
     type: 3}
   _e2Prefab: {fileID: 8971383875049626661, guid: 6e165328ff9895145bf4d9188dc2895f,
     type: 3}
-  _e3Prefab: {fileID: 5231784712332891365, guid: a2528062145fd434ea45b88f4f229277,
+  _e3Prefab: {fileID: 5231784712332891365, guid: 839bc481dbe3e1a4c8ab3d8d29056278,
     type: 3}
   _boss1Prefab: {fileID: 8831618923498165852, guid: d7f29f256758f5c48bd0d20ee9ce42d7,
     type: 3}

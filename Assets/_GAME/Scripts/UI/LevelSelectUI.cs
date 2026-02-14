@@ -1,3 +1,4 @@
+using DG.Tweening;
 using H_Utils;
 using System;
 using System.Collections;
@@ -65,5 +66,19 @@ public class LevelSelectUI : BasePopup
     void UpdateTxtChapter(int chapter)
     {
         _txtChapter.text = $"CHAPTER - {chapter}";
+    }
+
+    public override void Hide()
+    {
+        _canvasGroup.DOKill();
+        if (_moveEffect)
+            _main.GetComponent<RectTransform>().DOAnchorPosY(500f, timeTween).From(Vector2.zero).SetEase(tweenType);
+
+        _canvasGroup.DOFade(0, timeTween).From(1).SetEase(tweenType).OnComplete(() =>
+        {
+            _canvasGroup.interactable = false;
+            _mask.raycastTarget = false;
+            _main.SetActive(false);
+        });
     }
 }

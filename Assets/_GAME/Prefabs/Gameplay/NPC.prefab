@@ -99,6 +99,7 @@ MonoBehaviour:
   idDoor: 0
   data: {fileID: 0}
   _hint: {fileID: 5228268343384506171}
+  _model: {fileID: 3808844747390000631}
 --- !u!1001 &6611668978057199050
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -342,6 +343,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e02cf3b81e41f44fbf7614e21c39325, type: 3}
+--- !u!1 &3808844747390000631 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5249764361438707363, guid: 6e02cf3b81e41f44fbf7614e21c39325,
+    type: 3}
+  m_PrefabInstance: {fileID: 8935516324973781844}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4580280335051999053 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4868734742305924121, guid: 6e02cf3b81e41f44fbf7614e21c39325,

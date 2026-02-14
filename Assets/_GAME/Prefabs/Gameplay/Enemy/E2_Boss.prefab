@@ -441,7 +441,7 @@ MonoBehaviour:
   enemyType: 4
   _rotater: {fileID: 1240111465420148871}
   _anim: {fileID: 8467259613659058605}
-  _animEvent: {fileID: 0}
+  _animEvent: {fileID: 5936761116136970342}
   detectRange: 4
   attackDelay: 6
   layerTarget:

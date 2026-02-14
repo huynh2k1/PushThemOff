@@ -12,10 +12,10 @@ public class BasePopup : BaseUI
     [SerializeField] protected CanvasGroup _canvasGroup;
     [SerializeField] protected Image _mask;
     [SerializeField] protected GameObject _main;
-    [SerializeField] private Button _btnClose;
+    [SerializeField] protected Button _btnClose;
 
     [Header("Tween Setup")]
-    [SerializeField] bool _moveEffect;
+    [SerializeField] protected bool _moveEffect;
     [SerializeField] protected Ease tweenType = Ease.Linear; 
     [SerializeField] protected float timeTween = 0.3f;
 
@@ -96,12 +96,12 @@ public class BasePopup : BaseUI
     public void Hide(Action actionDone = default)
     {
         _canvasGroup.DOKill();
-        //_canvasGroup.interactable = false;
         if(_moveEffect)
             _main.GetComponent<RectTransform>().DOAnchorPosY(500f, timeTween).From(Vector2.zero).SetEase(tweenType);
 
         _canvasGroup.DOFade(0, timeTween).From(1).SetEase(tweenType).OnComplete(() =>
         {
+            _canvasGroup.interactable = false;
             _mask.raycastTarget = false;
             _main.SetActive(false);
             actionDone?.Invoke();

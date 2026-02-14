@@ -103,7 +103,6 @@ public class LevelCtrl : MonoBehaviour
         _currentLevelData = null;
         _currentAreaIndex = 0;
 
-        Debug.Log("Cleaned Level → Back Home");
     }
 
     public void LoadLevelDataOnLy()
@@ -117,7 +116,6 @@ public class LevelCtrl : MonoBehaviour
 
         if (_currentLevelData == null)
         {
-            Debug.LogError("Level not found " + OrderId);
             return;
         }
 
@@ -166,7 +164,6 @@ public class LevelCtrl : MonoBehaviour
             BaseEnemy enemy =
                 Instantiate(prefab, areaContainer.transform);
 
-            Debug.Log("Spawn Enemy: " + enemyData.Transform.Position);
             enemyData.Transform.ApplyTo(enemy.transform);
             enemy.OnInit();
         }
@@ -214,7 +211,6 @@ public class LevelCtrl : MonoBehaviour
         if (!Directory.Exists(directory))
         {
             Directory.CreateDirectory(directory);
-            Debug.Log("Created directory: " + directory);
         }
 
         return Path.Combine(directory, fileName);
